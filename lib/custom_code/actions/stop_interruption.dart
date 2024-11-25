@@ -12,20 +12,21 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom actions
+import 'package:audio_session/audio_session.dart';
 
-import 'package:dialogi/auth/firebase_auth/auth_util.dart';
+Future<void> stopInterruption() async {
+  try {
+    FFAppState().update(() {
+      FFAppState().interruption = false;
+    });
 
-Future deleteUser(BuildContext context) async {
-  // Add your function code here!
-
-  await authManager.deleteUser(context);
-
-  context.goNamedAuth('homepage', context.mounted);
-  logFirebaseEvent('SETTINGS_PAGE_Text_vt1rt3eu_ON_TAP');
-  logFirebaseEvent('Text_auth');
-  GoRouter.of(context).prepareAuthEvent();
-  await authManager.signOut();
-  GoRouter.of(context).clearRedirectLocation();
-
-  context.goNamedAuth('login', context.mounted);
+    FFAppState().update(() {
+      FFAppState().log = 'interruption False';
+    });
+  } catch (e) {
+    // Handle any errors
+    FFAppState().update(() {
+      FFAppState().log = 'Error deactivating audio session: $e';
+    });
+  }
 }

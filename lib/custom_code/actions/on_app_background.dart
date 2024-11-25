@@ -11,8 +11,10 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:dialogi_app/auth/firebase_auth/auth_util.dart';
-import 'package:dialogi_app/backend/push_notifications/push_notifications_util.dart';
+import 'index.dart'; // Imports other custom actions
+
+import 'package:dialogi/auth/firebase_auth/auth_util.dart';
+import 'package:dialogi/backend/push_notifications/push_notifications_util.dart';
 
 Future onAppBackground() async {
 // Add your function code here!
@@ -22,6 +24,9 @@ Future onAppBackground() async {
 class AppLifecycleObserver with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    FFAppState().update(() {
+      FFAppState().log = state.toString();
+    });
     if (state == AppLifecycleState.resumed) {
 // Do something when app is resumed
       print('App is in foreground');
@@ -32,6 +37,7 @@ class AppLifecycleObserver with WidgetsBindingObserver {
       FFAppState().update(() {
         FFAppState().startPopup = true;
       });
+
       triggerPushNotification(
         notificationTitle: 'השיעור שלך ממשיך להתקדם!',
         notificationText:

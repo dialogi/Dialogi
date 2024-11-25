@@ -90,6 +90,12 @@ class FFAppState extends ChangeNotifier {
     _startPopup = value;
   }
 
+  bool _interruption = false;
+  bool get interruption => _interruption;
+  set interruption(bool value) {
+    _interruption = value;
+  }
+
   final _getTeachersManager = FutureRequestManager<List<TeachersRecord>>();
   Future<List<TeachersRecord>> getTeachers({
     String? uniqueQueryKey,

@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom actions
+
 import 'package:audio_session/audio_session.dart';
 
 int _interruptionCallCount = 0; // External counter
@@ -28,7 +30,10 @@ Future<void> interruption() async {
   // Activate the audio session before playing audio.
   if (await session.setActive(true)) {
     FFAppState().update(() {
-      FFAppState().log = 'Call #$_interruptionCallCount: Session activated';
+      FFAppState().log = 'interruptionSession activated';
+    });
+    FFAppState().update(() {
+      FFAppState().interruption = true;
     });
   } else {
     // Log if the session activation was denied
@@ -41,17 +46,18 @@ Future<void> interruption() async {
   // Listen for interruptions in the audio session
   session.interruptionEventStream.listen((event) {
     if (event.begin) {
-      FFAppState().update(() {
-        FFAppState().onLesson = false;
-      });
-      FFAppState().update(() {
-        FFAppState().startPopup = true;
-      });
-      // Log interruption type when it begins
-      FFAppState().update(() {
-        FFAppState().log =
-            'Call #$_interruptionCallCount: Interruption started - ${event.type}';
-      });
+      if (FFAppState().interruption) {
+        FFAppState().update(() {
+          FFAppState().onLesson = false;
+        });
+        FFAppState().update(() {
+          FFAppState().startPopup = true;
+        });
+        // Log interruption type when it begins
+        FFAppState().update(() {
+          FFAppState().log = 'yay ${event.begin} ${event.type}';
+        });
+      }
     }
     switch (event.type) {
       case AudioInterruptionType.duck:

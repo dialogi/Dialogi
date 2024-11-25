@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = dialogiAppFirebaseUserStream()
+    userStream = dialogiFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -103,7 +103,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Dialogi app',
+      title: 'Dialogi',
       localizationsDelegates: const [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

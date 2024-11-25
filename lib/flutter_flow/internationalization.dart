@@ -441,6 +441,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': ' gugyg yt ffbfvyu v g tft',
       'en': '',
     },
+    'qgpnlauu': {
+      'he': 'This app requires write in public folders.',
+      'en': '',
+    },
+    'rvs6ivt9': {
+      'he': 'This app requires write in public folders',
+      'en': '',
+    },
     '7vnbs00x': {
       'he': '',
       'en': '',

@@ -4,6 +4,7 @@ export 'new_record.dart' show newRecord;
 export 'rename_audio.dart' show renameAudio;
 export 'fetch_and_play_speech.dart' show fetchAndPlaySpeech;
 export 'build_summary.dart' show buildSummary;
+export 'stop_interruption.dart' show stopInterruption;
 export 'create_random_uuid.dart' show createRandomUuid;
 export 'interruption.dart' show interruption;
 export 'delete_user.dart' show deleteUser;

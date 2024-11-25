@@ -11,8 +11,12 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom actions
+
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'dart:async'; // Import for Completer
+
+import '/custom_code/actions/index.dart' as actions;
 
 Future<String> newRecord() async {
   double voiceDecibel = 0.0; // Voice decibel level
@@ -26,8 +30,14 @@ Future<String> newRecord() async {
   bool isAvailable = await speech.initialize();
 
   void soundLevelListener(double level) {
+    FFAppState().update(() {
+      FFAppState().interruption = true;
+    });
     voiceDecibel = level;
 
+    FFAppState().update(() {
+      FFAppState().log = '${voiceDecibel}';
+    });
     if (voiceDecibel < -20) {
       silenceDuration++;
     } else {

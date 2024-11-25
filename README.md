@@ -1,4 +1,4 @@
-# Dialogi app
+# Dialogi
 
 A new Flutter project.
 

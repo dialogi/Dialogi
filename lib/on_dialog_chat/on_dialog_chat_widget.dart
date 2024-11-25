@@ -89,6 +89,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
       logFirebaseEvent('on_dialog_chat_update_app_state');
       FFAppState().onHold = false;
       safeSetState(() {});
+      logFirebaseEvent('on_dialog_chat_custom_action');
+      await actions.stopInterruption();
       if (!valueOrDefault<bool>(currentUserDocument?.walkthrow, false)) {
         logFirebaseEvent('on_dialog_chat_start_walkthrough');
         safeSetState(
@@ -104,8 +106,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
         _model.captionView = true;
         safeSetState(() {});
       } else {
-        logFirebaseEvent('on_dialog_chat_custom_action');
-        await actions.interruption();
         if (FFAppState().onLesson) {
           logFirebaseEvent('on_dialog_chat_update_app_state');
           FFAppState().dialogState = DialogState.user_talking;
@@ -424,6 +424,15 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     _model.dialogController,
                                   ),
                                 ),
+                              ),
+                              Text(
+                                FFAppState().interruption.toString(),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Rubik',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ],
                           ),
@@ -1844,6 +1853,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                               logFirebaseEvent('popup_update_app_state');
                               FFAppState().startPopup = false;
                               safeSetState(() {});
+                              logFirebaseEvent('popup_custom_action');
+                              await actions.stopInterruption();
                               if (FFAppState().onLesson) {
                                 logFirebaseEvent('popup_timer');
                                 _model.timerController1.onStartTimer();
@@ -1853,8 +1864,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                 logFirebaseEvent('popup_update_app_state');
                                 FFAppState().onLesson = true;
                                 safeSetState(() {});
-                                logFirebaseEvent('popup_custom_action');
-                                await actions.interruption();
                                 if (_model.chatHistory.last.role == 'teacher') {
                                   logFirebaseEvent('popup_update_app_state');
                                   FFAppState().userInput = '';
@@ -1885,6 +1894,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     FFAppState().dialogState =
                                         DialogState.user_talking;
                                     safeSetState(() {});
+                                    logFirebaseEvent('popup_update_app_state');
+                                    FFAppState().interruption = false;
+                                    safeSetState(() {});
                                     logFirebaseEvent('popup_widget_animation');
                                     if (animationsMap[
                                             'carouselOnActionTriggerAnimation'] !=
@@ -1913,6 +1925,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           .controller
                                           .reverse();
                                     }
+                                    logFirebaseEvent('popup_custom_action');
+                                    await actions.stopInterruption();
                                     logFirebaseEvent(
                                         'popup_stop_audio_recording');
                                     await stopAudioRecording(
@@ -2073,6 +2087,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         _model.currLesson!.teacher.voice,
                                         FFAppState().userSub.ttsHD,
                                       );
+                                      logFirebaseEvent('popup_custom_action');
+                                      await actions.stopInterruption();
                                     }
                                     // Reset completed status
                                     logFirebaseEvent(

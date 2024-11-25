@@ -11,7 +11,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:dialogi_app/on_dialog_chat/on_dialog_chat_model.dart';
+import 'index.dart'; // Imports other custom actions
+
+import 'package:dialogi/on_dialog_chat/on_dialog_chat_model.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -19,6 +21,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:async';
+import '/custom_code/actions/index.dart' as actions;
 
 Future<void> fetchAndPlaySpeech(
     String promptText, String apiKey, String voice, bool hd) async {
@@ -95,7 +98,10 @@ Future<void> fetchAndPlaySpeech(
       FFAppState().log = 'waiting3';
     });
     // Listen for playback completion before returning
-    await player.onPlayerComplete.first;
+    if (FFAppState().onLesson == true) {
+      await actions.interruption();
+      await player.onPlayerComplete.first;
+    }
 
     FFAppState().update(() {
       FFAppState().log = 'waiting4';
