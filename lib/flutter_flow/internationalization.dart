@@ -449,6 +449,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': 'This app requires write in public folders',
       'en': '',
     },
+    'qtsajrtf': {
+      'he': 'This app requires bluetooth usage.',
+      'en': '',
+    },
+    '9jgp2x9e': {
+      'he': '',
+      'en': '',
+    },
+    '3zq3pusd': {
+      'he': '',
+      'en': '',
+    },
     '7vnbs00x': {
       'he': '',
       'en': '',

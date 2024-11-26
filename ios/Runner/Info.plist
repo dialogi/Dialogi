@@ -66,6 +66,8 @@
     <string>This app requires microphone usage.</string>
 	<key>NSAllowsArbitraryLoads</key>
     <string> gugyg yt ffbfvyu v g tft</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+    <string>This app requires bluetooth usage.</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>

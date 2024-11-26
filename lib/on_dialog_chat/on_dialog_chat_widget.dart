@@ -426,7 +426,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                 ),
                               ),
                               Text(
-                                FFAppState().interruption.toString(),
+                                FFAppState().log,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
