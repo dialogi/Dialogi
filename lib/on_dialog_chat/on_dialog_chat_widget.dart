@@ -425,15 +425,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                   ),
                                 ),
                               ),
-                              Text(
-                                FFAppState().log,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Rubik',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
                             ],
                           ),
                         ),
@@ -1914,8 +1905,15 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           AudioRecorder(),
                                     );
 
-                                    logFirebaseEvent('popup_custom_action');
-                                    _model.nw = await actions.newRecord();
+                                    if (isAndroid) {
+                                      logFirebaseEvent('popup_wait__delay');
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 10000));
+                                    } else {
+                                      logFirebaseEvent('popup_custom_action');
+                                      _model.nw = await actions.newRecord();
+                                    }
+
                                     logFirebaseEvent('popup_widget_animation');
                                     if (animationsMap[
                                             'carouselOnActionTriggerAnimation'] !=
