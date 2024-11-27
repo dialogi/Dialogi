@@ -461,6 +461,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': '',
       'en': '',
     },
+    'nktgbrbj': {
+      'he': 'This app requires microphone usage.',
+      'en': '',
+    },
     '7vnbs00x': {
       'he': '',
       'en': '',

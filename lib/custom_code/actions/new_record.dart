@@ -36,7 +36,7 @@ Future<String> newRecord() async {
     voiceDecibel = level;
 
     FFAppState().update(() {
-      FFAppState().log = '${voiceDecibel} ${silenceDuration}';
+      FFAppState().log = '${voiceDecibel} ${silenceDuration} ${isAvailable}';
     });
     if (voiceDecibel < -20) {
       silenceDuration++;
