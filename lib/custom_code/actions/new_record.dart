@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom actions
 
+import 'index.dart'; // Imports other custom actions
+
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'dart:async'; // Import for Completer
 
@@ -27,7 +29,7 @@ Future<String> newRecord() async {
   Completer<String> completer = Completer(); // Create a Completer
   String recognizedText = '';
 
-  bool isAvailable = await speech.initialize();
+  bool isAvailable = await speech.initialize(debugLogging: true);
 
   void soundLevelListener(double level) {
     FFAppState().update(() {
