@@ -269,6 +269,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': 'מחיקת משתמש',
       'en': '',
     },
+    'f26zmkub': {
+      'he': 'מדיניות פרטיות',
+      'en': '',
+    },
+    '69z37oon': {
+      'he': 'תנאי שימוש',
+      'en': '',
+    },
     'cpn81lj7': {
       'he': 'Home',
       'en': '',

@@ -11,21 +11,23 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'index.dart'; // Imports other custom actions
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'package:audioplayers/audioplayers.dart';
+import 'dart:async';
 
-import '/auth/firebase_auth/auth_util.dart';
-
-Future deleteUser(BuildContext context) async {
+Future playAudio(String filePath) async {
   // Add your function code here!
 
-  await authManager.deleteUser(context);
+  // Play the generated speech using audioplayers
+  final player = AudioPlayer();
 
-  context.goNamedAuth('homepage', context.mounted);
-  logFirebaseEvent('SETTINGS_PAGE_Text_vt1rt3eu_ON_TAP');
-  logFirebaseEvent('Text_auth');
-  GoRouter.of(context).prepareAuthEvent();
-  await authManager.signOut();
-  GoRouter.of(context).clearRedirectLocation();
+  // Await completion of the audio playback
+  await player.play(DeviceFileSource(filePath));
 
-  context.goNamedAuth('login', context.mounted);
+  FFAppState().update(() {
+    FFAppState().log = 'waiting3';
+  });
+  // Listen for playback completion before returning
+  await player.onPlayerComplete.first;
 }

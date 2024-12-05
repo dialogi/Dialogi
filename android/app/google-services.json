@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "5644528133-auckpvmng0ul48kce2m3id9qug977qk5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dialogi.app",
+            "certificate_hash": "4a50addf458dec693d6a26bad8c6af22b69c8762"
+          }
+        },
+        {
           "client_id": "5644528133-bpuj9a1d4lu8ivqj9mag1k14ltlfuvs0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

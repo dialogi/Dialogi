@@ -881,7 +881,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                           currentUserDocument
                                                                               ?.walkthrow,
                                                                           false)
-                                                                      ? 3
+                                                                      ? 7
                                                                       : FFAppState()
                                                                           .userSub
                                                                           .lessonLimit) *
@@ -1166,8 +1166,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                         safeSetState(() {});
                                                         logFirebaseEvent(
                                                             'dialogManager_custom_action');
-                                                        await actions
-                                                            .fetchAndPlaySpeech(
+                                                        _model.repeatPath =
+                                                            await actions
+                                                                .fetchAndPlaySpeech(
                                                           _model.chatHistory
                                                               .where((e) =>
                                                                   e.role ==
@@ -1182,6 +1183,11 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                           FFAppState()
                                                               .userSub
                                                               .ttsHD,
+                                                        );
+                                                        logFirebaseEvent(
+                                                            'dialogManager_custom_action');
+                                                        await actions.playAudio(
+                                                          _model.repeatPath!,
                                                         );
                                                         logFirebaseEvent(
                                                             'dialogManager_wait__delay');
@@ -1200,6 +1206,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                             'dialogManager_update_app_state');
                                                         FFAppState().onHold =
                                                             false;
+                                                        safeSetState(() {});
+
                                                         safeSetState(() {});
                                                       },
                                                       stopAction: () async {
@@ -1908,7 +1916,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     if (isAndroid) {
                                       logFirebaseEvent('popup_wait__delay');
                                       await Future.delayed(
-                                          const Duration(milliseconds: 10000));
+                                          const Duration(milliseconds: 12000));
                                     } else {
                                       logFirebaseEvent('popup_custom_action');
                                       _model.nw = await actions.newRecord();
@@ -2075,7 +2083,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     safeSetState(() {});
                                     if (FFAppState().onLesson == true) {
                                       logFirebaseEvent('popup_custom_action');
-                                      await actions.fetchAndPlaySpeech(
+                                      _model.audioPath =
+                                          await actions.fetchAndPlaySpeech(
                                         OpenAIAPIGroup.listMessagesCall.data(
                                           (_model.apiGetMessagesResult
                                                   ?.jsonBody ??
@@ -2084,6 +2093,20 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         FFAppConstants.apiKeyOpenAi,
                                         _model.currLesson!.teacher.voice,
                                         FFAppState().userSub.ttsHD,
+                                      );
+                                      while (FFAppState().onHold) {
+                                        logFirebaseEvent('popup_wait__delay');
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 500));
+                                      }
+                                      logFirebaseEvent(
+                                          'popup_update_app_state');
+                                      FFAppState().dialogState =
+                                          DialogState.AI_talking;
+                                      safeSetState(() {});
+                                      logFirebaseEvent('popup_custom_action');
+                                      await actions.playAudio(
+                                        _model.audioPath!,
                                       );
                                       logFirebaseEvent('popup_custom_action');
                                       await actions.stopInterruption();

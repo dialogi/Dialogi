@@ -13,8 +13,10 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom actions
 
-import 'package:dialogi/auth/firebase_auth/auth_util.dart';
-import 'package:dialogi/backend/push_notifications/push_notifications_util.dart';
+import 'index.dart'; // Imports other custom actions
+import '/auth/firebase_auth/auth_util.dart';
+
+import '/backend/push_notifications/push_notifications_util.dart';
 
 Future onAppBackground() async {
 // Add your function code here!

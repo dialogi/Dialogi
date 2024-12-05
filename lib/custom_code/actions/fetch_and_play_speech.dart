@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom actions
 
-import 'package:dialogi/on_dialog_chat/on_dialog_chat_model.dart';
+import 'index.dart'; // Imports other custom actions
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -21,9 +21,8 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:async';
-import '/custom_code/actions/index.dart' as actions;
 
-Future<void> fetchAndPlaySpeech(
+Future<String> fetchAndPlaySpeech(
     String promptText, String apiKey, String voice, bool hd) async {
   // Trim the input to remove any leading or trailing whitespace
   String trimmedPrompt = promptText.trim();
@@ -67,9 +66,6 @@ Future<void> fetchAndPlaySpeech(
     FFAppState().update(() {
       FFAppState().log = 'yes';
     });
-    FFAppState().update(() {
-      FFAppState().dialogState = DialogState.AI_talking;
-    });
     // Save the MP3 file locally
     final directory = await getApplicationDocumentsDirectory();
     final filePath = '${directory.path}/speech.mp3';
@@ -79,33 +75,10 @@ Future<void> fetchAndPlaySpeech(
     FFAppState().update(() {
       FFAppState().log = 'play';
     });
-    // Play the generated speech using audioplayers
-    final player = AudioPlayer();
-
     FFAppState().update(() {
       FFAppState().log = 'waiting2';
     });
-    // Await completion of the audio playback
-    await player.play(DeviceFileSource(filePath));
-
-    while (FFAppState().onHold == true) {
-      FFAppState().update(() {
-        FFAppState().log = 'onHold';
-      });
-      await Future.delayed(Duration(milliseconds: 500));
-    }
-    FFAppState().update(() {
-      FFAppState().log = 'waiting3';
-    });
-    // Listen for playback completion before returning
-    if (FFAppState().onLesson == true) {
-      await actions.interruption();
-      await player.onPlayerComplete.first;
-    }
-
-    FFAppState().update(() {
-      FFAppState().log = 'waiting4';
-    });
+    return filePath;
   } else {
     throw Exception(
         'Failed to generate speech. Status: ${response.statusCode}');

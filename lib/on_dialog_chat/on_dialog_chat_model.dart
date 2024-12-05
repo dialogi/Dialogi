@@ -82,6 +82,8 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
 
   // Model for dialogManager component.
   late DialogManagerModel dialogManagerModel;
+  // Stores action output result for [Custom Action - fetchAndPlaySpeech] action in dialogManager widget.
+  String? repeatPath;
   // Model for popup component.
   late PopupModel popupModel;
   AudioRecorder? audioRecorder;
@@ -102,6 +104,8 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
   ApiCallResponse? apiRetrieveRunResult;
   // Stores action output result for [Backend Call - API (listMessages)] action in popup widget.
   ApiCallResponse? apiGetMessagesResult;
+  // Stores action output result for [Custom Action - fetchAndPlaySpeech] action in popup widget.
+  String? audioPath;
 
   @override
   void initState(BuildContext context) {

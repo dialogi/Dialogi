@@ -9,3 +9,4 @@ export 'create_random_uuid.dart' show createRandomUuid;
 export 'interruption.dart' show interruption;
 export 'delete_user.dart' show deleteUser;
 export 'on_app_background.dart' show onAppBackground;
+export 'play_audio.dart' show playAudio;

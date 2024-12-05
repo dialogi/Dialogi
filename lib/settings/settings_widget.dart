@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart';
@@ -1219,13 +1218,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                     'האם אתה בטוח שברצונך למחוק את החשבון שלך? פעולה זו תמחק את כל הנתונים שלך לצמיתות, ולא תהיה אפשרות לשחזרם. אנא ודא שאתה בטוח בהחלטתך לפני לחיצה על כפתור המחיקה.',
                                                 footer: '',
                                                 button: 'מחק חשבון',
-                                                onClick: () async {
-                                                  logFirebaseEvent(
-                                                      '_custom_action');
-                                                  await actions.deleteUser(
-                                                    context,
-                                                  );
-                                                },
+                                                onClick: () async {},
                                               ),
                                             ),
                                           );
@@ -1263,6 +1256,109 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     ),
                                     showLoadingIndicator: false,
                                   ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 22.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_PAGE___BTN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_launch_u_r_l');
+                                          await launchURL(
+                                              'https://dialogiapp.com/%D7%AA%D7%A0%D7%90%D7%99-%D7%A9%D7%99%D7%9E%D7%95%D7%A9/');
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'f26zmkub' /* מדיניות פרטיות */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          height: 48.0,
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 24.0, 0.0),
+                                          iconPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: Colors.white,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Rubik',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize:
+                                                    functions.setFontSize(16.0),
+                                                letterSpacing: 0.0,
+                                              ),
+                                          elevation: 0.0,
+                                          borderSide: const BorderSide(
+                                            color: Color(0x00FFFFFF),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(56.0),
+                                        ),
+                                        showLoadingIndicator: false,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_PAGE___BTN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_launch_u_r_l');
+                                          await launchURL(
+                                              'https://dialogiapp.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/');
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '69z37oon' /* תנאי שימוש */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          height: 48.0,
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 24.0, 0.0),
+                                          iconPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: Colors.white,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Rubik',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize:
+                                                    functions.setFontSize(16.0),
+                                                letterSpacing: 0.0,
+                                              ),
+                                          elevation: 0.0,
+                                          borderSide: const BorderSide(
+                                            color: Color(0x00FFFFFF),
+                                            width: 0.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(56.0),
+                                        ),
+                                        showLoadingIndicator: false,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
