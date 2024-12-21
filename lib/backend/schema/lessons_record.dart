@@ -70,7 +70,9 @@ class LessonsRecord extends FirestoreRecord {
     _startAt = snapshotData['start_at'] as DateTime?;
     _tokens = castToType<int>(snapshotData['tokens']);
     _user = snapshotData['user'] as String?;
-    _teacher = TeachersObjStruct.maybeFromMap(snapshotData['teacher']);
+    _teacher = snapshotData['teacher'] is TeachersObjStruct
+        ? snapshotData['teacher']
+        : TeachersObjStruct.maybeFromMap(snapshotData['teacher']);
     _subject = snapshotData['subject'] as String?;
     _endAt = snapshotData['end_at'] as DateTime?;
     _lessonId = snapshotData['lessonId'] as String?;

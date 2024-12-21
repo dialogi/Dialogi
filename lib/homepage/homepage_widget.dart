@@ -79,7 +79,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -787,7 +790,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               valueOrDefault<
                                                                   String>(
                                                             containerUserAnswersRecord
-                                                                ?.answer[0],
+                                                                ?.answer
+                                                                .elementAtOrNull(
+                                                                    0),
                                                             'כללי',
                                                           ),
                                                         ),
@@ -839,7 +844,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       subject: valueOrDefault<
                                                           String>(
                                                         containerUserAnswersRecord
-                                                            ?.answer[0],
+                                                            ?.answer
+                                                            .elementAtOrNull(
+                                                                0),
                                                         'כללי',
                                                       ),
                                                     );
@@ -887,7 +894,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                           valueOrDefault<
                                                               String>(
                                                             containerUserAnswersRecord
-                                                                ?.answer[0],
+                                                                ?.answer
+                                                                .elementAtOrNull(
+                                                                    0),
                                                             'כללי',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1007,7 +1016,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                             valueOrDefault<
                                                                 String>(
                                                           containerUserAnswersRecord
-                                                              ?.answer[1],
+                                                              ?.answer
+                                                              .elementAtOrNull(
+                                                                  1),
                                                           'כללי',
                                                         ),
                                                       ),
@@ -1056,7 +1067,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     subject:
                                                         valueOrDefault<String>(
                                                       containerUserAnswersRecord
-                                                          ?.answer[1],
+                                                          ?.answer
+                                                          .elementAtOrNull(1),
                                                       'כללי',
                                                     ),
                                                   );
@@ -1123,7 +1135,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                           valueOrDefault<
                                                               String>(
                                                             containerUserAnswersRecord
-                                                                ?.answer[1],
+                                                                ?.answer
+                                                                .elementAtOrNull(
+                                                                    1),
                                                             'כללי',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1461,7 +1475,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                             valueOrDefault<
                                                                 String>(
                                                           containerUserAnswersRecord
-                                                              ?.answer[2],
+                                                              ?.answer
+                                                              .elementAtOrNull(
+                                                                  2),
                                                           'כללי',
                                                         ),
                                                       ),
@@ -1531,7 +1547,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       subject: valueOrDefault<
                                                           String>(
                                                         containerUserAnswersRecord
-                                                            ?.answer[2],
+                                                            ?.answer
+                                                            .elementAtOrNull(
+                                                                2),
                                                         'כללי',
                                                       ),
                                                     );
@@ -1579,7 +1597,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                           valueOrDefault<
                                                               String>(
                                                             containerUserAnswersRecord
-                                                                ?.answer[2],
+                                                                ?.answer
+                                                                .elementAtOrNull(
+                                                                    2),
                                                             'כללי',
                                                           ),
                                                           style: FlutterFlowTheme

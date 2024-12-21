@@ -86,6 +86,8 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
   String? repeatPath;
   // Model for popup component.
   late PopupModel popupModel;
+  // Stores action output result for [Firestore Query - Query a collection] action in popup widget.
+  UserAnswersRecord? hobbys;
   AudioRecorder? audioRecorder;
   // Stores action output result for [Custom Action - newRecord] action in popup widget.
   String? nw;

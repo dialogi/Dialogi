@@ -67,7 +67,10 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
               alignment: const AlignmentDirectional(0.0, 0.0)
                   .resolve(Directionality.of(context)),
               child: GestureDetector(
-                onTap: () => FocusScope.of(dialogContext).unfocus(),
+                onTap: () {
+                  FocusScope.of(dialogContext).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
                 child: PopupWidget(
                   title: 'הישג מרשים!',
                   subTitle: 'כל הכבוד! סיימת את מכסת השיעורים שלך לשבוע זה! 🎉',
@@ -89,7 +92,10 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
               alignment: const AlignmentDirectional(0.0, 0.0)
                   .resolve(Directionality.of(context)),
               child: GestureDetector(
-                onTap: () => FocusScope.of(dialogContext).unfocus(),
+                onTap: () {
+                  FocusScope.of(dialogContext).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
                 child: PopupWidget(
                   title: 'שדרגו את החבילה כדי לקבל גישה לתרגול הגייה',
                   subTitle:

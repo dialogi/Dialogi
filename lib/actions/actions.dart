@@ -24,13 +24,13 @@ Future userSubscriptionLoad(BuildContext context) async {
                 .currSubID(
                   (apiResultUser.jsonBody ?? ''),
                 )
-                ?.first ==
+                ?.firstOrNull ==
             null ||
         RevenueCatGroup.getCostumerCall
                 .currSubID(
                   (apiResultUser.jsonBody ?? ''),
                 )
-                ?.first ==
+                ?.firstOrNull ==
             '')) {
       logFirebaseEvent('userSubscriptionLoad_firestore_query');
       userSub = await querySubscriptionsRecordOnce(
@@ -40,7 +40,7 @@ Future userSubscriptionLoad(BuildContext context) async {
               .currSubID(
                 (apiResultUser?.jsonBody ?? ''),
               )
-              ?.last,
+              ?.lastOrNull,
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);

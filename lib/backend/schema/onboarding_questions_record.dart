@@ -60,7 +60,9 @@ class OnboardingQuestionsRecord extends FirestoreRecord {
     _description = snapshotData['description'] as String?;
     _required = snapshotData['required'] as bool?;
     _state = castToType<int>(snapshotData['state']);
-    _answers = AnswersStruct.maybeFromMap(snapshotData['answers']);
+    _answers = snapshotData['answers'] is AnswersStruct
+        ? snapshotData['answers']
+        : AnswersStruct.maybeFromMap(snapshotData['answers']);
     _limit = castToType<int>(snapshotData['limit']);
     _lastQuestion = snapshotData['last_question'] as bool?;
     _key = snapshotData['key'] as String?;

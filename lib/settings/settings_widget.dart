@@ -8,7 +8,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +67,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -352,9 +357,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               context: context,
                                               builder: (context) {
                                                 return GestureDetector(
-                                                  onTap: () =>
-                                                      FocusScope.of(context)
-                                                          .unfocus(),
+                                                  onTap: () {
+                                                    FocusScope.of(context)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
                                                   child: Padding(
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
@@ -421,8 +430,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         context: context,
                                         builder: (context) {
                                           return GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -527,9 +539,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               context: context,
                                               builder: (context) {
                                                 return GestureDetector(
-                                                  onTap: () =>
-                                                      FocusScope.of(context)
-                                                          .unfocus(),
+                                                  onTap: () {
+                                                    FocusScope.of(context)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
                                                   child: Padding(
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
@@ -682,7 +698,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                                     String>(
                                                                   textUserAnswersRecord
                                                                       ?.answer
-                                                                      .first,
+                                                                      .firstOrNull,
                                                                   'goal',
                                                                 ),
                                                                 textAlign:
@@ -1209,16 +1225,26 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 .resolve(
                                                     Directionality.of(context)),
                                             child: GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(dialogContext)
-                                                      .unfocus(),
+                                              onTap: () {
+                                                FocusScope.of(dialogContext)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
                                               child: PopupWidget(
                                                 title: 'מחיקת משתמש',
                                                 subTitle:
                                                     'האם אתה בטוח שברצונך למחוק את החשבון שלך? פעולה זו תמחק את כל הנתונים שלך לצמיתות, ולא תהיה אפשרות לשחזרם. אנא ודא שאתה בטוח בהחלטתך לפני לחיצה על כפתור המחיקה.',
                                                 footer: '',
                                                 button: 'מחק חשבון',
-                                                onClick: () async {},
+                                                onClick: () async {
+                                                  logFirebaseEvent(
+                                                      '_custom_action');
+                                                  await actions.deleteUser(
+                                                    context,
+                                                  );
+                                                },
                                               ),
                                             ),
                                           );
@@ -1274,7 +1300,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           logFirebaseEvent(
                                               'Button_launch_u_r_l');
                                           await launchURL(
-                                              'https://dialogiapp.com/%D7%AA%D7%A0%D7%90%D7%99-%D7%A9%D7%99%D7%9E%D7%95%D7%A9/');
+                                              'https://dialogiapp.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/');
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
@@ -1320,7 +1346,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           logFirebaseEvent(
                                               'Button_launch_u_r_l');
                                           await launchURL(
-                                              'https://dialogiapp.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/');
+                                              'https://dialogiapp.com/%D7%AA%D7%A0%D7%90%D7%99-%D7%A9%D7%99%D7%9E%D7%95%D7%A9/');
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(

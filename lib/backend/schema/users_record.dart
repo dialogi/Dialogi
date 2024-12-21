@@ -91,7 +91,9 @@ class UsersRecord extends FirestoreRecord {
     _onboarded = snapshotData['onboarded'] as bool?;
     _notification = snapshotData['notification'] as bool?;
     _walkthrow = snapshotData['walkthrow'] as bool?;
-    _gender = deserializeEnum<Gender>(snapshotData['gender']);
+    _gender = snapshotData['gender'] is Gender
+        ? snapshotData['gender']
+        : deserializeEnum<Gender>(snapshotData['gender']);
     _notificationsTime = snapshotData['notificationsTime'] as DateTime?;
     _lessonsAlert = snapshotData['lessonsAlert'] as bool?;
     _seenAt = snapshotData['seenAt'] as DateTime?;

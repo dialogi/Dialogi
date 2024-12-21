@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:math' as math;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -117,7 +118,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                   ?.where((e) =>
                       questionOnboardingQuestionsRecord?.key == e.question)
                   .toList()
-                  .first;
+                  .firstOrNull;
               safeSetState(() {});
               logFirebaseEvent('question_update_page_state');
               _model.answer = [];
@@ -165,7 +166,10 @@ class _QuestionWidgetState extends State<QuestionWidget>
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: Colors.white,
@@ -822,11 +826,14 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                           await currentUserReference!
                                               .update(createUsersRecordData(
                                             gender: () {
-                                              if (!(_model.gender1!.first.answer
-                                                  .isNotEmpty)) {
+                                              if (!(_model.gender1!.firstOrNull!
+                                                  .answer.isNotEmpty)) {
                                                 return Gender.male;
-                                              } else if (_model.gender1?.first
-                                                      .answer.first ==
+                                              } else if (_model
+                                                      .gender1
+                                                      ?.firstOrNull
+                                                      ?.answer
+                                                      .firstOrNull ==
                                                   'נקבה') {
                                                 return Gender.female;
                                               } else {

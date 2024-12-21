@@ -209,7 +209,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -515,7 +518,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                 ),
                                               Align(
                                                 alignment: const AlignmentDirectional(
-                                                    0.0, 0.96),
+                                                    0.0, 0.97),
                                                 child: Builder(
                                                   builder: (context) {
                                                     final quickQuestion =
@@ -1174,7 +1177,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   e.role ==
                                                                   'teacher')
                                                               .toList()
-                                                              .last
+                                                              .lastOrNull!
                                                               .content,
                                                           FFAppConstants
                                                               .apiKeyOpenAi,
@@ -1234,10 +1237,15 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                           context)),
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            dialogContext)
-                                                                        .unfocus(),
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          dialogContext)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child:
                                                                     PopupWidget(
                                                                   title:
@@ -1270,7 +1278,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                                 const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                             child:
                                                                                 GestureDetector(
-                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                              onTap: () {
+                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
                                                                               child: const LoaderPopupWidget(
                                                                                 title: 'המורה יסיים לדבר וכבר תצא מהשיעור...',
                                                                                 description: '',
@@ -1854,6 +1865,20 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                               safeSetState(() {});
                               logFirebaseEvent('popup_custom_action');
                               await actions.stopInterruption();
+                              logFirebaseEvent('popup_firestore_query');
+                              _model.hobbys = await queryUserAnswersRecordOnce(
+                                queryBuilder: (userAnswersRecord) =>
+                                    userAnswersRecord
+                                        .where(
+                                          'user',
+                                          isEqualTo: currentUserUid,
+                                        )
+                                        .where(
+                                          'question',
+                                          isEqualTo: 'תחומי עניין',
+                                        ),
+                                singleRecord: true,
+                              ).then((s) => s.firstOrNull);
                               if (FFAppState().onLesson) {
                                 logFirebaseEvent('popup_timer');
                                 _model.timerController1.onStartTimer();
@@ -1863,7 +1888,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                 logFirebaseEvent('popup_update_app_state');
                                 FFAppState().onLesson = true;
                                 safeSetState(() {});
-                                if (_model.chatHistory.last.role == 'teacher') {
+                                if (_model.chatHistory.lastOrNull?.role ==
+                                    'teacher') {
                                   logFirebaseEvent('popup_update_app_state');
                                   FFAppState().userInput = '';
                                   safeSetState(() {});
@@ -2013,7 +2039,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                   threadId: widget.threadId,
                                   assistantId: widget.assistantId,
                                   additionalInstructions:
-                                      'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.',
+                                      'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
+                                    return var1.join(', ');
+                                  }(_model.hobbys!.answer.toList())}',
                                 );
 
                                 if ((_model.apiAssistantRunResult?.succeeded ??

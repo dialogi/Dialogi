@@ -145,11 +145,12 @@ class StartDialogModel extends FlutterFlowModel<StartDialogWidget> {
           ),
           'assistantId': serializeParam(
             () {
-              if ((englishLevel?.answer.first ==
+              if ((englishLevel?.answer.firstOrNull ==
                       'אני לא יודע לנהל שיחה כלל') ||
-                  (englishLevel?.answer.first == 'אני מבין אנגלית בסיסית')) {
+                  (englishLevel?.answer.firstOrNull ==
+                      'אני מבין אנגלית בסיסית')) {
                 return FFAppConstants.assistant1;
-              } else if (englishLevel?.answer.first ==
+              } else if (englishLevel?.answer.firstOrNull ==
                   'אני יכול להבין ולהשתתף בשיחות פשוטות') {
                 return FFAppConstants.assistant2;
               } else {

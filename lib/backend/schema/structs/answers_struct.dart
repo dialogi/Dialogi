@@ -37,7 +37,9 @@ class AnswersStruct extends FFFirebaseStruct {
   bool hasPossibleAnswers() => _possibleAnswers != null;
 
   static AnswersStruct fromMap(Map<String, dynamic> data) => AnswersStruct(
-        type: deserializeEnum<AnswerType>(data['type']),
+        type: data['type'] is AnswerType
+            ? data['type']
+            : deserializeEnum<AnswerType>(data['type']),
         possibleAnswers: getDataList(data['possible_answers']),
       );
 
