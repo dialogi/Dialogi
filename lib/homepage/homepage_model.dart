@@ -29,7 +29,8 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
     BuildContext context, {
     required String? subject,
   }) async {
-    if (!FFAppState().userSub.hasPronunciation()) {
+    if (!((FFAppState().userSub.hasPronunciation() == false) ||
+        FFAppState().userSub.pronunciation)) {
       logFirebaseEvent('startPronouns_action_block');
       await action_blocks.userSubscriptionLoad(context);
     }

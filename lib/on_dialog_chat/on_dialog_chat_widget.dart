@@ -400,7 +400,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                             .assistant3) {
                                                       return 'רמת אלופים';
                                                     } else {
-                                                      return 'הגייה';
+                                                      return 'הגייה - בנושא ${widget.dialogSubject}';
                                                     }
                                                   }()}',
                                                   textAlign: TextAlign.end,
