@@ -43,11 +43,15 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
 
   bool teacherTurn = false;
 
+  String? additionalData;
+
   ///  State fields for stateful widgets in this page.
 
   TutorialCoachMark? dialogController;
   // Stores action output result for [Firestore Query - Query a collection] action in on_dialog_chat widget.
   LessonsRecord? currLesson;
+  // Stores action output result for [Firestore Query - Query a collection] action in on_dialog_chat widget.
+  List<LessonsRecord>? last3Lessons;
   // Model for TeacherSelect component.
   late TeacherSelectModel teacherSelectModel;
   // State field(s) for Carousel widget.

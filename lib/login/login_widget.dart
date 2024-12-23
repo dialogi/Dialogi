@@ -139,12 +139,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   currentUserDocument?.onboarded, false)) {
                                 logFirebaseEvent('buttonImg_navigate_to');
 
-                                context.pushNamedAuth(
+                                context.goNamedAuth(
                                     'homepage', context.mounted);
                               } else {
                                 logFirebaseEvent('buttonImg_navigate_to');
 
-                                context.pushNamedAuth(
+                                context.goNamedAuth(
                                     'start_onboarding', context.mounted);
                               }
                             },
@@ -190,12 +190,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 currentUserDocument?.onboarded, false)) {
                               logFirebaseEvent('buttonImg_navigate_to');
 
-                              context.pushNamedAuth(
-                                  'homepage', context.mounted);
+                              context.goNamedAuth('homepage', context.mounted);
                             } else {
                               logFirebaseEvent('buttonImg_navigate_to');
 
-                              context.pushNamedAuth(
+                              context.goNamedAuth(
                                   'start_onboarding', context.mounted);
                             }
                           },

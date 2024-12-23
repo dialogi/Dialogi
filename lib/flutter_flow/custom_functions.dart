@@ -61,3 +61,10 @@ String? grabFirstName(String? displayName) {
   }
   return nameList.first;
 }
+
+String getSummaries(List<LessonsRecord> lessons) {
+  return lessons
+      .map((doc) => doc.summary) // Extract summary field
+      .where((summary) => summary != null) // Filter out null summaries
+      .join(', '); // Join summaries with a comma
+}

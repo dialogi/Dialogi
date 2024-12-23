@@ -86,6 +86,16 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
             ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      logFirebaseEvent('on_dialog_chat_firestore_query');
+      _model.last3Lessons = await queryLessonsRecordOnce(
+        queryBuilder: (lessonsRecord) => lessonsRecord
+            .where(
+              'user',
+              isEqualTo: currentUserUid,
+            )
+            .orderBy('start_at', descending: true),
+        limit: 3,
+      );
       logFirebaseEvent('on_dialog_chat_update_app_state');
       FFAppState().onHold = false;
       safeSetState(() {});
@@ -1863,8 +1873,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                               logFirebaseEvent('popup_update_app_state');
                               FFAppState().startPopup = false;
                               safeSetState(() {});
-                              logFirebaseEvent('popup_custom_action');
-                              await actions.stopInterruption();
                               logFirebaseEvent('popup_firestore_query');
                               _model.hobbys = await queryUserAnswersRecordOnce(
                                 queryBuilder: (userAnswersRecord) =>
@@ -1879,6 +1887,14 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         ),
                                 singleRecord: true,
                               ).then((s) => s.firstOrNull);
+                              logFirebaseEvent('popup_update_page_state');
+                              _model.additionalData =
+                                  'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
+                                return var1.join(', ');
+                              }(_model.hobbys!.answer.toList())}השיעורים הקודמים עסקו במידע הבא ולכן אל תעסוק בו שוב:${functions.getSummaries(_model.last3Lessons!.toList())}';
+                              safeSetState(() {});
+                              logFirebaseEvent('popup_custom_action');
+                              await actions.stopInterruption();
                               if (FFAppState().onLesson) {
                                 logFirebaseEvent('popup_timer');
                                 _model.timerController1.onStartTimer();
@@ -1916,10 +1932,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                 } else {
                                   if (!(FFAppState().userInput != '')) {
                                     logFirebaseEvent('popup_update_app_state');
-                                    FFAppState().dialogState =
-                                        DialogState.user_talking;
-                                    safeSetState(() {});
-                                    logFirebaseEvent('popup_update_app_state');
                                     FFAppState().interruption = false;
                                     safeSetState(() {});
                                     logFirebaseEvent('popup_widget_animation');
@@ -1939,6 +1951,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           AudioRecorder(),
                                     );
 
+                                    logFirebaseEvent('popup_update_app_state');
+                                    FFAppState().dialogState =
+                                        DialogState.user_talking;
+                                    safeSetState(() {});
                                     if (isAndroid) {
                                       logFirebaseEvent('popup_wait__delay');
                                       await Future.delayed(
@@ -2038,10 +2054,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     await OpenAIAPIGroup.createRunCall.call(
                                   threadId: widget.threadId,
                                   assistantId: widget.assistantId,
-                                  additionalInstructions:
-                                      'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
-                                    return var1.join(', ');
-                                  }(_model.hobbys!.answer.toList())}',
+                                  additionalInstructions: _model.additionalData,
                                 );
 
                                 if ((_model.apiAssistantRunResult?.succeeded ??
@@ -2132,10 +2145,15 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       FFAppState().dialogState =
                                           DialogState.AI_talking;
                                       safeSetState(() {});
-                                      logFirebaseEvent('popup_custom_action');
-                                      await actions.playAudio(
-                                        _model.audioPath!,
-                                      );
+                                      if (FFAppState().onLesson) {
+                                        logFirebaseEvent('popup_custom_action');
+                                        await actions.playAudio(
+                                          _model.audioPath!,
+                                        );
+                                      } else {
+                                        break;
+                                      }
+
                                       logFirebaseEvent('popup_custom_action');
                                       await actions.stopInterruption();
                                     }
