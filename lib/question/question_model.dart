@@ -26,6 +26,10 @@ class QuestionModel extends FlutterFlowModel<QuestionWidget> {
   List<OnboardingQuestionsRecord>? questionPreviousSnapshot;
   // Stores action output result for [Firestore Query - Query a collection] action in question widget.
   List<UserAnswersRecord>? userAnswerDB;
+  // Stores action output result for [Firestore Query - Query a collection] action in question widget.
+  int? userExist;
+  // Stores action output result for [Firestore Query - Query a collection] action in Text widget.
+  int? userExist1;
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   List<String>? get choiceChipsValues => choiceChipsValueController?.value;

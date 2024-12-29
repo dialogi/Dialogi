@@ -44,6 +44,18 @@ class _QuestionWidgetState extends State<QuestionWidget>
     _model = createModel(context, () => QuestionModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'question'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('QUESTION_PAGE_question_ON_INIT_STATE');
+      logFirebaseEvent('question_firestore_query');
+      _model.userExist = await queryUsersRecordCount(
+        queryBuilder: (usersRecord) => usersRecord.where(
+          'uid',
+          isEqualTo: currentUserUid,
+        ),
+      );
+    });
+
     animationsMap.addAll({
       'textOnActionTriggerAnimation': AnimationInfo(
         trigger: AnimationTrigger.onActionTrigger,
@@ -275,6 +287,39 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                 ],
                                               ),
                                             ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'QUESTION_PAGE_Text_zrm4gbu5_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Text_firestore_query');
+                                                _model.userExist1 =
+                                                    await queryUsersRecordCount(
+                                                  queryBuilder: (usersRecord) =>
+                                                      usersRecord.where(
+                                                    'uid',
+                                                    isEqualTo: currentUserUid,
+                                                  ),
+                                                );
+
+                                                safeSetState(() {});
+                                              },
+                                              child: Text(
+                                                currentUserUid,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Rubik',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -335,8 +380,8 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                                   .description,
                                                               'בחרו את התשובה המתאימה',
                                                             ),
-                                                            textAlign: TextAlign
-                                                                .center,
+                                                            textAlign:
+                                                                TextAlign.end,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -764,6 +809,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                     : () async {
                                         logFirebaseEvent(
                                             'QUESTION_PAGE__BTN_ON_TAP');
+                                        var shouldSetState = false;
                                         if (_model.currUserAnswer != null) {
                                           logFirebaseEvent(
                                               'Button_backend_call');
@@ -801,9 +847,37 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                             'Button_update_page_state');
                                         _model.answer = [];
                                         safeSetState(() {});
+                                        if (_model.userExist.toString() !=
+                                            '1') {
+                                          logFirebaseEvent(
+                                              'Button_update_app_state');
+                                          FFAppState().log = '3';
+                                          safeSetState(() {});
+                                          logFirebaseEvent('Button_auth');
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent();
+                                          await authManager.signOut();
+                                          GoRouter.of(context)
+                                              .clearRedirectLocation();
+
+                                          logFirebaseEvent(
+                                              'Button_navigate_to');
+
+                                          context.goNamedAuth(
+                                              'login', context.mounted);
+
+                                          if (shouldSetState) {
+                                            safeSetState(() {});
+                                          }
+                                          return;
+                                        }
                                         if (questionOnboardingQuestionsRecord
                                                 ?.lastQuestion ==
                                             true) {
+                                          logFirebaseEvent(
+                                              'Button_update_app_state');
+                                          FFAppState().log = '20';
+                                          safeSetState(() {});
                                           logFirebaseEvent(
                                               'Button_firestore_query');
                                           _model.gender1 =
@@ -820,6 +894,15 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                     ),
                                             limit: 1,
                                           );
+                                          shouldSetState = true;
+                                          logFirebaseEvent(
+                                              'Button_update_app_state');
+                                          FFAppState().log = 'hbhjbhbh';
+                                          safeSetState(() {});
+                                          logFirebaseEvent(
+                                              'Button_update_app_state');
+                                          FFAppState().log = 'ytybh';
+                                          safeSetState(() {});
                                           logFirebaseEvent(
                                               'Button_backend_call');
 
@@ -873,7 +956,9 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                               ?.value = []);
                                         }
 
-                                        safeSetState(() {});
+                                        if (shouldSetState) {
+                                          safeSetState(() {});
+                                        }
                                       },
                                 text: FFLocalizations.of(context).getText(
                                   '7gdcs4kc' /* המשך */,

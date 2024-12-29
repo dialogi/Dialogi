@@ -47,7 +47,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
           safeSetState(() {});
         }(),
       );
-      if (valueOrDefault<bool>(currentUserDocument?.onboarded, false) == true) {
+      if (valueOrDefault<bool>(currentUserDocument?.onboarded, false) ==
+          true) {
         logFirebaseEvent('homepage_backend_call');
 
         await currentUserReference!.update(createUsersRecordData(
@@ -57,16 +58,16 @@ class _HomepageWidgetState extends State<HomepageWidget> {
           logFirebaseEvent('homepage_wait__delay');
           await Future.delayed(const Duration(milliseconds: 2000));
           logFirebaseEvent('homepage_start_walkthrough');
-          safeSetState(
-              () => _model.homePageController = createPageWalkthrough(context));
+          safeSetState(() =>
+              _model.homePageController = createPageWalkthrough(context));
           _model.homePageController?.show(context: context);
         }
       } else {
         logFirebaseEvent('homepage_navigate_to');
 
-        context.goNamed('start_onboarding');
+        context.goNamedAuth('start_onboarding', context.mounted);
       }
-    });
+        });
   }
 
   @override

@@ -38,12 +38,13 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
       logFirebaseEvent('start_onboarding_action_block');
       await action_blocks.setLang(context);
       safeSetState(() {});
-      if (valueOrDefault<bool>(currentUserDocument?.onboarded, false) == true) {
+      if (valueOrDefault<bool>(currentUserDocument?.onboarded, false) ==
+          true) {
         logFirebaseEvent('start_onboarding_navigate_to');
 
-        context.goNamed('homepage');
+        context.goNamedAuth('homepage', context.mounted);
       }
-    });
+        });
   }
 
   @override
@@ -128,13 +129,42 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                           ),
                         ),
                       ),
+                      AuthUserStreamWidget(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'START_ONBOARDING_Text_fiejbhcz_ON_TAP');
+                            logFirebaseEvent('Text_auth');
+                            GoRouter.of(context).prepareAuthEvent();
+                            await authManager.signOut();
+                            GoRouter.of(context).clearRedirectLocation();
+
+                            context.goNamedAuth('login', context.mounted);
+                          },
+                          child: Text(
+                            valueOrDefault<bool>(
+                                    currentUserDocument?.onboarded, false)
+                                .toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Rubik',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             48.0, 20.0, 48.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'u0ru7a5r' /* שאלון קצר שיעזור לנו
-להכיר אות... */
+                            'u0ru7a5r' /* Dialogi - 
+כי אנגלית לא לומדים... */
                             ,
                           ),
                           textAlign: TextAlign.center,
@@ -152,7 +182,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                             60.0, 10.0, 60.0, 16.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            's2zj0z44' /* החלק הזה חשוב כדי שנדע להתאים ... */,
+                            's2zj0z44' /* שאלון קצר שיעזור לנו להכיר אות... */,
                           ),
                           textAlign: TextAlign.center,
                           maxLines: 2,
@@ -225,44 +255,6 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                             ),
                             borderRadius: BorderRadius.circular(56.0),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 10.0, 24.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'START_ONBOARDING_PAGE__BTN_ON_TAP');
-                            logFirebaseEvent('Button_auth');
-                            GoRouter.of(context).prepareAuthEvent();
-                            await authManager.signOut();
-                            GoRouter.of(context).clearRedirectLocation();
-
-                            context.goNamedAuth('login', context.mounted);
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'ntjwkrtl' /* התנתק */,
-                          ),
-                          options: FFButtonOptions(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 48.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Rubik',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 0.0,
-                            borderRadius: BorderRadius.circular(56.0),
-                          ),
-                          showLoadingIndicator: false,
                         ),
                       ),
                     ],

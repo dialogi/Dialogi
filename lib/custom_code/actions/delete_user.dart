@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:dialogi/auth/firebase_auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 
 Future deleteUser(BuildContext context) async {
   // Add your function code here!
