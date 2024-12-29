@@ -129,35 +129,6 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                           ),
                         ),
                       ),
-                      AuthUserStreamWidget(
-                        builder: (context) => InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'START_ONBOARDING_Text_fiejbhcz_ON_TAP');
-                            logFirebaseEvent('Text_auth');
-                            GoRouter.of(context).prepareAuthEvent();
-                            await authManager.signOut();
-                            GoRouter.of(context).clearRedirectLocation();
-
-                            context.goNamedAuth('login', context.mounted);
-                          },
-                          child: Text(
-                            valueOrDefault<bool>(
-                                    currentUserDocument?.onboarded, false)
-                                .toString(),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Rubik',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ),
-                      ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             48.0, 20.0, 48.0, 0.0),
