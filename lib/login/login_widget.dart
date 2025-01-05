@@ -159,6 +159,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 fontSize: 16.0,
                                 fontColor: Colors.white,
                                 imgWidth: 40.0,
+                                imgAsset: false,
                               ),
                             ),
                           ),
@@ -204,7 +205,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             child: const ButtonImgWidget(
                               text: 'התחברות עם Google',
                               imgPath:
-                                  'https://yt3.googleusercontent.com/viNp17XpEF-AwWwOZSj_TvgobO1CGmUUgcTtQoAG40YaYctYMoUqaRup0rTxxxfQvWw3MvhXesw=s900-c-k-c0x00ffffff-no-rj',
+                                  'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png',
                               color: Colors.white,
                               fontSize: 16.0,
                               fontColor: Colors.black,

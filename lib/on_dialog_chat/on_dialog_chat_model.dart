@@ -73,6 +73,14 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
   FlutterFlowTimerController timerController1 =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // Stores action output result for [Backend Call - API (createChatCompletion)] action in Timer widget.
+  ApiCallResponse? summaryMessages11;
+  // Stores action output result for [Custom Action - buildSummary] action in Timer widget.
+  SummaryObjStruct? summaryOutput11;
+  // Stores action output result for [Firestore Query - Query a collection] action in Timer widget.
+  LevelsRecord? subjectLevels1;
+  // Stores action output result for [Custom Action - fetchAndPlaySpeech] action in Timer widget.
+  String? audioPath1;
   // State field(s) for Timer widget.
   final timerInitialTimeMs2 = 0;
   int timerMilliseconds2 = 0;

@@ -941,10 +941,246 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                               1000));
                                                                 }
                                                                 logFirebaseEvent(
-                                                                    'Timer_action_block');
+                                                                    'Timer_backend_call');
+                                                                _model.summaryMessages11 =
+                                                                    await OpenAIAPIGroup
+                                                                        .createChatCompletionCall
+                                                                        .call(
+                                                                  messages:
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    (String
+                                                                        var3) {
+                                                                      return var3
+                                                                          .replaceAll(
+                                                                              '\n',
+                                                                              ' ')
+                                                                          .replaceAll(
+                                                                              RegExp(r'\s+'),
+                                                                              ' ')
+                                                                          .trim();
+                                                                    }(valueOrDefault<
+                                                                        String>(
+                                                                      (String
+                                                                          var2) {
+                                                                        return var2
+                                                                            .replaceAll('"',
+                                                                                '')
+                                                                            .replaceAll("'",
+                                                                                '');
+                                                                      }(((List<
+                                                                              String>
+                                                                          var1) {
+                                                                        return var1
+                                                                            .join('message: ');
+                                                                      }(_model
+                                                                          .chatHistory
+                                                                          .map((e) =>
+                                                                              getJsonField(
+                                                                                e.toMap(),
+                                                                                r'''$.content''',
+                                                                              ))
+                                                                          .toList()
+                                                                          .map((e) =>
+                                                                              e.toString())
+                                                                          .toList()))),
+                                                                      'hi',
+                                                                    )),
+                                                                    'hi',
+                                                                  ),
+                                                                );
+
+                                                                logFirebaseEvent(
+                                                                    'Timer_update_app_state');
+                                                                FFAppState()
+                                                                        .onLesson =
+                                                                    false;
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                logFirebaseEvent(
+                                                                    'Timer_custom_action');
+                                                                _model.summaryOutput11 =
+                                                                    await actions
+                                                                        .buildSummary(
+                                                                  OpenAIAPIGroup
+                                                                      .createChatCompletionCall
+                                                                      .summaryobj1(
+                                                                    (_model.summaryMessages11
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!,
+                                                                );
+                                                                logFirebaseEvent(
+                                                                    'Timer_backend_call');
+
                                                                 await _model
-                                                                    .finishChatting(
-                                                                        context);
+                                                                    .currLesson!
+                                                                    .reference
+                                                                    .update({
+                                                                  ...createLessonsRecordData(
+                                                                    summary: _model
+                                                                        .summaryOutput11
+                                                                        ?.summary,
+                                                                    steps: _model
+                                                                        .summaryOutput11
+                                                                        ?.steps,
+                                                                  ),
+                                                                  ...mapToFirestore(
+                                                                    {
+                                                                      'end_at':
+                                                                          FieldValue
+                                                                              .serverTimestamp(),
+                                                                    },
+                                                                  ),
+                                                                });
+                                                                logFirebaseEvent(
+                                                                    'Timer_firestore_query');
+                                                                _model.subjectLevels1 =
+                                                                    await queryLevelsRecordOnce(
+                                                                  queryBuilder: (levelsRecord) =>
+                                                                      levelsRecord
+                                                                          .where(
+                                                                            'user',
+                                                                            isEqualTo:
+                                                                                currentUserUid,
+                                                                          )
+                                                                          .where(
+                                                                            'subject',
+                                                                            isEqualTo: widget.dialogSubject != null && widget.dialogSubject != ''
+                                                                                ? widget.dialogSubject
+                                                                                : 'כללי',
+                                                                          ),
+                                                                  singleRecord:
+                                                                      true,
+                                                                ).then((s) => s
+                                                                        .firstOrNull);
+                                                                if (_model
+                                                                        .subjectLevels1 !=
+                                                                    null) {
+                                                                  logFirebaseEvent(
+                                                                      'Timer_backend_call');
+
+                                                                  await _model
+                                                                      .subjectLevels1!
+                                                                      .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'precent': FieldValue.increment(_model
+                                                                            .summaryOutput11!
+                                                                            .steps),
+                                                                      },
+                                                                    ),
+                                                                  });
+                                                                } else {
+                                                                  logFirebaseEvent(
+                                                                      'Timer_backend_call');
+
+                                                                  await LevelsRecord
+                                                                      .collection
+                                                                      .doc()
+                                                                      .set(
+                                                                          createLevelsRecordData(
+                                                                        user:
+                                                                            currentUserUid,
+                                                                        subject:
+                                                                            valueOrDefault<String>(
+                                                                          widget
+                                                                              .dialogSubject,
+                                                                          'כללי',
+                                                                        ),
+                                                                        precent: _model
+                                                                            .summaryOutput11
+                                                                            ?.steps,
+                                                                      ));
+                                                                }
+
+                                                                logFirebaseEvent(
+                                                                    'Timer_custom_action');
+                                                                _model.audioPath1 =
+                                                                    await actions
+                                                                        .fetchAndPlaySpeech(
+                                                                  _model
+                                                                      .summaryOutput11!
+                                                                      .summary,
+                                                                  FFAppConstants
+                                                                      .apiKeyOpenAi,
+                                                                  _model
+                                                                      .currLesson!
+                                                                      .teacher
+                                                                      .voice,
+                                                                  FFAppState()
+                                                                      .userSub
+                                                                      .ttsHD,
+                                                                );
+                                                                logFirebaseEvent(
+                                                                    'Timer_update_app_state');
+                                                                FFAppState()
+                                                                        .dialogState =
+                                                                    DialogState
+                                                                        .AI_talking;
+                                                                safeSetState(
+                                                                    () {});
+                                                                logFirebaseEvent(
+                                                                    'Timer_custom_action');
+                                                                await actions
+                                                                    .playAudio(
+                                                                  _model
+                                                                      .audioPath1!,
+                                                                );
+                                                                logFirebaseEvent(
+                                                                    'Timer_custom_action');
+                                                                await actions
+                                                                    .stopInterruption();
+                                                                logFirebaseEvent(
+                                                                    'Timer_navigate_to');
+
+                                                                context.goNamed(
+                                                                  'dialog_summary',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'lastLesson':
+                                                                        serializeParam(
+                                                                      true,
+                                                                      ParamType
+                                                                          .bool,
+                                                                    ),
+                                                                    'chatMessages':
+                                                                        serializeParam(
+                                                                      _model
+                                                                          .chatHistory,
+                                                                      ParamType
+                                                                          .DataStruct,
+                                                                      isList:
+                                                                          true,
+                                                                    ),
+                                                                    'lessonId':
+                                                                        serializeParam(
+                                                                      widget
+                                                                          .lessonId,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    kTransitionInfoKey:
+                                                                        const TransitionInfo(
+                                                                      hasTransition:
+                                                                          true,
+                                                                      transitionType:
+                                                                          PageTransitionType
+                                                                              .bottomToTop,
+                                                                      duration: Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                    ),
+                                                                  },
+                                                                );
+
+                                                                safeSetState(
+                                                                    () {});
                                                               },
                                                               textAlign:
                                                                   TextAlign
