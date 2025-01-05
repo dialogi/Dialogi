@@ -287,39 +287,6 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                 ],
                                               ),
                                             ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'QUESTION_PAGE_Text_zrm4gbu5_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Text_firestore_query');
-                                                _model.userExist1 =
-                                                    await queryUsersRecordCount(
-                                                  queryBuilder: (usersRecord) =>
-                                                      usersRecord.where(
-                                                    'uid',
-                                                    isEqualTo: currentUserUid,
-                                                  ),
-                                                );
-
-                                                safeSetState(() {});
-                                              },
-                                              child: Text(
-                                                currentUserUid,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Rubik',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                            ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(

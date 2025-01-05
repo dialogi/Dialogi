@@ -1713,8 +1713,18 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 22.0, 0.0, 0.0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'HOMEPAGE_PAGE___BTN_ON_TAP');
+                                      if (isiOS) {
+                                        logFirebaseEvent('Button_launch_u_r_l');
+                                        await launchURL(
+                                            'https://apps.apple.com/il/app/dialogi/id6630381631');
+                                      } else {
+                                        logFirebaseEvent('Button_launch_u_r_l');
+                                        await launchURL(
+                                            'https://play.google.com/store/apps/details?id=dialogi.app');
+                                      }
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       'u06mye1i' /* דרגו אותנו! */,

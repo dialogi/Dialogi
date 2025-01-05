@@ -208,7 +208,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               hintText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'lzn2kvmu' /* TextField */,
+                                                'gvzo1z5a' /* הכנס שם */,
                                               ),
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
@@ -1164,7 +1164,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     logFirebaseEvent('Button_send_email');
                                     await launchUrl(Uri(
                                         scheme: 'mailto',
-                                        path: 'dialogi.app@gmail.com',
+                                        path: 'info@dialogiapp.com',
                                         query: {
                                           'subject': 'תמיכה טכנית',
                                         }

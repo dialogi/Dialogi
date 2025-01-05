@@ -147,7 +147,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // start_onboarding
   {
     'u0ru7a5r': {
-      'he': 'Dialogi - \nכי אנגלית לא לומדים, מדברים.',
+      'he': 'Dialogi - \nכי אנגלית לא לומדים, מדברים!',
       'en': '',
     },
     's2zj0z44': {
@@ -229,8 +229,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': 'הגדרות',
       'en': '',
     },
-    'lzn2kvmu': {
-      'he': 'TextField',
+    'gvzo1z5a': {
+      'he': 'הכנס שם',
       'en': '',
     },
     'ae22v0be': {
