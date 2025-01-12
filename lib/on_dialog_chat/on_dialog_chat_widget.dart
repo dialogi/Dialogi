@@ -4,7 +4,6 @@ import '/backend/backend.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
 import '/backend/schema/enums/enums.dart';
 import '/components/dialog_manager_widget.dart';
-import '/components/loader_popup_widget.dart';
 import '/components/popup_widget.dart';
 import '/components/teacher_select_widget.dart';
 import '/components/user_message_widget.dart';
@@ -75,6 +74,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
       logFirebaseEvent('ON_DIALOG_CHAT_on_dialog_chat_ON_INIT_ST');
       logFirebaseEvent('on_dialog_chat_custom_action');
       await actions.wakelock();
+      logFirebaseEvent('on_dialog_chat_update_page_state');
+      _model.captionView = true;
+      safeSetState(() {});
       logFirebaseEvent('on_dialog_chat_firestore_query');
       _model.currLesson = await queryLessonsRecordOnce(
         queryBuilder: (lessonsRecord) => lessonsRecord
@@ -282,35 +284,21 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       child: Align(
                                         alignment:
                                             const AlignmentDirectional(0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'ON_DIALOG_CHAT_PAGE_Text_k93are54_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Text_action_block');
-                                            await _model
-                                                .finishChatting(context);
-                                          },
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'fb7kzi9n' /* שיחה */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  color: Colors.white,
-                                                  fontSize: functions
-                                                      .setFontSize(24.0),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  lineHeight: 1.5,
-                                                ),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'fb7kzi9n' /* שיחה */,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Rubik',
+                                                color: Colors.white,
+                                                fontSize:
+                                                    functions.setFontSize(24.0),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                                lineHeight: 1.5,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -931,14 +919,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   () async {
                                                                 logFirebaseEvent(
                                                                     'ON_DIALOG_CHAT_Timer_9plz1ig8_ON_TIMER_E');
-                                                                logFirebaseEvent(
-                                                                    'Timer_update_app_state');
-                                                                FFAppState()
-                                                                        .onLesson =
-                                                                    false;
-                                                                FFAppState()
-                                                                    .update(
-                                                                        () {});
                                                                 while (FFAppState()
                                                                         .dialogState ==
                                                                     DialogState
@@ -950,6 +930,14 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                           milliseconds:
                                                                               1000));
                                                                 }
+                                                                logFirebaseEvent(
+                                                                    'Timer_update_app_state');
+                                                                FFAppState()
+                                                                        .onLesson =
+                                                                    false;
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
                                                                 logFirebaseEvent(
                                                                     'Timer_backend_call');
                                                                 _model.summaryMessages11 =
@@ -1506,37 +1494,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                             .dialogState ==
                                                                         DialogState
                                                                             .AI_talking) {
-                                                                      logFirebaseEvent(
-                                                                          '_alert_dialog');
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (dialogContext) {
-                                                                          return Dialog(
-                                                                            elevation:
-                                                                                0,
-                                                                            insetPadding:
-                                                                                EdgeInsets.zero,
-                                                                            backgroundColor:
-                                                                                Colors.transparent,
-                                                                            alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                            child:
-                                                                                GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(dialogContext).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: const LoaderPopupWidget(
-                                                                                title: 'המורה יסיים לדבר וכבר תצא מהשיעור...',
-                                                                                description: '',
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      );
-
                                                                       while (FFAppState()
                                                                               .dialogState ==
                                                                           DialogState
@@ -1547,10 +1504,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                             milliseconds:
                                                                                 1000));
                                                                       }
-                                                                      logFirebaseEvent(
-                                                                          '_close_dialog_drawer_etc');
-                                                                      Navigator.pop(
-                                                                          context);
                                                                     }
                                                                     logFirebaseEvent(
                                                                         '_action_block');
@@ -2280,6 +2233,13 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         content: FFAppState().userInput,
                                       ));
                                       safeSetState(() {});
+                                      logFirebaseEvent('popup_scroll_to');
+                                      await _model.chatListView?.animateTo(
+                                        _model.chatListView!.position
+                                            .maxScrollExtent,
+                                        duration: const Duration(milliseconds: 100),
+                                        curve: Curves.ease,
+                                      );
                                     }
                                   }
                                 }
@@ -2358,6 +2318,13 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       ),
                                     ));
                                     safeSetState(() {});
+                                    logFirebaseEvent('popup_scroll_to');
+                                    await _model.chatListView?.animateTo(
+                                      _model.chatListView!.position
+                                          .maxScrollExtent,
+                                      duration: const Duration(milliseconds: 100),
+                                      curve: Curves.ease,
+                                    );
                                     if (FFAppState().onLesson == true) {
                                       logFirebaseEvent('popup_custom_action');
                                       _model.audioPath =
@@ -2376,16 +2343,21 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         await Future.delayed(
                                             const Duration(milliseconds: 500));
                                       }
-                                      logFirebaseEvent(
-                                          'popup_update_app_state');
-                                      FFAppState().dialogState =
-                                          DialogState.AI_talking;
-                                      safeSetState(() {});
                                       if (FFAppState().onLesson) {
+                                        logFirebaseEvent(
+                                            'popup_update_app_state');
+                                        FFAppState().dialogState =
+                                            DialogState.AI_talking;
+                                        safeSetState(() {});
                                         logFirebaseEvent('popup_custom_action');
                                         await actions.playAudio(
                                           _model.audioPath!,
                                         );
+                                        logFirebaseEvent(
+                                            'popup_update_app_state');
+                                        FFAppState().dialogState =
+                                            DialogState.processing;
+                                        safeSetState(() {});
                                       } else {
                                         break;
                                       }
