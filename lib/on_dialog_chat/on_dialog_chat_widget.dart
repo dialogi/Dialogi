@@ -945,8 +945,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                         .createChatCompletionCall
                                                                         .call(
                                                                   messages:
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                                      '${valueOrDefault<String>(
                                                                     (String
                                                                         var3) {
                                                                       return var3
@@ -985,7 +984,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                       'hi',
                                                                     )),
                                                                     'hi',
-                                                                  ),
+                                                                  )}תיצור לזה סיכום ותשלח לי פידבק כהודעה לתלמיד בגוף ראשון',
                                                                 );
 
                                                                 logFirebaseEvent(
@@ -2114,6 +2113,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                   await Future.delayed(
                                       const Duration(milliseconds: 500));
                                 }
+                                logFirebaseEvent('popup_update_app_state');
+                                FFAppState().log = '11';
+                                safeSetState(() {});
                                 if (_model.teacherTurn) {
                                   logFirebaseEvent('popup_update_page_state');
                                   _model.teacherTurn = false;
@@ -2123,15 +2125,24 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     logFirebaseEvent('popup_update_app_state');
                                     FFAppState().interruption = false;
                                     safeSetState(() {});
-                                    logFirebaseEvent('popup_widget_animation');
-                                    if (animationsMap[
-                                            'carouselOnActionTriggerAnimation'] !=
-                                        null) {
-                                      animationsMap[
-                                              'carouselOnActionTriggerAnimation']!
-                                          .controller
-                                          .forward(from: 0.0);
+                                    logFirebaseEvent('popup_update_app_state');
+                                    FFAppState().log = '12';
+                                    safeSetState(() {});
+                                    if (!_model.captionView) {
+                                      logFirebaseEvent(
+                                          'popup_widget_animation');
+                                      if (animationsMap[
+                                              'carouselOnActionTriggerAnimation'] !=
+                                          null) {
+                                        animationsMap[
+                                                'carouselOnActionTriggerAnimation']!
+                                            .controller
+                                            .forward(from: 0.0);
+                                      }
                                     }
+                                    logFirebaseEvent('popup_update_app_state');
+                                    FFAppState().log = '13';
+                                    safeSetState(() {});
                                     logFirebaseEvent(
                                         'popup_start_audio_recording');
                                     await startAudioRecording(
@@ -2140,6 +2151,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           AudioRecorder(),
                                     );
 
+                                    logFirebaseEvent('popup_update_app_state');
+                                    FFAppState().log = '14';
+                                    safeSetState(() {});
                                     logFirebaseEvent('popup_update_app_state');
                                     FFAppState().dialogState =
                                         DialogState.user_talking;
@@ -2153,15 +2167,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       _model.nw = await actions.newRecord();
                                     }
 
-                                    logFirebaseEvent('popup_widget_animation');
-                                    if (animationsMap[
-                                            'carouselOnActionTriggerAnimation'] !=
-                                        null) {
-                                      await animationsMap[
-                                              'carouselOnActionTriggerAnimation']!
-                                          .controller
-                                          .reverse();
-                                    }
                                     logFirebaseEvent('popup_custom_action');
                                     await actions.stopInterruption();
                                     logFirebaseEvent(
@@ -2233,13 +2238,19 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         content: FFAppState().userInput,
                                       ));
                                       safeSetState(() {});
-                                      logFirebaseEvent('popup_scroll_to');
-                                      await _model.chatListView?.animateTo(
-                                        _model.chatListView!.position
-                                            .maxScrollExtent,
-                                        duration: const Duration(milliseconds: 100),
-                                        curve: Curves.ease,
-                                      );
+                                      logFirebaseEvent('popup_wait__delay');
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 150));
+                                      if (_model.captionView) {
+                                        logFirebaseEvent('popup_scroll_to');
+                                        await _model.scollingChatColumn
+                                            ?.animateTo(
+                                          _model.scollingChatColumn!.position
+                                              .maxScrollExtent,
+                                          duration: const Duration(milliseconds: 300),
+                                          curve: Curves.ease,
+                                        );
+                                      }
                                     }
                                   }
                                 }
@@ -2318,13 +2329,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       ),
                                     ));
                                     safeSetState(() {});
-                                    logFirebaseEvent('popup_scroll_to');
-                                    await _model.chatListView?.animateTo(
-                                      _model.chatListView!.position
-                                          .maxScrollExtent,
-                                      duration: const Duration(milliseconds: 100),
-                                      curve: Curves.ease,
-                                    );
                                     if (FFAppState().onLesson == true) {
                                       logFirebaseEvent('popup_custom_action');
                                       _model.audioPath =
@@ -2343,20 +2347,36 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         await Future.delayed(
                                             const Duration(milliseconds: 500));
                                       }
+                                      logFirebaseEvent(
+                                          'popup_update_app_state');
+                                      FFAppState().dialogState =
+                                          DialogState.AI_talking;
+                                      safeSetState(() {});
+                                      logFirebaseEvent('popup_wait__delay');
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 100));
+                                      logFirebaseEvent(
+                                          'popup_update_app_state');
+                                      FFAppState().log = '1';
+                                      safeSetState(() {});
+                                      if (_model.captionView) {
+                                        logFirebaseEvent('popup_scroll_to');
+                                        await _model.scollingChatColumn
+                                            ?.animateTo(
+                                          _model.scollingChatColumn!.position
+                                              .maxScrollExtent,
+                                          duration: const Duration(milliseconds: 300),
+                                          curve: Curves.ease,
+                                        );
+                                      }
                                       if (FFAppState().onLesson) {
-                                        logFirebaseEvent(
-                                            'popup_update_app_state');
-                                        FFAppState().dialogState =
-                                            DialogState.AI_talking;
-                                        safeSetState(() {});
                                         logFirebaseEvent('popup_custom_action');
                                         await actions.playAudio(
                                           _model.audioPath!,
                                         );
                                         logFirebaseEvent(
                                             'popup_update_app_state');
-                                        FFAppState().dialogState =
-                                            DialogState.processing;
+                                        FFAppState().log = '2';
                                         safeSetState(() {});
                                       } else {
                                         break;
@@ -2364,6 +2384,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
 
                                       logFirebaseEvent('popup_custom_action');
                                       await actions.stopInterruption();
+                                      logFirebaseEvent(
+                                          'popup_update_app_state');
+                                      FFAppState().log = '3';
+                                      safeSetState(() {});
                                     }
                                     // Reset completed status
                                     logFirebaseEvent(
@@ -2372,6 +2396,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     safeSetState(() {});
                                     logFirebaseEvent('popup_update_app_state');
                                     FFAppState().userInput = '';
+                                    safeSetState(() {});
+                                    logFirebaseEvent('popup_update_app_state');
+                                    FFAppState().log = '4';
                                     safeSetState(() {});
                                   }
                                 }

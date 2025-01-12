@@ -154,30 +154,22 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
     }
     logFirebaseEvent('finishChatting_backend_call');
     summaryMessages1 = await OpenAIAPIGroup.createChatCompletionCall.call(
-      messages: valueOrDefault<String>(
-        (String var3) {
-          return var3
-              .replaceAll('\n', ' ')
-              .replaceAll(RegExp(r'\s+'), ' ')
-              .trim();
-        }(valueOrDefault<String>(
-          (String var2) {
-            return var2.replaceAll('"', '').replaceAll("'", '');
-          }(((List<String> var1) {
-            return var1.join('message: ');
-          }(chatHistory
-              .map((e) => getJsonField(
-                    e.toMap(),
-                    r'''$.content''',
-                  ))
-              .toList()
-              .map((e) => e.toString())
-              .toList()
-              .toList()))),
-          'hi',
-        )),
+      messages: '${valueOrDefault<String>(
+        (String var2) {
+          return var2.replaceAll('"', '').replaceAll("'", '');
+        }(((List<String> var1) {
+          return var1.join('message: ');
+        }(chatHistory
+            .map((e) => getJsonField(
+                  e.toMap(),
+                  r'''$.content''',
+                ))
+            .toList()
+            .map((e) => e.toString())
+            .toList()
+            .toList()))),
         'hi',
-      ),
+      )}תיצור לזה סיכום ותשלח לי פידבק כהודעה לתלמיד בגוף ראשון',
     );
 
     logFirebaseEvent('finishChatting_update_app_state');

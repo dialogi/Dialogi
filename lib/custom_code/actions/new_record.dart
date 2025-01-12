@@ -37,6 +37,10 @@ Future<String> newRecord() async {
     });
     voiceDecibel = level;
 
+    FFAppState().update(() {
+      FFAppState().log =
+          '${voiceDecibel} ${silenceDuration} ${isAvailable} ${recognizedText}';
+    });
     if (voiceDecibel < -30) {
       silenceDuration++;
     } else {
@@ -47,11 +51,7 @@ Future<String> newRecord() async {
       DateTime now = DateTime.now();
       int elapsedSeconds = now.difference(startTime!).inSeconds;
 
-      FFAppState().update(() {
-        FFAppState().log =
-            'voiceDecibel ${voiceDecibel} silenceDuration${silenceDuration} elapsedSeconds${elapsedSeconds} ';
-      });
-      if (elapsedSeconds >= 30 ||
+      if (elapsedSeconds >= 20 ||
           silenceDuration >= 30 ||
           (FFAppState().userInput != null &&
               FFAppState().userInput.isNotEmpty)) {
