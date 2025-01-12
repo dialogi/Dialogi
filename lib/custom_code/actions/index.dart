@@ -11,3 +11,4 @@ export 'delete_user.dart' show deleteUser;
 export 'on_app_background.dart' show onAppBackground;
 export 'play_audio.dart' show playAudio;
 export 'fetch_customer_info.dart' show fetchCustomerInfo;
+export 'wakelock.dart' show wakelock;

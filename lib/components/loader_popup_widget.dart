@@ -48,7 +48,7 @@ class _LoaderPopupWidgetState extends State<LoaderPopupWidget>
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: 0.0,
             end: 1.0,
           ),

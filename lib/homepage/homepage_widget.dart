@@ -1771,9 +1771,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
               AuthUserStreamWidget(
                 builder: (context) => Lottie.asset(
                   'assets/jsons/Animation_-_1730377289409.json',
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  fit: BoxFit.contain,
+                  width: MediaQuery.sizeOf(context).width * 1.1,
+                  height: MediaQuery.sizeOf(context).height * 1.1,
+                  fit: BoxFit.cover,
                   repeat: false,
                   animate: true,
                 ),

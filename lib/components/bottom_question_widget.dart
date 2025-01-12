@@ -61,6 +61,10 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
             ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      logFirebaseEvent('bottomQuestion_set_form_field');
+      safeSetState(() {
+        _model.choiceChipsValueController?.value = _model.userAnswer!.answer;
+      });
       logFirebaseEvent('bottomQuestion_update_component_state');
       _model.answer = _model.userAnswer!.answer.toList().cast<String>();
       safeSetState(() {});
@@ -217,29 +221,33 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                           color: const Color(0xFF232C2E),
                                           fontSize: functions.setFontSize(24.0),
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.bold,
                                           lineHeight: 1.5,
                                         ),
                                   ),
                                 ),
-                                Text(
-                                  valueOrDefault<String>(
-                                    widget.question?.description,
-                                    'description',
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 0.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.question?.description,
+                                      'description',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Rubik',
+                                          color: const Color(0xFF797979),
+                                          fontSize: functions.setFontSize(16.0),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          lineHeight: 1.5,
+                                        ),
+                                  ).animateOnActionTrigger(
+                                    animationsMap[
+                                        'textOnActionTriggerAnimation']!,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: const Color(0xFF797979),
-                                        fontSize: functions.setFontSize(16.0),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                        lineHeight: 1.5,
-                                      ),
-                                ).animateOnActionTrigger(
-                                  animationsMap[
-                                      'textOnActionTriggerAnimation']!,
                                 ),
                               ],
                             ),
@@ -327,7 +335,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                         elevation: 0.0,
                                         borderWidth: 1.0,
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                            BorderRadius.circular(100.0),
                                       ),
                                       unselectedChipStyle: ChipStyle(
                                         backgroundColor: Colors.white,
@@ -355,7 +363,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                                 .primary,
                                         borderWidth: 1.0,
                                         borderRadius:
-                                            BorderRadius.circular(12.0),
+                                            BorderRadius.circular(100.0),
                                       ),
                                       chipSpacing: 8.0,
                                       rowSpacing: 8.0,
@@ -366,7 +374,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                       controller:
                                           _model.choiceChipsValueController ??=
                                               FormFieldController<List<String>>(
-                                        [],
+                                        _model.answer,
                                       ),
                                       wrapped: true,
                                     ),

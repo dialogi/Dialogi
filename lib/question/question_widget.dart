@@ -385,7 +385,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 90.0)),
+                                                ].divide(const SizedBox(width: 70.0)),
                                               ),
                                             ),
                                             Padding(
@@ -529,7 +529,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                   borderWidth: 1.0,
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          12.0),
+                                                          100.0),
                                                 ),
                                                 unselectedChipStyle: ChipStyle(
                                                   backgroundColor: Colors.white,
@@ -564,7 +564,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                   borderWidth: 1.0,
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          12.0),
+                                                          100.0),
                                                 ),
                                                 chipSpacing: 8.0,
                                                 rowSpacing: 8.0,
@@ -607,7 +607,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: possible.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 20.0),
+                                                    const SizedBox(height: 16.0),
                                                 itemBuilder:
                                                     (context, possibleIndex) {
                                                   final possibleItem =

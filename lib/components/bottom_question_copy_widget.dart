@@ -179,7 +179,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 logFirebaseEvent(
-                                    'BOTTOM_QUESTION_COPY_Icon_aoki8ckn_ON_TA');
+                                    'BOTTOM_QUESTION_COPY_Icon_dcu1xbu5_ON_TA');
                                 logFirebaseEvent(
                                     'Icon_close_dialog_drawer_etc');
                                 Navigator.pop(context);
@@ -205,7 +205,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                       0.0, 36.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'nqxbfr24' /* שינוי רמת אנגלית */,
+                                      'hh7irsb0' /* שינוי רמת אנגלית */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
@@ -222,7 +222,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '5lhna1tv' /* *רמת השיעורים תשתנה בהתאם לבחי... */,
+                                    'p4ww83t9' /* *רמת השיעורים תשתנה בהתאם לבחי... */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -282,7 +282,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   logFirebaseEvent(
-                                      'BOTTOM_QUESTION_COPY_Container_vomy5vls_');
+                                      'BOTTOM_QUESTION_COPY_Container_ef4xo15v_');
                                   if (_model.answer.contains(
                                       listViewEnglishLevelRecord.value)) {
                                     logFirebaseEvent(
@@ -303,7 +303,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                 },
                                 child: SelectWidget(
                                   key: Key(
-                                      'Keyvom_${listViewIndex}_of_${listViewEnglishLevelRecordList.length}'),
+                                      'Keyef4_${listViewIndex}_of_${listViewEnglishLevelRecordList.length}'),
                                   checked: _model.answer.contains(
                                       listViewEnglishLevelRecord.value),
                                   text: listViewEnglishLevelRecord.text,
@@ -337,7 +337,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                 Navigator.pop(context);
                               },
                         text: FFLocalizations.of(context).getText(
-                          '3dcfwwht' /* עדכן */,
+                          'js52ea9q' /* עדכן */,
                         ),
                         options: FFButtonOptions(
                           width: double.infinity,

@@ -14,7 +14,7 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
   TutorialCoachMark? homePageController;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
-  int carouselCurrentIndex = 1;
+  int carouselCurrentIndex = 0;
 
   @override
   void initState(BuildContext context) {}

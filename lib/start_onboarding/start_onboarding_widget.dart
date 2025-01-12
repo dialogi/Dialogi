@@ -130,12 +130,12 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            48.0, 20.0, 48.0, 0.0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 8.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'u0ru7a5r' /* Dialogi - 
-כי אנגלית לא לומדים... */
+                            'u0ru7a5r' /* Dialogi 
+כי אנגלית לא לומדים -... */
                             ,
                           ),
                           textAlign: TextAlign.center,
@@ -150,7 +150,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            60.0, 10.0, 60.0, 16.0),
+                            0.0, 10.0, 0.0, 16.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             's2zj0z44' /* שאלון קצר שיעזור לנו להכיר אות... */,

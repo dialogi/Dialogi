@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -314,6 +315,8 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                                   subject: 'כללי',
                                   precent: 0,
                                 ));
+                            logFirebaseEvent('Button_custom_action');
+                            await actions.presentPaywall();
                             logFirebaseEvent('Button_close_dialog_drawer_etc');
                             Navigator.pop(context);
                             logFirebaseEvent('Button_navigate_to');

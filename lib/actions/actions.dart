@@ -65,6 +65,10 @@ Future userSubscriptionLoad(BuildContext context) async {
               'start_at',
               isGreaterThanOrEqualTo: functions.newCustomFunction(),
             )
+            .where(
+              'first',
+              isEqualTo: false,
+            )
             .orderBy('start_at', descending: true),
       );
       logFirebaseEvent('userSubscriptionLoad_update_app_state');

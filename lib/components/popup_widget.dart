@@ -56,7 +56,7 @@ class _PopupWidgetState extends State<PopupWidget>
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -228,7 +228,7 @@ class _PopupWidgetState extends State<PopupWidget>
                                       Icons.check_circle_rounded,
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      size: 32.0,
+                                      size: 28.0,
                                     ),
                                     Flexible(
                                       child: Text(
@@ -252,7 +252,7 @@ class _PopupWidgetState extends State<PopupWidget>
                                   effects: [
                                     FadeEffect(
                                       curve: Curves.easeInOut,
-                                      delay: (stringListIndex * 500).ms,
+                                      delay: (stringListIndex * 350).ms,
                                       duration: 760.0.ms,
                                       begin: 0.0,
                                       end: 1.0,

@@ -71,8 +71,8 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
               Align(
                 alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: (FFAppState().dialogState !=
-                          DialogState.processing)
+                  onPressed: (FFAppState().dialogState ==
+                          DialogState.AI_talking)
                       ? null
                       : () async {
                           logFirebaseEvent('DIALOG_MANAGER_COMP___BTN_ON_TAP');

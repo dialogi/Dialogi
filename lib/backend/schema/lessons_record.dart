@@ -65,6 +65,11 @@ class LessonsRecord extends FirestoreRecord {
   int get steps => _steps ?? 0;
   bool hasSteps() => _steps != null;
 
+  // "first" field.
+  bool? _first;
+  bool get first => _first ?? false;
+  bool hasFirst() => _first != null;
+
   void _initializeFields() {
     _summary = snapshotData['summary'] as String?;
     _startAt = snapshotData['start_at'] as DateTime?;
@@ -78,6 +83,7 @@ class LessonsRecord extends FirestoreRecord {
     _lessonId = snapshotData['lessonId'] as String?;
     _lessonNum = castToType<int>(snapshotData['LessonNum']);
     _steps = castToType<int>(snapshotData['steps']);
+    _first = snapshotData['first'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -125,6 +131,7 @@ Map<String, dynamic> createLessonsRecordData({
   String? lessonId,
   int? lessonNum,
   int? steps,
+  bool? first,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -138,6 +145,7 @@ Map<String, dynamic> createLessonsRecordData({
       'lessonId': lessonId,
       'LessonNum': lessonNum,
       'steps': steps,
+      'first': first,
     }.withoutNulls,
   );
 
@@ -161,7 +169,8 @@ class LessonsRecordDocumentEquality implements Equality<LessonsRecord> {
         e1?.endAt == e2?.endAt &&
         e1?.lessonId == e2?.lessonId &&
         e1?.lessonNum == e2?.lessonNum &&
-        e1?.steps == e2?.steps;
+        e1?.steps == e2?.steps &&
+        e1?.first == e2?.first;
   }
 
   @override
@@ -175,7 +184,8 @@ class LessonsRecordDocumentEquality implements Equality<LessonsRecord> {
         e?.endAt,
         e?.lessonId,
         e?.lessonNum,
-        e?.steps
+        e?.steps,
+        e?.first
       ]);
 
   @override

@@ -37,6 +37,24 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "first",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "start_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "lessons",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "user",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "start_at",
           "order": "DESCENDING"
         }

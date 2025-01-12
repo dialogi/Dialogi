@@ -147,7 +147,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // start_onboarding
   {
     'u0ru7a5r': {
-      'he': 'Dialogi - \nכי אנגלית לא לומדים, מדברים!',
+      'he': 'Dialogi \nכי אנגלית לא לומדים - מדברים!',
       'en': '',
     },
     's2zj0z44': {
@@ -265,12 +265,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'he': 'מחיקת משתמש',
       'en': '',
     },
-    'f26zmkub': {
-      'he': 'מדיניות פרטיות',
-      'en': '',
-    },
     '69z37oon': {
       'he': 'תנאי שימוש',
+      'en': '',
+    },
+    'f26zmkub': {
+      'he': 'מדיניות פרטיות',
       'en': '',
     },
     'cpn81lj7': {
@@ -406,15 +406,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // bottomQuestionCopy
   {
-    'nqxbfr24': {
+    'hh7irsb0': {
       'he': 'שינוי רמת אנגלית',
       'en': '',
     },
-    '5lhna1tv': {
+    'p4ww83t9': {
       'he': '*רמת השיעורים תשתנה בהתאם לבחירתך',
       'en': '',
     },
-    '3dcfwwht': {
+    'js52ea9q': {
       'he': 'עדכן',
       'en': '',
     },

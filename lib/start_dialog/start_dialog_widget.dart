@@ -538,6 +538,10 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                       functions
                                                           .newCustomFunction(),
                                                 )
+                                                .where(
+                                                  'first',
+                                                  isEqualTo: false,
+                                                )
                                                 .orderBy('start_at',
                                                     descending: true),
                                       );

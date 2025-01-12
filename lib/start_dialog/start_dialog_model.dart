@@ -94,6 +94,7 @@ class StartDialogModel extends FlutterFlowModel<StartDialogWidget> {
         ),
         lessonId: lessonId,
         lessonNum: (lessonsCount) + 1,
+        first: ((lessonsCount) + 1).toString() == '1' ? true : false,
       ));
       newLesson = LessonsRecord.getDocumentFromData(
           createLessonsRecordData(
@@ -107,6 +108,7 @@ class StartDialogModel extends FlutterFlowModel<StartDialogWidget> {
             ),
             lessonId: lessonId,
             lessonNum: (lessonsCount) + 1,
+            first: ((lessonsCount) + 1).toString() == '1' ? true : false,
           ),
           lessonsRecordReference);
       logFirebaseEvent('rtt_firestore_query');

@@ -73,6 +73,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('ON_DIALOG_CHAT_on_dialog_chat_ON_INIT_ST');
+      logFirebaseEvent('on_dialog_chat_custom_action');
+      await actions.wakelock();
       logFirebaseEvent('on_dialog_chat_firestore_query');
       _model.currLesson = await queryLessonsRecordOnce(
         queryBuilder: (lessonsRecord) => lessonsRecord
@@ -929,6 +931,14 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   () async {
                                                                 logFirebaseEvent(
                                                                     'ON_DIALOG_CHAT_Timer_9plz1ig8_ON_TIMER_E');
+                                                                logFirebaseEvent(
+                                                                    'Timer_update_app_state');
+                                                                FFAppState()
+                                                                        .onLesson =
+                                                                    false;
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
                                                                 while (FFAppState()
                                                                         .dialogState ==
                                                                     DialogState
@@ -990,14 +1000,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   ),
                                                                 );
 
-                                                                logFirebaseEvent(
-                                                                    'Timer_update_app_state');
-                                                                FFAppState()
-                                                                        .onLesson =
-                                                                    false;
-                                                                FFAppState()
-                                                                    .update(
-                                                                        () {});
                                                                 logFirebaseEvent(
                                                                     'Timer_custom_action');
                                                                 _model.summaryOutput11 =
@@ -1101,9 +1103,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                 _model.audioPath1 =
                                                                     await actions
                                                                         .fetchAndPlaySpeech(
-                                                                  _model
-                                                                      .summaryOutput11!
-                                                                      .summary,
+                                                                  ' עד כאן הזמן שלנו להפעם היום בשיעור ${_model.summaryOutput11?.summary}עבודה טובה, נתראה בשיעור הבא!',
                                                                   FFAppConstants
                                                                       .apiKeyOpenAi,
                                                                   _model
@@ -2125,7 +2125,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                               ).then((s) => s.firstOrNull);
                               logFirebaseEvent('popup_update_page_state');
                               _model.additionalData =
-                                  'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
+                                  'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName, תקרא לתלמיד בשמו.${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
                                 return var1.join(', ');
                               }(_model.hobbys!.answer.toList())}השיעורים הקודמים עסקו במידע הבא ולכן אל תעסוק בו שוב:${functions.getSummaries(_model.last3Lessons!.toList())}';
                               safeSetState(() {});

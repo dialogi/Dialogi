@@ -113,7 +113,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 17.0, 24.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(24.0, 17.0, 24.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -168,115 +168,114 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 0.0),
                                       child: AuthUserStreamWidget(
-                                        builder: (context) => SizedBox(
-                                          width: 250.0,
-                                          child: TextFormField(
-                                            controller: _model.textController,
-                                            focusNode:
-                                                _model.textFieldFocusNode,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.textController',
-                                              const Duration(milliseconds: 2000),
-                                              () async {
-                                                logFirebaseEvent(
-                                                    'SETTINGS_TextField_1brcdc42_ON_TEXTFIELD');
-                                                logFirebaseEvent(
-                                                    'TextField_backend_call');
+                                        builder: (context) => TextFormField(
+                                          controller: _model.textController,
+                                          focusNode: _model.textFieldFocusNode,
+                                          onChanged: (_) =>
+                                              EasyDebounce.debounce(
+                                            '_model.textController',
+                                            const Duration(milliseconds: 2000),
+                                            () async {
+                                              logFirebaseEvent(
+                                                  'SETTINGS_TextField_1brcdc42_ON_TEXTFIELD');
+                                              logFirebaseEvent(
+                                                  'TextField_backend_call');
 
-                                                await currentUserReference!
-                                                    .update(
-                                                        createUsersRecordData(
-                                                  displayName: _model
-                                                      .textController.text,
-                                                ));
-                                              },
-                                            ),
-                                            autofocus: false,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              labelStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                              hintText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'gvzo1z5a' /* הכנס שם */,
-                                              ),
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: Color(0x8357636C),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              filled: true,
-                                              fillColor: Colors.transparent,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Rubik',
-                                                  fontSize: functions
-                                                      .setFontSize(20.0),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  lineHeight: 1.0,
-                                                ),
-                                            textAlign: TextAlign.center,
-                                            cursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            validator: _model
-                                                .textControllerValidator
-                                                .asValidator(context),
+                                              await currentUserReference!
+                                                  .update(createUsersRecordData(
+                                                displayName:
+                                                    _model.textController.text,
+                                              ));
+                                            },
                                           ),
+                                          autofocus: false,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            isDense: true,
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Rubik',
+                                                      fontSize: functions
+                                                          .setFontSize(14.0),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'gvzo1z5a' /* הכנס שם */,
+                                            ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Rubik',
+                                                      fontSize: functions
+                                                          .setFontSize(14.0),
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor: Colors.transparent,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Rubik',
+                                                fontSize:
+                                                    functions.setFontSize(20.0),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                lineHeight: 1.0,
+                                              ),
+                                          textAlign: TextAlign.center,
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                          validator: _model
+                                              .textControllerValidator
+                                              .asValidator(context),
                                         ),
                                       ),
                                     ),
@@ -284,7 +283,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   FaIcon(
                                     FontAwesomeIcons.pencilAlt,
                                     color: FlutterFlowTheme.of(context).primary,
-                                    size: 22.0,
+                                    size: 18.0,
                                   ),
                                 ],
                               ),
@@ -295,121 +294,121 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 15.0),
-                                    child: StreamBuilder<
-                                        List<OnboardingQuestionsRecord>>(
-                                      stream: queryOnboardingQuestionsRecord(
-                                        queryBuilder:
-                                            (onboardingQuestionsRecord) =>
-                                                onboardingQuestionsRecord.where(
-                                          'key',
-                                          isEqualTo: 'תחומי עניין',
-                                        ),
-                                        singleRecord: true,
+                                  StreamBuilder<
+                                      List<OnboardingQuestionsRecord>>(
+                                    stream: queryOnboardingQuestionsRecord(
+                                      queryBuilder:
+                                          (onboardingQuestionsRecord) =>
+                                              onboardingQuestionsRecord.where(
+                                        'key',
+                                        isEqualTo: 'תחומי עניין',
                                       ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: SpinKitRipple(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 50.0,
-                                              ),
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: SpinKitRipple(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 50.0,
                                             ),
-                                          );
-                                        }
-                                        List<OnboardingQuestionsRecord>
-                                            rowOnboardingQuestionsRecordList =
-                                            snapshot.data!;
-                                        // Return an empty Container when the item does not exist.
-                                        if (snapshot.data!.isEmpty) {
-                                          return Container();
-                                        }
-                                        final rowOnboardingQuestionsRecord =
-                                            rowOnboardingQuestionsRecordList
-                                                    .isNotEmpty
-                                                ? rowOnboardingQuestionsRecordList
-                                                    .first
-                                                : null;
+                                          ),
+                                        );
+                                      }
+                                      List<OnboardingQuestionsRecord>
+                                          rowOnboardingQuestionsRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final rowOnboardingQuestionsRecord =
+                                          rowOnboardingQuestionsRecordList
+                                                  .isNotEmpty
+                                              ? rowOnboardingQuestionsRecordList
+                                                  .first
+                                              : null;
 
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'SETTINGS_PAGE_Row_3iqi3o1q_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Row_bottom_sheet');
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  const Color(0x4D000000),
-                                              barrierColor: const Color(0x4D000000),
-                                              context: context,
-                                              builder: (context) {
-                                                return GestureDetector(
-                                                  onTap: () {
-                                                    FocusScope.of(context)
-                                                        .unfocus();
-                                                    FocusManager
-                                                        .instance.primaryFocus
-                                                        ?.unfocus();
-                                                  },
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: BottomQuestionWidget(
-                                                      question:
-                                                          rowOnboardingQuestionsRecord!,
-                                                    ),
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_PAGE_Row_3iqi3o1q_ON_TAP');
+                                          logFirebaseEvent('Row_bottom_sheet');
+                                          showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: const Color(0x4D000000),
+                                            barrierColor: const Color(0x4D000000),
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: BottomQuestionWidget(
+                                                    question:
+                                                        rowOnboardingQuestionsRecord!,
                                                   ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'ae22v0be' /* העדפות תחומי עניין */,
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Rubik',
-                                                      color: const Color(0xFF5F5F60),
-                                                      fontSize: functions
-                                                          .setFontSize(18.0),
-                                                      letterSpacing: 0.0,
-                                                      lineHeight: 1.77,
-                                                    ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ae22v0be' /* העדפות תחומי עניין */,
                                               ),
-                                              const Icon(
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color:
+                                                            const Color(0xFF5F5F60),
+                                                        fontSize: functions
+                                                            .setFontSize(18.0),
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.0,
+                                                      ),
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 10.0, 0.0, 10.0),
+                                              child: Icon(
                                                 Icons.arrow_forward_ios_rounded,
                                                 color: Colors.black,
                                                 size: 20.0,
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
                                   ),
                                   InkWell(
                                     splashColor: Colors.transparent,
@@ -466,483 +465,407 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 fontSize:
                                                     functions.setFontSize(18.0),
                                                 letterSpacing: 0.0,
-                                                lineHeight: 1.77,
                                               ),
                                         ),
-                                        const Icon(
-                                          Icons.arrow_forward_ios_rounded,
-                                          color: Colors.black,
-                                          size: 20.0,
+                                        const Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 10.0),
+                                          child: Icon(
+                                            Icons.arrow_forward_ios_rounded,
+                                            color: Colors.black,
+                                            size: 20.0,
+                                          ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 20.0, 0.0, 10.0),
-                                    child: StreamBuilder<
-                                        List<OnboardingQuestionsRecord>>(
-                                      stream: queryOnboardingQuestionsRecord(
-                                        queryBuilder:
-                                            (onboardingQuestionsRecord) =>
-                                                onboardingQuestionsRecord.where(
-                                          'key',
-                                          isEqualTo: 'מניע',
-                                        ),
-                                        singleRecord: true,
+                                  StreamBuilder<
+                                      List<OnboardingQuestionsRecord>>(
+                                    stream: queryOnboardingQuestionsRecord(
+                                      queryBuilder:
+                                          (onboardingQuestionsRecord) =>
+                                              onboardingQuestionsRecord.where(
+                                        'key',
+                                        isEqualTo: 'מניע',
                                       ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: SpinKitRipple(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 50.0,
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: SpinKitRipple(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<OnboardingQuestionsRecord>
+                                          rowOnboardingQuestionsRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final rowOnboardingQuestionsRecord =
+                                          rowOnboardingQuestionsRecordList
+                                                  .isNotEmpty
+                                              ? rowOnboardingQuestionsRecordList
+                                                  .first
+                                              : null;
+
+                                      return InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_PAGE_Row_hxvui0u4_ON_TAP');
+                                          logFirebaseEvent('Row_bottom_sheet');
+                                          showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: const Color(0x4C000000),
+                                            barrierColor: const Color(0x4C000000),
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: BottomQuestionWidget(
+                                                    question:
+                                                        rowOnboardingQuestionsRecord!,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Flexible(
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'fewzb0vf' /* יעדים ומטרות */,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Rubik',
+                                                      color: const Color(0xFF5F5F60),
+                                                      fontSize: functions
+                                                          .setFontSize(18.0),
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                             ),
-                                          );
-                                        }
-                                        List<OnboardingQuestionsRecord>
-                                            rowOnboardingQuestionsRecordList =
-                                            snapshot.data!;
-                                        // Return an empty Container when the item does not exist.
-                                        if (snapshot.data!.isEmpty) {
-                                          return Container();
-                                        }
-                                        final rowOnboardingQuestionsRecord =
-                                            rowOnboardingQuestionsRecordList
-                                                    .isNotEmpty
-                                                ? rowOnboardingQuestionsRecordList
-                                                    .first
-                                                : null;
-
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'SETTINGS_PAGE_Row_hxvui0u4_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Row_bottom_sheet');
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  const Color(0x4C000000),
-                                              barrierColor: const Color(0x4C000000),
-                                              context: context,
-                                              builder: (context) {
-                                                return GestureDetector(
-                                                  onTap: () {
-                                                    FocusScope.of(context)
-                                                        .unfocus();
-                                                    FocusManager
-                                                        .instance.primaryFocus
-                                                        ?.unfocus();
-                                                  },
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: BottomQuestionWidget(
-                                                      question:
-                                                          rowOnboardingQuestionsRecord!,
-                                                    ),
+                                            Container(
+                                              height: 34.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        444.0),
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 12.0, 0.0),
+                                                child: StreamBuilder<
+                                                    List<UserAnswersRecord>>(
+                                                  stream:
+                                                      queryUserAnswersRecord(
+                                                    queryBuilder:
+                                                        (userAnswersRecord) =>
+                                                            userAnswersRecord
+                                                                .where(
+                                                                  'user',
+                                                                  isEqualTo:
+                                                                      currentUserUid,
+                                                                )
+                                                                .where(
+                                                                  'question',
+                                                                  isEqualTo:
+                                                                      rowOnboardingQuestionsRecord
+                                                                          ?.key,
+                                                                ),
+                                                    singleRecord: true,
                                                   ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Flexible(
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          1.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Flexible(
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'fewzb0vf' /* יעדים ומטרות */,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Rubik',
-                                                                color: const Color(
-                                                                    0xFF5F5F60),
-                                                                fontSize: functions
-                                                                    .setFontSize(
-                                                                        18.0),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                lineHeight:
-                                                                    1.77,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        height: 34.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      444.0),
-                                                          border: Border.all(
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child: SpinKitRipple(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primary,
+                                                            size: 50.0,
                                                           ),
                                                         ),
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: StreamBuilder<
-                                                              List<
-                                                                  UserAnswersRecord>>(
-                                                            stream:
-                                                                queryUserAnswersRecord(
-                                                              queryBuilder:
-                                                                  (userAnswersRecord) =>
-                                                                      userAnswersRecord
-                                                                          .where(
-                                                                            'user',
-                                                                            isEqualTo:
-                                                                                currentUserUid,
-                                                                          )
-                                                                          .where(
-                                                                            'question',
-                                                                            isEqualTo:
-                                                                                rowOnboardingQuestionsRecord?.key,
-                                                                          ),
-                                                              singleRecord:
-                                                                  true,
-                                                            ),
-                                                            builder: (context,
-                                                                snapshot) {
-                                                              // Customize what your widget looks like when it's loading.
-                                                              if (!snapshot
-                                                                  .hasData) {
-                                                                return Center(
-                                                                  child:
-                                                                      SizedBox(
-                                                                    width: 50.0,
-                                                                    height:
-                                                                        50.0,
-                                                                    child:
-                                                                        SpinKitRipple(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      size:
-                                                                          50.0,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              }
-                                                              List<UserAnswersRecord>
-                                                                  textUserAnswersRecordList =
-                                                                  snapshot
-                                                                      .data!;
-                                                              // Return an empty Container when the item does not exist.
-                                                              if (snapshot.data!
-                                                                  .isEmpty) {
-                                                                return Container();
-                                                              }
-                                                              final textUserAnswersRecord =
-                                                                  textUserAnswersRecordList
-                                                                          .isNotEmpty
-                                                                      ? textUserAnswersRecordList
-                                                                          .first
-                                                                      : null;
+                                                      );
+                                                    }
+                                                    List<UserAnswersRecord>
+                                                        textUserAnswersRecordList =
+                                                        snapshot.data!;
+                                                    // Return an empty Container when the item does not exist.
+                                                    if (snapshot
+                                                        .data!.isEmpty) {
+                                                      return Container();
+                                                    }
+                                                    final textUserAnswersRecord =
+                                                        textUserAnswersRecordList
+                                                                .isNotEmpty
+                                                            ? textUserAnswersRecordList
+                                                                .first
+                                                            : null;
 
-                                                              return Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  textUserAnswersRecord
-                                                                      ?.answer
-                                                                      .firstOrNull,
-                                                                  'goal',
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Rubik',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      fontSize:
-                                                                          functions
-                                                                              .setFontSize(16.0),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                      lineHeight:
-                                                                          1.5,
-                                                                    ),
-                                                              );
-                                                            },
-                                                          ),
-                                                        ),
+                                                    return Text(
+                                                      valueOrDefault<String>(
+                                                        textUserAnswersRecord
+                                                            ?.answer
+                                                            .firstOrNull,
+                                                        'goal',
                                                       ),
-                                                    ].divide(
-                                                        const SizedBox(width: 24.0)),
-                                                  ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Rubik',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            fontSize: functions
+                                                                .setFontSize(
+                                                                    16.0),
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            lineHeight: 1.5,
+                                                          ),
+                                                    );
+                                                  },
                                                 ),
                                               ),
-                                              const Icon(
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 10.0, 0.0, 10.0),
+                                              child: Icon(
                                                 Icons.arrow_forward_ios_rounded,
                                                 color: Colors.black,
                                                 size: 20.0,
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 10.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'SETTINGS_PAGE_Row_l0t03mji_ON_TAP');
-                                        logFirebaseEvent(
-                                            'Row_date_time_picker');
-                                        await showModalBottomSheet<bool>(
-                                            context: context,
-                                            builder: (context) {
-                                              return SizedBox(
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height /
-                                                    3,
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                child: CupertinoDatePicker(
-                                                  mode: CupertinoDatePickerMode
-                                                      .time,
-                                                  minimumDate: DateTime(1900),
-                                                  initialDateTime:
-                                                      (currentUserDocument
-                                                              ?.notificationsTime ??
-                                                          DateTime.now()),
-                                                  maximumDate: DateTime(2050),
-                                                  use24hFormat: false,
-                                                  onDateTimeChanged:
-                                                      (newDateTime) =>
-                                                          safeSetState(() {
-                                                    _model.datePicked =
-                                                        newDateTime;
-                                                  }),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'SETTINGS_PAGE_Row_l0t03mji_ON_TAP');
+                                      logFirebaseEvent('Row_date_time_picker');
+                                      await showModalBottomSheet<bool>(
+                                          context: context,
+                                          builder: (context) {
+                                            return SizedBox(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  3,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              child: CupertinoDatePicker(
+                                                mode: CupertinoDatePickerMode
+                                                    .time,
+                                                minimumDate: DateTime(1900),
+                                                initialDateTime:
+                                                    (currentUserDocument
+                                                            ?.notificationsTime ??
+                                                        DateTime.now()),
+                                                maximumDate: DateTime(2050),
+                                                use24hFormat: false,
+                                                onDateTimeChanged:
+                                                    (newDateTime) =>
+                                                        safeSetState(() {
+                                                  _model.datePicked =
+                                                      newDateTime;
+                                                }),
+                                              ),
+                                            );
+                                          });
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '1f2a6tse' /* תזכורות לשיעורים */,
+                                            ),
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Rubik',
+                                                  color: const Color(0xFF5F5F60),
+                                                  fontSize: functions
+                                                      .setFontSize(18.0),
+                                                  letterSpacing: 0.0,
                                                 ),
-                                              );
-                                            });
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Flexible(
-                                            child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '1f2a6tse' /* תזכורות לשיעורים */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Rubik',
-                                                          color:
-                                                              const Color(0xFF5F5F60),
-                                                          fontSize: functions
-                                                              .setFontSize(
-                                                                  18.0),
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.77,
-                                                        ),
-                                                  ),
-                                                  Container(
-                                                    height: 34.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              444.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 34.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(444.0),
+                                            border: Border.all(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                            ),
+                                          ),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                _model.datePicked != null
+                                                    ? dateTimeFormat(
+                                                        "Hm",
+                                                        _model.datePicked,
+                                                        locale:
+                                                            FFLocalizations.of(
                                                                     context)
-                                                                .primary,
+                                                                .languageCode,
+                                                      )
+                                                    : dateTimeFormat(
+                                                        "Hm",
+                                                        currentUserDocument!
+                                                            .notificationsTime!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
                                                       ),
+                                                textAlign: TextAlign.center,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Rubik',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      fontSize: functions
+                                                          .setFontSize(16.0),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      lineHeight: 1.5,
                                                     ),
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  12.0,
-                                                                  0.0),
-                                                      child:
-                                                          AuthUserStreamWidget(
-                                                        builder: (context) =>
-                                                            Text(
-                                                          _model.datePicked !=
-                                                                  null
-                                                              ? dateTimeFormat(
-                                                                  "Hm",
-                                                                  _model
-                                                                      .datePicked,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                )
-                                                              : dateTimeFormat(
-                                                                  "Hm",
-                                                                  currentUserDocument!
-                                                                      .notificationsTime!,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Rubik',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                fontSize: functions
-                                                                    .setFontSize(
-                                                                        16.0),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                lineHeight: 1.5,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ].divide(const SizedBox(width: 24.0)),
                                               ),
                                             ),
                                           ),
-                                          AuthUserStreamWidget(
-                                            builder: (context) =>
-                                                Switch.adaptive(
-                                              value: _model.switchValue1!,
-                                              onChanged: (newValue) async {
-                                                safeSetState(() => _model
-                                                    .switchValue1 = newValue);
-                                                if (newValue) {
-                                                  logFirebaseEvent(
-                                                      'SETTINGS_Switch_nab1hlno_ON_TOGGLE_ON');
-                                                  logFirebaseEvent(
-                                                      'Switch_backend_call');
+                                        ),
+                                        AuthUserStreamWidget(
+                                          builder: (context) => Switch.adaptive(
+                                            value: _model.switchValue1!,
+                                            onChanged: (newValue) async {
+                                              safeSetState(() => _model
+                                                  .switchValue1 = newValue);
+                                              if (newValue) {
+                                                logFirebaseEvent(
+                                                    'SETTINGS_Switch_nab1hlno_ON_TOGGLE_ON');
+                                                logFirebaseEvent(
+                                                    'Switch_backend_call');
 
-                                                  await currentUserReference!
-                                                      .update(
-                                                          createUsersRecordData(
-                                                    lessonsAlert: true,
-                                                  ));
-                                                } else {
-                                                  logFirebaseEvent(
-                                                      'SETTINGS_Switch_nab1hlno_ON_TOGGLE_OFF');
-                                                  logFirebaseEvent(
-                                                      'Switch_backend_call');
+                                                await currentUserReference!
+                                                    .update(
+                                                        createUsersRecordData(
+                                                  lessonsAlert: true,
+                                                ));
+                                              } else {
+                                                logFirebaseEvent(
+                                                    'SETTINGS_Switch_nab1hlno_ON_TOGGLE_OFF');
+                                                logFirebaseEvent(
+                                                    'Switch_backend_call');
 
-                                                  await currentUserReference!
-                                                      .update(
-                                                          createUsersRecordData(
-                                                    lessonsAlert: false,
-                                                  ));
-                                                }
-                                              },
-                                              activeColor: Colors.white,
-                                              activeTrackColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              inactiveTrackColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              inactiveThumbColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                            ),
+                                                await currentUserReference!
+                                                    .update(
+                                                        createUsersRecordData(
+                                                  lessonsAlert: false,
+                                                ));
+                                              }
+                                            },
+                                            activeColor: Colors.white,
+                                            activeTrackColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            inactiveTrackColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            inactiveThumbColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryText,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                   Row(
@@ -950,20 +873,25 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ivz59lac' /* התראות */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Rubik',
-                                              color: const Color(0xFF5F5F60),
-                                              fontSize:
-                                                  functions.setFontSize(18.0),
-                                              letterSpacing: 0.0,
-                                              lineHeight: 1.77,
+                                      Flexible(
+                                        child: Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'ivz59lac' /* התראות */,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Rubik',
+                                                  color: const Color(0xFF5F5F60),
+                                                  fontSize: functions
+                                                      .setFontSize(18.0),
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
                                       ),
                                       AuthUserStreamWidget(
                                         builder: (context) => Switch.adaptive(
@@ -1100,14 +1028,14 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         ),
                                       ),
                                     ),
-                                ],
+                                ].divide(const SizedBox(height: 12.0)),
                               ),
                             ),
                           ],
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 22.0, 0.0, 0.0),
+                              0.0, 52.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -1207,7 +1135,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               Builder(
                                 builder: (context) => Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 22.0, 0.0, 0.0),
+                                      0.0, 30.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       logFirebaseEvent(
@@ -1275,8 +1203,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           ),
                                       elevation: 0.0,
                                       borderSide: const BorderSide(
-                                        color: Color(0xFFE81522),
-                                        width: 1.0,
+                                        color: Colors.transparent,
+                                        width: 0.0,
                                       ),
                                       borderRadius: BorderRadius.circular(56.0),
                                     ),
@@ -1292,52 +1220,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Expanded(
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'SETTINGS_PAGE___BTN_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Button_launch_u_r_l');
-                                          await launchURL(
-                                              'https://dialogiapp.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/');
-                                        },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'f26zmkub' /* מדיניות פרטיות */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          height: 48.0,
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: Colors.white,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Rubik',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                fontSize:
-                                                    functions.setFontSize(16.0),
-                                                letterSpacing: 0.0,
-                                              ),
-                                          elevation: 0.0,
-                                          borderSide: const BorderSide(
-                                            color: Color(0x00FFFFFF),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(56.0),
-                                        ),
-                                        showLoadingIndicator: false,
-                                      ),
-                                    ),
                                     Expanded(
                                       child: FFButtonWidget(
                                         onPressed: () async {
@@ -1377,6 +1259,52 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           borderSide: const BorderSide(
                                             color: Color(0x00FFFFFF),
                                             width: 0.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(56.0),
+                                        ),
+                                        showLoadingIndicator: false,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_PAGE___BTN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_launch_u_r_l');
+                                          await launchURL(
+                                              'https://dialogiapp.com/%D7%9E%D7%93%D7%99%D7%A0%D7%99%D7%95%D7%AA-%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA/');
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'f26zmkub' /* מדיניות פרטיות */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          height: 48.0,
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 0.0, 24.0, 0.0),
+                                          iconPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: Colors.white,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Rubik',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize:
+                                                    functions.setFontSize(16.0),
+                                                letterSpacing: 0.0,
+                                              ),
+                                          elevation: 0.0,
+                                          borderSide: const BorderSide(
+                                            color: Color(0x00FFFFFF),
+                                            width: 1.0,
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(56.0),
