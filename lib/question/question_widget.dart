@@ -9,6 +9,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
+import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:math' as math;
 import 'package:collection/collection.dart';
@@ -47,6 +49,13 @@ class _QuestionWidgetState extends State<QuestionWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('QUESTION_PAGE_question_ON_INIT_STATE');
+      logFirebaseEvent('question_action_block');
+      unawaited(
+        () async {
+          await action_blocks.setLang(context);
+          safeSetState(() {});
+        }(),
+      );
       logFirebaseEvent('question_firestore_query');
       _model.userExist = await queryUsersRecordCount(
         queryBuilder: (usersRecord) => usersRecord.where(
@@ -306,35 +315,40 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                               .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
-                                                              .start,
+                                                              .end,
                                                       children: [
-                                                        Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            questionOnboardingQuestionsRecord
-                                                                .title,
-                                                            'רמת האנגלית הנוכחית שלך',
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  -1.0, 0.0),
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              questionOnboardingQuestionsRecord
+                                                                  .title,
+                                                              'רמת האנגלית הנוכחית שלך',
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  color: const Color(
+                                                                      0xFF232C2E),
+                                                                  fontSize: functions
+                                                                      .setFontSize(
+                                                                          21.0),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.start,
-                                                          maxLines: 2,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Rubik',
-                                                                color: const Color(
-                                                                    0xFF232C2E),
-                                                                fontSize: functions
-                                                                    .setFontSize(
-                                                                        21.0),
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
                                                         ),
                                                         Align(
                                                           alignment:
@@ -348,7 +362,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                               'בחרו את התשובה המתאימה',
                                                             ),
                                                             textAlign:
-                                                                TextAlign.end,
+                                                                TextAlign.start,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium

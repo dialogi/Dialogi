@@ -209,7 +209,7 @@ class _PopupWidgetState extends State<PopupWidget>
                         true)
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 12.0, 24.0, 14.0),
+                            64.0, 12.0, 24.0, 14.0),
                         child: Builder(
                           builder: (context) {
                             final stringList =

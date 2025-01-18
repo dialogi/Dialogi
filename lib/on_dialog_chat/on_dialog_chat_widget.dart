@@ -1227,16 +1227,16 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                         _model.dialogController,
                                                       ),
                                                       FlutterFlowTimer(
-                                                        initialTime: ((FFAppState()
+                                                        initialTime: (((FFAppState()
                                                                             .userSub
                                                                             .lessonLimit ==
                                                                         0
                                                                     ? 3
                                                                     : FFAppState()
                                                                         .userSub
-                                                                        .lessonLimit) *
-                                                                60000) -
-                                                            30000,
+                                                                        .lessonLimit) -
+                                                                1) *
+                                                            60000),
                                                         getDisplayTime: (value) =>
                                                             StopWatchTimer
                                                                 .getDisplayTime(
