@@ -75,6 +75,8 @@ class StartDialogModel extends FlutterFlowModel<StartDialogWidget> {
     logFirebaseEvent('rtt_backend_call');
     apiResultr2i = await OpenAIAPIGroup.createThreadCall.call();
 
+    logFirebaseEvent('rtt_update_app_state');
+    FFAppState().log = (apiResultr2i.jsonBody ?? '').toString();
     if ((apiResultr2i.succeeded ?? true)) {
       logFirebaseEvent('rtt_action_block');
       await action_blocks.userSubscriptionLoad(context);

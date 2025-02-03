@@ -68,3 +68,7 @@ String getSummaries(List<LessonsRecord> lessons) {
       .where((summary) => summary != null) // Filter out null summaries
       .join(', '); // Join summaries with a comma
 }
+
+DateTime addDaysToInboundDate(DateTime inboundDate) {
+  return inboundDate.add(Duration(days: 7));
+}

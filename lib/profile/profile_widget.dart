@@ -3,11 +3,16 @@ import '/backend/backend.dart';
 import '/components/lesson_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -29,6 +34,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     _model = createModel(context, () => ProfileModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'profile'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('PROFILE_PAGE_profile_ON_INIT_STATE');
+      logFirebaseEvent('profile_action_block');
+      await action_blocks.userSubscriptionLoad(context);
+      safeSetState(() {});
+    });
   }
 
   @override
@@ -40,6 +52,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -230,7 +244,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         children: [
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 16.0, 0.0, 24.0),
+                                0.0, 16.0, 0.0, 16.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
                                 currentUserDisplayName,
@@ -244,6 +258,381 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       fontWeight: FontWeight.bold,
                                       lineHeight: 1.16,
                                     ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 18.0),
+                            child: FutureBuilder<List<LessonsRecord>>(
+                              future: queryLessonsRecordOnce(
+                                queryBuilder: (lessonsRecord) => lessonsRecord
+                                    .where(
+                                      'user',
+                                      isEqualTo: currentUserUid,
+                                    )
+                                    .where(
+                                      'start_at',
+                                      isGreaterThanOrEqualTo:
+                                          functions.newCustomFunction(),
+                                    )
+                                    .where(
+                                      'first',
+                                      isEqualTo: false,
+                                    )
+                                    .orderBy('start_at', descending: true),
+                                limit: 7,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitRipple(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 50.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<LessonsRecord> containerLessonsRecordList =
+                                    snapshot.data!;
+
+                                return Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 16.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 155.0,
+                                          height: 29.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(111.0),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                  child: SvgPicture.asset(
+                                                    'assets/images/student_1_(1).svg',
+                                                    width: 16.0,
+                                                    height: 16.0,
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  () {
+                                                    if (FFAppState()
+                                                            .userSub
+                                                            .name ==
+                                                        'Champion') {
+                                                      return 'מנוי אלופים';
+                                                    } else if (FFAppState()
+                                                            .userSub
+                                                            .name ==
+                                                        'Explorer') {
+                                                      return 'מנוי סטודנטים';
+                                                    } else if (FFAppState()
+                                                            .userSub
+                                                            .name ==
+                                                        'Adventurer') {
+                                                      return 'מנוי מתקדמים';
+                                                    } else {
+                                                      return 'ללא מנוי';
+                                                    }
+                                                  }(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Rubik',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: functions
+                                                            .setFontSize(16.0),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ].divide(const SizedBox(width: 8.0)),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 16.0, 16.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0.0),
+                                                    child: SvgPicture.asset(
+                                                      'assets/images/calendar.svg',
+                                                      width: 24.0,
+                                                      height: 24.0,
+                                                      fit: BoxFit.fitWidth,
+                                                      alignment:
+                                                          const Alignment(-1.0, -1.0),
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'l57brgvx' /* מתחדש בתאריך */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Rubik',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: functions
+                                                                  .setFontSize(
+                                                                      14.0),
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 1.3,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        containerLessonsRecordList
+                                                                .isNotEmpty
+                                                            ? dateTimeFormat(
+                                                                "d/M/y",
+                                                                functions.addDaysToInboundDate(
+                                                                    containerLessonsRecordList
+                                                                        .lastOrNull!
+                                                                        .startAt!),
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )
+                                                            : '----/--/--',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Rubik',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: functions
+                                                                  .setFontSize(
+                                                                      16.0),
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              lineHeight: 1.3,
+                                                            ),
+                                                      ),
+                                                    ].divide(
+                                                        const SizedBox(height: 3.0)),
+                                                  ),
+                                                ].divide(const SizedBox(width: 10.0)),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 43.0,
+                                              child: VerticalDivider(
+                                                width: 33.0,
+                                                thickness: 0.5,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0.0),
+                                                    child: SvgPicture.asset(
+                                                      'assets/images/Frame_427320968.svg',
+                                                      width: 24.0,
+                                                      height: 24.0,
+                                                      fit: BoxFit.fitWidth,
+                                                      alignment:
+                                                          const Alignment(-1.0, -1.0),
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '9p07rzs9' /* המכסה השבועית */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Rubik',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: functions
+                                                                  .setFontSize(
+                                                                      14.0),
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              lineHeight: 1.3,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        '${containerLessonsRecordList.length.toString()}/${FFAppState().userSub.frequencyPerWeek.toString()}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Rubik',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: functions
+                                                                  .setFontSize(
+                                                                      16.0),
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              lineHeight: 1.3,
+                                                            ),
+                                                      ),
+                                                    ].divide(
+                                                        const SizedBox(height: 3.0)),
+                                                  ),
+                                                ].divide(const SizedBox(width: 10.0)),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 24.0),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 14.0,
+                                    color: Color(0x67546DEF),
+                                    offset: Offset(
+                                      0.0,
+                                      4.0,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'PROFILE_PAGE_______BTN_ON_TAP');
+                                  logFirebaseEvent('Button_action_block');
+                                  await action_blocks
+                                      .paywallRevenueCat(context);
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  '3eqjjj7e' /* שדרג עכשיו את המכסה שלך > */,
+                                ),
+                                options: FFButtonOptions(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Colors.white,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Rubik',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: functions.setFontSize(16.0),
+                                        letterSpacing: 0.0,
+                                        lineHeight: 1.5,
+                                      ),
+                                  elevation: 0.0,
+                                  borderSide: const BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                  borderRadius: BorderRadius.circular(56.0),
+                                ),
+                                showLoadingIndicator: false,
                               ),
                             ),
                           ),

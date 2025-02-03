@@ -7,7 +7,7 @@ abstract class FFAppConstants {
   static const String pronounce = 'asst_YTbQBu4UZiaOAz5XTfoRPbqE';
   static const String assistant1 = 'asst_9PlvWzsXZ8kWRHFAFPB7P40b';
   static const String apiKeyOpenAi =
-      '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';
+      'sk-svcacct-ybGn_frXzfgr0mAM4FLpgE1-qOuCVkAK_IZy_oYEVBa34zrMehYYtqUO7aMGPn0BET3BlbkFJR9A5eTkFCPgFzTi6rP7Ch1Cjf-T9WFtcqheuJFGfw8kO0rPZrqBbu8oaYYCdpx0AA';
   static const List<String> quickQuestions = [
     'דוגמא נוספת',
     'להאט את הדיבור',
