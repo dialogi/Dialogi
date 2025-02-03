@@ -597,42 +597,47 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   )
                                 ],
                               ),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'PROFILE_PAGE_______BTN_ON_TAP');
-                                  logFirebaseEvent('Button_action_block');
-                                  await action_blocks
-                                      .paywallRevenueCat(context);
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  '3eqjjj7e' /* שדרג עכשיו את המכסה שלך > */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Colors.white,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: functions.setFontSize(16.0),
-                                        letterSpacing: 0.0,
-                                        lineHeight: 1.5,
-                                      ),
-                                  elevation: 0.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
+                              child: Visibility(
+                                visible:
+                                    FFAppState().userSub.name != 'Champion',
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'PROFILE_PAGE_______BTN_ON_TAP');
+                                    logFirebaseEvent('Button_action_block');
+                                    await action_blocks
+                                        .paywallRevenueCat(context);
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    '3eqjjj7e' /* שדרג עכשיו את המכסה שלך > */,
                                   ),
-                                  borderRadius: BorderRadius.circular(56.0),
+                                  options: FFButtonOptions(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 40.0,
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Colors.white,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: functions.setFontSize(16.0),
+                                          letterSpacing: 0.0,
+                                          lineHeight: 1.5,
+                                        ),
+                                    elevation: 0.0,
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                    ),
+                                    borderRadius: BorderRadius.circular(56.0),
+                                  ),
+                                  showLoadingIndicator: false,
                                 ),
-                                showLoadingIndicator: false,
                               ),
                             ),
                           ),
