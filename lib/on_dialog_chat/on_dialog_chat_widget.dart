@@ -1121,6 +1121,14 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                 await actions
                                                                     .stopInterruption();
                                                                 logFirebaseEvent(
+                                                                    'Timer_update_app_state');
+                                                                FFAppState()
+                                                                        .dialogState =
+                                                                    DialogState
+                                                                        .processing;
+                                                                safeSetState(
+                                                                    () {});
+                                                                logFirebaseEvent(
                                                                     'Timer_navigate_to');
 
                                                                 context.goNamed(
@@ -1226,63 +1234,67 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                         rowDosgrcgx,
                                                         _model.dialogController,
                                                       ),
-                                                      FlutterFlowTimer(
-                                                        initialTime: (((FFAppState()
-                                                                            .userSub
-                                                                            .lessonLimit ==
-                                                                        0
-                                                                    ? 3
-                                                                    : FFAppState()
-                                                                        .userSub
-                                                                        .lessonLimit) -
-                                                                1) *
-                                                            60000),
-                                                        getDisplayTime: (value) =>
-                                                            StopWatchTimer
-                                                                .getDisplayTime(
-                                                          value,
-                                                          hours: false,
-                                                          milliSecond: false,
-                                                        ),
-                                                        controller: _model
-                                                            .timerController2,
-                                                        updateStateInterval:
-                                                            const Duration(
-                                                                milliseconds:
-                                                                    1000),
-                                                        onChanged: (value,
-                                                            displayTime,
-                                                            shouldUpdate) {
-                                                          _model.timerMilliseconds2 =
-                                                              value;
-                                                          _model.timerValue2 =
-                                                              displayTime;
-                                                          if (shouldUpdate) {
+                                                      AuthUserStreamWidget(
+                                                        builder: (context) =>
+                                                            FlutterFlowTimer(
+                                                          initialTime: (((!valueOrDefault<
+                                                                              bool>(
+                                                                          currentUserDocument
+                                                                              ?.walkthrow,
+                                                                          false)
+                                                                      ? 7
+                                                                      : FFAppState()
+                                                                          .userSub
+                                                                          .lessonLimit) -
+                                                                  1) *
+                                                              60000),
+                                                          getDisplayTime: (value) =>
+                                                              StopWatchTimer
+                                                                  .getDisplayTime(
+                                                            value,
+                                                            hours: false,
+                                                            milliSecond: false,
+                                                          ),
+                                                          controller: _model
+                                                              .timerController2,
+                                                          updateStateInterval:
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      1000),
+                                                          onChanged: (value,
+                                                              displayTime,
+                                                              shouldUpdate) {
+                                                            _model.timerMilliseconds2 =
+                                                                value;
+                                                            _model.timerValue2 =
+                                                                displayTime;
+                                                            if (shouldUpdate) {
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+                                                          },
+                                                          onEnded: () async {
+                                                            logFirebaseEvent(
+                                                                'ON_DIALOG_CHAT_Timer_rbzd9cza_ON_TIMER_E');
+                                                            logFirebaseEvent(
+                                                                'Timer_update_page_state');
+                                                            _model.beforeEnd =
+                                                                true;
                                                             safeSetState(() {});
-                                                          }
-                                                        },
-                                                        onEnded: () async {
-                                                          logFirebaseEvent(
-                                                              'ON_DIALOG_CHAT_Timer_rbzd9cza_ON_TIMER_E');
-                                                          logFirebaseEvent(
-                                                              'Timer_update_page_state');
-                                                          _model.beforeEnd =
-                                                              true;
-                                                          safeSetState(() {});
-                                                        },
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Rubik',
-                                                                  fontSize: 0.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                          },
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .headlineSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Rubik',
+                                                                fontSize: 0.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ].divide(
                                                         const SizedBox(width: 6.0)),
@@ -2083,6 +2095,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                               safeSetState(() {});
                               logFirebaseEvent('popup_custom_action');
                               await actions.stopInterruption();
+                              logFirebaseEvent('popup_update_page_state');
+                              _model.captionView = false;
+                              safeSetState(() {});
                               if (FFAppState().onLesson) {
                                 logFirebaseEvent('popup_timer');
                                 _model.timerController1.onStartTimer();
@@ -2347,11 +2362,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         await Future.delayed(
                                             const Duration(milliseconds: 500));
                                       }
-                                      logFirebaseEvent(
-                                          'popup_update_app_state');
-                                      FFAppState().dialogState =
-                                          DialogState.AI_talking;
-                                      safeSetState(() {});
                                       logFirebaseEvent('popup_wait__delay');
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
@@ -2370,10 +2380,20 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         );
                                       }
                                       if (FFAppState().onLesson) {
+                                        logFirebaseEvent(
+                                            'popup_update_app_state');
+                                        FFAppState().dialogState =
+                                            DialogState.AI_talking;
+                                        safeSetState(() {});
                                         logFirebaseEvent('popup_custom_action');
                                         await actions.playAudio(
                                           _model.audioPath!,
                                         );
+                                        logFirebaseEvent(
+                                            'popup_update_app_state');
+                                        FFAppState().dialogState =
+                                            DialogState.processing;
+                                        safeSetState(() {});
                                         logFirebaseEvent(
                                             'popup_update_app_state');
                                         FFAppState().log = '2';

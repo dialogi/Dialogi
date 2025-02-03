@@ -209,7 +209,7 @@ class _PopupWidgetState extends State<PopupWidget>
                         true)
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            64.0, 12.0, 24.0, 14.0),
+                            14.0, 12.0, 14.0, 14.0),
                         child: Builder(
                           builder: (context) {
                             final stringList =
@@ -241,7 +241,7 @@ class _PopupWidgetState extends State<PopupWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               fontSize:
-                                                  functions.setFontSize(16.0),
+                                                  functions.setFontSize(15.0),
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -291,7 +291,7 @@ class _PopupWidgetState extends State<PopupWidget>
                     if (widget.button != null && widget.button != '')
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 24.0, 24.0, 0.0),
+                            20.0, 24.0, 20.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent('POPUP_COMP_BUTTON_BTN_ON_TAP');

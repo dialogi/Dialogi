@@ -53,7 +53,8 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (widget.teacherImg == 'נועה כהן')
+        if ((widget.teacherImg == 'נועה') ||
+            (widget.teacherImg == 'נועה כהן'))
           Flexible(
             child: Container(
               width: widget.imgWidth,
@@ -79,7 +80,8 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               ),
             ),
           ),
-        if (widget.teacherImg == 'יואב כהן')
+        if ((widget.teacherImg == 'יואב') ||
+            (widget.teacherImg == 'יואב כהן'))
           Flexible(
             child: Container(
               width: widget.imgWidth,
@@ -105,7 +107,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               ),
             ),
           ),
-        if (widget.teacherImg == 'תמר סלע')
+        if ((widget.teacherImg == 'תמר') || (widget.teacherImg == 'תמר סלע'))
           Flexible(
             child: Container(
               width: widget.imgWidth,
@@ -131,7 +133,8 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               ),
             ),
           ),
-        if (widget.teacherImg == 'עומר זלמן')
+        if ((widget.teacherImg == 'עומר') ||
+            (widget.teacherImg == 'עומר זלמן'))
           Flexible(
             child: Container(
               width: widget.imgWidth,

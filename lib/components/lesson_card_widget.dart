@@ -94,7 +94,8 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (widget.teacherName == 'נועה כהן')
+                if ((widget.teacherName == 'נועה') ||
+                    (widget.teacherName == 'נועה כהן'))
                   Flexible(
                     child: Container(
                       width: 56.0,
@@ -116,7 +117,8 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       ),
                     ),
                   ),
-                if (widget.teacherName == 'יואב כהן')
+                if ((widget.teacherName == 'יואב') ||
+                    (widget.teacherName == 'יואב כהן'))
                   Flexible(
                     child: Container(
                       width: 56.0,
@@ -138,7 +140,8 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       ),
                     ),
                   ),
-                if (widget.teacherName == 'תמר סלע')
+                if ((widget.teacherName == 'תמר') ||
+                    (widget.teacherName == 'תמר סלע'))
                   Flexible(
                     child: Container(
                       width: 56.0,
@@ -161,7 +164,8 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       ),
                     ),
                   ),
-                if (widget.teacherName == 'עומר זלמן')
+                if ((widget.teacherName == 'עומר') ||
+                    (widget.teacherName == 'עומר זלמן'))
                   Flexible(
                     child: Container(
                       width: 56.0,

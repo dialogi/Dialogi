@@ -114,7 +114,8 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              if (widget.teacherName == 'נועה כהן')
+                              if ((widget.teacherName == 'נועה') ||
+                                  (widget.teacherName == 'נועה כהן'))
                                 Flexible(
                                   child: Container(
                                     width: 68.0,
@@ -133,7 +134,8 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                     ),
                                   ),
                                 ),
-                              if (widget.teacherName == 'יואב כהן')
+                              if ((widget.teacherName == 'יואב') ||
+                                  (widget.teacherName == 'יואב כהן'))
                                 Flexible(
                                   child: Container(
                                     width: 68.0,
@@ -152,7 +154,8 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                     ),
                                   ),
                                 ),
-                              if (widget.teacherName == 'תמר סלע')
+                              if ((widget.teacherName == 'תמר') ||
+                                  (widget.teacherName == 'תמר סלע'))
                                 Flexible(
                                   child: Container(
                                     width: 68.0,
@@ -171,7 +174,8 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                     ),
                                   ),
                                 ),
-                              if (widget.teacherName == 'עומר זלמן')
+                              if ((widget.teacherName == 'עומר') ||
+                                  (widget.teacherName == 'עומר זלמן'))
                                 Flexible(
                                   child: Container(
                                     width: 68.0,

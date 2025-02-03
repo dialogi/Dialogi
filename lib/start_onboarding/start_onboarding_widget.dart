@@ -12,8 +12,8 @@ import 'package:lottie/lottie.dart';
 import 'start_onboarding_model.dart';
 export 'start_onboarding_model.dart';
 
+/// zLXtvKRSqffQxWUV1eqheoNXh8K2
 class StartOnboardingWidget extends StatefulWidget {
-  /// zLXtvKRSqffQxWUV1eqheoNXh8K2
   const StartOnboardingWidget({super.key});
 
   @override

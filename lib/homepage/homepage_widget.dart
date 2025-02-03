@@ -332,8 +332,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                               CrossAxisAlignment.center,
                                                                           children:
                                                                               [
-                                                                            if (lessonsItem.teacher.name ==
-                                                                                'נועה כהן')
+                                                                            if ((lessonsItem.teacher.name == 'נועה') ||
+                                                                                (lessonsItem.teacher.name == 'נועה כהן'))
                                                                               Flexible(
                                                                                 child: Container(
                                                                                   width: 68.0,
@@ -355,8 +355,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            if (lessonsItem.teacher.name ==
-                                                                                'יואב כהן')
+                                                                            if ((lessonsItem.teacher.name == 'יואב') ||
+                                                                                (lessonsItem.teacher.name == 'יואב כהן'))
                                                                               Flexible(
                                                                                 child: Container(
                                                                                   width: 68.0,
@@ -378,8 +378,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            if (lessonsItem.teacher.name ==
-                                                                                'תמר סלע')
+                                                                            if ((lessonsItem.teacher.name == 'תמר') ||
+                                                                                (lessonsItem.teacher.name == 'תמר סלע'))
                                                                               Flexible(
                                                                                 child: Container(
                                                                                   width: 68.0,
@@ -401,8 +401,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            if (lessonsItem.teacher.name ==
-                                                                                'עומר זלמן')
+                                                                            if ((lessonsItem.teacher.name == 'עומר') ||
+                                                                                (lessonsItem.teacher.name == 'עומר זלמן'))
                                                                               Flexible(
                                                                                 child: Container(
                                                                                   width: 68.0,

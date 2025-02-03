@@ -677,7 +677,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
-                                                            lineHeight: 1.5,
+                                                            lineHeight: 1.0,
                                                           ),
                                                     );
                                                   },

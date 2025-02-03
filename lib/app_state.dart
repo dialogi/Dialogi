@@ -96,11 +96,11 @@ class FFAppState extends ChangeNotifier {
     _interruption = value;
   }
 
-  final _getTeachersManager = FutureRequestManager<List<TeachersRecord>>();
-  Future<List<TeachersRecord>> getTeachers({
+  final _getTeachersManager = FutureRequestManager<List<TeacherNewRecord>>();
+  Future<List<TeacherNewRecord>> getTeachers({
     String? uniqueQueryKey,
     bool? overrideCache,
-    required Future<List<TeachersRecord>> Function() requestFn,
+    required Future<List<TeacherNewRecord>> Function() requestFn,
   }) =>
       _getTeachersManager.performRequest(
         uniqueQueryKey: uniqueQueryKey,

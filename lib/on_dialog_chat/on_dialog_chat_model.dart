@@ -7,6 +7,7 @@ import '/components/popup_widget.dart';
 import '/components/teacher_select_widget.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import 'on_dialog_chat_widget.dart' show OnDialogChatWidget;
 import 'package:carousel_slider/carousel_slider.dart';
@@ -212,25 +213,31 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
     ).then((s) => s.firstOrNull);
     if (subjectLevels != null) {
       logFirebaseEvent('finishChatting_backend_call');
-
-      await subjectLevels.reference.update({
-        ...mapToFirestore(
-          {
-            'precent': FieldValue.increment(summaryOutput1.steps),
-          },
-        ),
-      });
+      unawaited(
+        () async {
+          await subjectLevels!.reference.update({
+            ...mapToFirestore(
+              {
+                'precent': FieldValue.increment(summaryOutput1!.steps),
+              },
+            ),
+          });
+        }(),
+      );
     } else {
       logFirebaseEvent('finishChatting_backend_call');
-
-      await LevelsRecord.collection.doc().set(createLevelsRecordData(
-            user: currentUserUid,
-            subject: valueOrDefault<String>(
-              widget!.dialogSubject,
-              'כללי',
-            ),
-            precent: summaryOutput1.steps,
-          ));
+      unawaited(
+        () async {
+          await LevelsRecord.collection.doc().set(createLevelsRecordData(
+                user: currentUserUid,
+                subject: valueOrDefault<String>(
+                  widget!.dialogSubject,
+                  'כללי',
+                ),
+                precent: summaryOutput1?.steps,
+              ));
+        }(),
+      );
     }
 
     logFirebaseEvent('finishChatting_navigate_to');

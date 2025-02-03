@@ -54,7 +54,7 @@ class _UserMessageWidgetState extends State<UserMessageWidget> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            if ((widget.name == 'עומר זלמן') && !widget.user!)
+            if ((widget.name == 'עומר') && !widget.user!)
               Flexible(
                 child: Align(
                   alignment: const AlignmentDirectional(1.0, 0.0),
@@ -75,7 +75,7 @@ class _UserMessageWidgetState extends State<UserMessageWidget> {
                   ),
                 ),
               ),
-            if ((widget.name == 'תמר סלע') && !widget.user!)
+            if ((widget.name == 'תמר') && !widget.user!)
               Flexible(
                 child: Align(
                   alignment: const AlignmentDirectional(1.0, 0.0),
@@ -98,7 +98,7 @@ class _UserMessageWidgetState extends State<UserMessageWidget> {
                   ),
                 ),
               ),
-            if ((widget.name == 'יואב כהן') && !widget.user!)
+            if ((widget.name == 'יואב') && !widget.user!)
               Flexible(
                 child: Align(
                   alignment: const AlignmentDirectional(1.0, 0.0),
@@ -119,7 +119,7 @@ class _UserMessageWidgetState extends State<UserMessageWidget> {
                   ),
                 ),
               ),
-            if ((widget.name == 'נועה כהן') && !widget.user!)
+            if ((widget.name == 'נועה') && !widget.user!)
               Flexible(
                 child: Align(
                   alignment: const AlignmentDirectional(1.0, 0.0),

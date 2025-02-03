@@ -399,7 +399,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 70.0)),
+                                                ].divide(const SizedBox(width: 40.0)),
                                               ),
                                             ),
                                             Padding(

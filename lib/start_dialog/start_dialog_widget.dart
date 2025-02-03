@@ -328,11 +328,11 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 28.0, 0.0, 0.0),
-                                        child:
-                                            FutureBuilder<List<TeachersRecord>>(
+                                        child: FutureBuilder<
+                                            List<TeacherNewRecord>>(
                                           future: FFAppState().getTeachers(
                                             requestFn: () =>
-                                                queryTeachersRecordOnce(),
+                                                queryTeacherNewRecordOnce(),
                                           ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
@@ -350,8 +350,8 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                 ),
                                               );
                                             }
-                                            List<TeachersRecord>
-                                                gridViewTeachersRecordList =
+                                            List<TeacherNewRecord>
+                                                gridViewTeacherNewRecordList =
                                                 snapshot.data!;
 
                                             return GridView.builder(
@@ -365,12 +365,12 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
                                               itemCount:
-                                                  gridViewTeachersRecordList
+                                                  gridViewTeacherNewRecordList
                                                       .length,
                                               itemBuilder:
                                                   (context, gridViewIndex) {
-                                                final gridViewTeachersRecord =
-                                                    gridViewTeachersRecordList[
+                                                final gridViewTeacherNewRecord =
+                                                    gridViewTeacherNewRecordList[
                                                         gridViewIndex];
                                                 return InkWell(
                                                   splashColor:
@@ -386,7 +386,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                         'START_DIALOG_Container_fvmyhnie_ON_TAP');
                                                     if (_model
                                                             .teacherSelected ==
-                                                        gridViewTeachersRecord
+                                                        gridViewTeacherNewRecord
                                                             .name) {
                                                       logFirebaseEvent(
                                                           'TeacherSelect_update_page_state');
@@ -397,7 +397,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                       logFirebaseEvent(
                                                           'TeacherSelect_update_page_state');
                                                       _model.teacherSelected =
-                                                          gridViewTeachersRecord
+                                                          gridViewTeacherNewRecord
                                                               .name;
                                                       safeSetState(() {});
                                                       logFirebaseEvent(
@@ -405,12 +405,12 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                       _model.teacherObj =
                                                           TeachersObjStruct(
                                                         image:
-                                                            gridViewTeachersRecord
+                                                            gridViewTeacherNewRecord
                                                                 .image,
                                                         name: _model
                                                             .teacherSelected,
                                                         voice:
-                                                            gridViewTeachersRecord
+                                                            gridViewTeacherNewRecord
                                                                 .voice,
                                                       );
                                                       safeSetState(() {});
@@ -418,20 +418,20 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                   },
                                                   child: TeacherSelectWidget(
                                                     key: Key(
-                                                        'Keyfvm_${gridViewIndex}_of_${gridViewTeachersRecordList.length}'),
+                                                        'Keyfvm_${gridViewIndex}_of_${gridViewTeacherNewRecordList.length}'),
                                                     selected: _model
                                                             .teacherSelected ==
-                                                        gridViewTeachersRecord
+                                                        gridViewTeacherNewRecord
                                                             .name,
                                                     name:
                                                         valueOrDefault<String>(
-                                                      gridViewTeachersRecord
+                                                      gridViewTeacherNewRecord
                                                           .name,
                                                       'dewd',
                                                     ),
                                                     imgWidth: 56.0,
                                                     teacherImg:
-                                                        gridViewTeachersRecord
+                                                        gridViewTeacherNewRecord
                                                             .name,
                                                   ),
                                                 );

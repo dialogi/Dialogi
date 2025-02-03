@@ -80,7 +80,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
           child: Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 0.8,
+              width: MediaQuery.sizeOf(context).width * 0.9,
               constraints: const BoxConstraints(
                 maxWidth: 570.0,
               ),
