@@ -455,24 +455,34 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                               (FFAppState()
                                                                       .userSub
                                                                       .subId !=
-                                                                  '0')) {
-                                                            return dateTimeFormat(
-                                                              "d/M/y",
-                                                              functions
-                                                                  .addDaysToInboundDate(
-                                                                      getCurrentTimestamp),
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            );
-                                                          } else if (containerLessonsRecordList
-                                                              .isNotEmpty) {
+                                                                  '0') &&
+                                                              (containerLessonsRecordList
+                                                                  .isNotEmpty)) {
                                                             return dateTimeFormat(
                                                               "d/M/y",
                                                               functions.addDaysToInboundDate(
                                                                   containerLessonsRecordList
                                                                       .lastOrNull!
                                                                       .startAt!),
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            );
+                                                          } else if ((FFAppState()
+                                                                          .userSub
+                                                                          .subId !=
+                                                                      '') &&
+                                                              (FFAppState()
+                                                                      .userSub
+                                                                      .subId !=
+                                                                  '0') &&
+                                                              !(containerLessonsRecordList
+                                                                  .isNotEmpty)) {
+                                                            return dateTimeFormat(
+                                                              "d/M/y",
+                                                              functions
+                                                                  .addDaysToInboundDate(
+                                                                      getCurrentTimestamp),
                                                               locale: FFLocalizations
                                                                       .of(context)
                                                                   .languageCode,
