@@ -448,7 +448,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       ),
                                                       Text(
                                                         () {
-                                                          if ((FFAppState()
+                                                          if (FFAppState()
+                                                                  .userSub
+                                                                  .subId ==
+                                                              '0') {
+                                                            return '----/--/--';
+                                                          } else if ((FFAppState()
                                                                           .userSub
                                                                           .subId !=
                                                                       '') &&
