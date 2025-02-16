@@ -17,7 +17,7 @@ class ButtonImgWidget extends StatefulWidget {
     this.imgWidth,
     bool? imgAsset,
     this.borderColor,
-  }) : imgAsset = imgAsset ?? false;
+  }) : this.imgAsset = imgAsset ?? false;
 
   final String? text;
   final String? imgPath;
@@ -77,7 +77,7 @@ class _ButtonImgWidgetState extends State<ButtonImgWidget> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +93,7 @@ class _ButtonImgWidgetState extends State<ButtonImgWidget> {
               if ((widget.imgPath != null && widget.imgPath != '') &&
                   !widget.imgAsset)
                 Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(22.0),
                     child: Image.network(
@@ -115,7 +115,7 @@ class _ButtonImgWidgetState extends State<ButtonImgWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-            ].divide(const SizedBox(width: 10.0)),
+            ].divide(SizedBox(width: 10.0)),
           ),
         ),
       ),

@@ -74,15 +74,15 @@ class _QuestionWidgetState extends State<QuestionWidget>
             curve: Curves.bounceOut,
             delay: 0.0.ms,
             duration: 540.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(1.2, 1.2),
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.2, 1.2),
           ),
           ScaleEffect(
             curve: Curves.bounceOut,
             delay: 540.0.ms,
             duration: 570.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(0.8, 0.8),
+            begin: Offset(1.0, 1.0),
+            end: Offset(0.8, 0.8),
           ),
         ],
       ),
@@ -208,9 +208,9 @@ class _QuestionWidgetState extends State<QuestionWidget>
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0xFFD6DCFF),
@@ -222,7 +222,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FutureBuilder<int>(
                                       future:
                                           queryOnboardingQuestionsRecordCount(),
@@ -252,7 +252,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                               CrossAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 60.0, 0.0, 0.0),
                                               child: Row(
@@ -270,7 +270,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
                                                       key: ValueKey(columnCount
@@ -297,7 +297,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 30.0, 24.0, 0.0),
                                               child: Row(
@@ -319,7 +319,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -1.0, 0.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -337,7 +337,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Rubik',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF232C2E),
                                                                   fontSize: functions
                                                                       .setFontSize(
@@ -352,7 +352,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -1.0, 0.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -369,7 +369,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Rubik',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF232C2E),
                                                                   fontSize: functions
                                                                       .setFontSize(
@@ -385,7 +385,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                               hasBeenTriggered:
                                                                   hasTextTriggered),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           height: 8.0)),
                                                     ),
                                                   ),
@@ -399,17 +399,17 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 40.0)),
+                                                ].divide(SizedBox(width: 40.0)),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 6.5, 0.0, 13.0),
                                               child: Transform.rotate(
                                                 angle: 180.0 * (math.pi / 180),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           24.0, 0.0, 24.0, 0.0),
                                                   child: LinearPercentIndicator(
@@ -428,9 +428,9 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                                 context)
                                                             .primary,
                                                     backgroundColor:
-                                                        const Color(0x52546DEF),
+                                                        Color(0x52546DEF),
                                                     barRadius:
-                                                        const Radius.circular(32.0),
+                                                        Radius.circular(32.0),
                                                     padding: EdgeInsets.zero,
                                                   ),
                                                 ),
@@ -465,7 +465,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                           scrollDirection: Axis.vertical,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 24.0, 24.0, 0.0),
                                               child: FlutterFlowChoiceChips(
@@ -536,7 +536,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                   iconColor: Colors.white,
                                                   iconSize: 20.0,
                                                   labelPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(12.0, 6.0,
                                                               12.0, 6.0),
                                                   elevation: 0.0,
@@ -567,7 +567,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                           .primary,
                                                   iconSize: 20.0,
                                                   labelPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(12.0, 6.0,
                                                               12.0, 6.0),
                                                   elevation: 0.0,
@@ -603,7 +603,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                           AnswerType.single_select)
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 30.0, 0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
@@ -621,7 +621,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: possible.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 16.0),
+                                                    SizedBox(height: 16.0),
                                                 itemBuilder:
                                                     (context, possibleIndex) {
                                                   final possibleItem =
@@ -695,9 +695,9 @@ class _QuestionWidgetState extends State<QuestionWidget>
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 26.0, 24.0, 40.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -746,9 +746,9 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 48.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Colors.white,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -790,7 +790,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                     : () async {
                                         logFirebaseEvent(
                                             'QUESTION_PAGE__BTN_ON_TAP');
-                                        var shouldSetState = false;
+                                        var _shouldSetState = false;
                                         if (_model.currUserAnswer != null) {
                                           logFirebaseEvent(
                                               'Button_backend_call');
@@ -847,9 +847,8 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                           context.goNamedAuth(
                                               'login', context.mounted);
 
-                                          if (shouldSetState) {
+                                          if (_shouldSetState)
                                             safeSetState(() {});
-                                          }
                                           return;
                                         }
                                         if (questionOnboardingQuestionsRecord
@@ -875,7 +874,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                     ),
                                             limit: 1,
                                           );
-                                          shouldSetState = true;
+                                          _shouldSetState = true;
                                           logFirebaseEvent(
                                               'Button_update_app_state');
                                           FFAppState().log = 'hbhjbhbh';
@@ -937,9 +936,8 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                               ?.value = []);
                                         }
 
-                                        if (shouldSetState) {
+                                        if (_shouldSetState)
                                           safeSetState(() {});
-                                        }
                                       },
                                 text: FFLocalizations.of(context).getText(
                                   '7gdcs4kc' /* המשך */,
@@ -947,9 +945,9 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 48.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -959,18 +957,18 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 0.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(56.0),
-                                  disabledColor: const Color(0xFFE8ECEF),
-                                  disabledTextColor: const Color(0xFF95A5A6),
+                                  disabledColor: Color(0xFFE8ECEF),
+                                  disabledTextColor: Color(0xFF95A5A6),
                                 ),
                                 showLoadingIndicator: false,
                               ),
                             ),
-                          ].divide(const SizedBox(width: 15.0)),
+                          ].divide(SizedBox(width: 15.0)),
                         ),
                       ),
                     ),
@@ -980,7 +978,7 @@ class _QuestionWidgetState extends State<QuestionWidget>
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0x71000000),
                     ),
                     child: wrapWithModel(

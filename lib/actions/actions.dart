@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 Future userSubscriptionLoad(BuildContext context) async {
   ApiCallResponse? apiResultUser;
   SubscriptionsRecord? userSub;
+  ApiCallResponse? detailed;
   int? lastestLessons;
 
   logFirebaseEvent('userSubscriptionLoad_backend_call');
@@ -44,6 +45,53 @@ Future userSubscriptionLoad(BuildContext context) async {
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      logFirebaseEvent('userSubscriptionLoad_backend_call');
+      detailed = await NewSubDetailsCall.call(
+        customerId: currentUserUid,
+      );
+
+      logFirebaseEvent('userSubscriptionLoad_update_app_state');
+      FFAppState().LastWeekSub = () {
+        if (RevenueCatGroup.getCostumerCall
+                .currSubID(
+                  (apiResultUser?.jsonBody ?? ''),
+                )
+                ?.lastOrNull ==
+            'entl75e9162b69') {
+          return functions.addDaysToInboundDate(
+              functions.parseIsoDate(NewSubDetailsCall.entl75e9162b69(
+                (detailed?.jsonBody ?? ''),
+              )!),
+              functions.weeksToAddBeforeNow(
+                  functions.parseIsoDate(NewSubDetailsCall.entl75e9162b69(
+                (detailed?.jsonBody ?? ''),
+              )!)));
+        } else if (RevenueCatGroup.getCostumerCall
+                .currSubID(
+                  (apiResultUser?.jsonBody ?? ''),
+                )
+                ?.lastOrNull ==
+            'entl054b154c1b') {
+          return functions.addDaysToInboundDate(
+              functions.parseIsoDate(NewSubDetailsCall.entl054b154c1b(
+                (detailed?.jsonBody ?? ''),
+              )!),
+              functions.weeksToAddBeforeNow(
+                  functions.parseIsoDate(NewSubDetailsCall.entl054b154c1b(
+                (detailed?.jsonBody ?? ''),
+              )!)));
+        } else {
+          return functions.addDaysToInboundDate(
+              functions.parseIsoDate(NewSubDetailsCall.entl8b6abab155(
+                (detailed?.jsonBody ?? ''),
+              )!),
+              functions.weeksToAddBeforeNow(
+                  functions.parseIsoDate(NewSubDetailsCall.entl8b6abab155(
+                (detailed?.jsonBody ?? ''),
+              )!)));
+        }
+      }();
+      FFAppState().update(() {});
       logFirebaseEvent('userSubscriptionLoad_update_app_state');
       FFAppState().userSub = SubscriptionDetailsStruct(
         subId: userSub?.subId,
@@ -63,7 +111,7 @@ Future userSubscriptionLoad(BuildContext context) async {
             )
             .where(
               'start_at',
-              isGreaterThanOrEqualTo: functions.newCustomFunction(),
+              isGreaterThanOrEqualTo: FFAppState().LastWeekSub,
             )
             .where(
               'first',
@@ -96,11 +144,11 @@ Future paywallRevenueCat(BuildContext context) async {
         insetPadding: EdgeInsets.zero,
         backgroundColor: Colors.transparent,
         alignment:
-            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-        child: SizedBox(
+            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+        child: Container(
           height: MediaQuery.sizeOf(context).height * 1.0,
           width: MediaQuery.sizeOf(context).width * 1.0,
-          child: const LoaderPopupWidget(
+          child: LoaderPopupWidget(
             title: 'כבר חוזרים...',
             loader: true,
           ),

@@ -94,15 +94,15 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
               body: Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
-                        child: SizedBox(
+                        child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.7,
                           child: Stack(
@@ -116,7 +116,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Lottie.asset(
                                   'assets/jsons/man_thinking.json',
                                   width: 280.0,
@@ -131,7 +131,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 8.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(8.0, 20.0, 8.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'u0ru7a5r' /* Dialogi 
@@ -149,7 +149,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 16.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
@@ -160,14 +160,14 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Rubik',
-                                    color: const Color(0xFF95A5A6),
+                                    color: Color(0xFF95A5A6),
                                     fontSize: functions.setFontSize(16.0),
                                     letterSpacing: 0.0,
                                   ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -191,7 +191,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                             context.pushNamed(
                               'question',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.scale,
                                   alignment: Alignment.bottomCenter,
@@ -206,9 +206,9 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 48.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -220,7 +220,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

@@ -44,7 +44,7 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
 
   bool teacherTurn = false;
 
-  String? additionalData;
+  String additionalData = '';
 
   ///  State fields for stateful widgets in this page.
 
@@ -153,26 +153,38 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
       logFirebaseEvent('finishChatting_wait__delay');
       await Future.delayed(const Duration(milliseconds: 1000));
     }
+    logFirebaseEvent('finishChatting_update_app_state');
+    FFAppState().log = '0090';
     logFirebaseEvent('finishChatting_backend_call');
     summaryMessages1 = await OpenAIAPIGroup.createChatCompletionCall.call(
       messages: '${valueOrDefault<String>(
-        (String var2) {
-          return var2.replaceAll('"', '').replaceAll("'", '');
-        }(((List<String> var1) {
-          return var1.join('message: ');
-        }(chatHistory
-            .map((e) => getJsonField(
-                  e.toMap(),
-                  r'''$.content''',
-                ))
-            .toList()
-            .map((e) => e.toString())
-            .toList()
-            .toList()))),
+        (String var3) {
+          return var3
+              .replaceAll('\n', ' ')
+              .replaceAll(RegExp(r'\s+'), ' ')
+              .trim();
+        }(valueOrDefault<String>(
+          (String var2) {
+            return var2.replaceAll('"', '').replaceAll("'", '');
+          }(((List<String> var1) {
+            return var1.join('message: ');
+          }(chatHistory
+              .map((e) => getJsonField(
+                    e.toMap(),
+                    r'''$.content''',
+                  ))
+              .toList()
+              .map((e) => e.toString())
+              .toList()
+              .toList()))),
+          'hi',
+        )),
         'hi',
       )}תיצור לזה סיכום ותשלח לי פידבק כהודעה לתלמיד בגוף ראשון',
     );
 
+    logFirebaseEvent('finishChatting_update_app_state');
+    FFAppState().log = (summaryMessages1.jsonBody ?? '').toString();
     logFirebaseEvent('finishChatting_update_app_state');
     FFAppState().onLesson = false;
     FFAppState().update(() {});
@@ -260,7 +272,7 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
         ),
       }.withoutNulls,
       extra: <String, dynamic>{
-        kTransitionInfoKey: const TransitionInfo(
+        kTransitionInfoKey: TransitionInfo(
           hasTransition: true,
           transitionType: PageTransitionType.bottomToTop,
           duration: Duration(milliseconds: 500),

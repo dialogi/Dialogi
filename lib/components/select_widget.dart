@@ -12,7 +12,7 @@ class SelectWidget extends StatefulWidget {
     super.key,
     bool? checked,
     this.text,
-  }) : checked = checked ?? false;
+  }) : this.checked = checked ?? false;
 
   final bool checked;
   final String? text;
@@ -56,7 +56,7 @@ class _SelectWidgetState extends State<SelectWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
       child: Container(
         width: double.infinity,
         height: 40.0,
@@ -67,14 +67,14 @@ class _SelectWidgetState extends State<SelectWidget> {
             color: valueOrDefault<Color>(
               widget.checked
                   ? FlutterFlowTheme.of(context).primary
-                  : const Color(0xFF95A5A6),
-              const Color(0xFF95A5A6),
+                  : Color(0xFF95A5A6),
+              Color(0xFF95A5A6),
             ),
             width: 1.0,
           ),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(14.0, 10.0, 14.0, 10.0),
+          padding: EdgeInsetsDirectional.fromSTEB(14.0, 10.0, 14.0, 10.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -93,8 +93,8 @@ class _SelectWidgetState extends State<SelectWidget> {
                               color: valueOrDefault<Color>(
                                 widget.checked
                                     ? FlutterFlowTheme.of(context).primary
-                                    : const Color(0xFF232C2E),
-                                const Color(0xFF232C2E),
+                                    : Color(0xFF232C2E),
+                                Color(0xFF232C2E),
                               ),
                               fontSize: functions.setFontSize(16.0),
                               letterSpacing: 0.0,
@@ -110,7 +110,7 @@ class _SelectWidgetState extends State<SelectWidget> {
                 true,
               ))
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Icon(
                     FFIcons.kselectCheck,
                     color: FlutterFlowTheme.of(context).primary,

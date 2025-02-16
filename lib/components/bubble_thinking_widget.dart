@@ -48,7 +48,7 @@ class _BubbleThinkingWidgetState extends State<BubbleThinkingWidget> {
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 4.0,
             color: Color(0x33000000),
@@ -79,7 +79,7 @@ class _BubbleThinkingWidgetState extends State<BubbleThinkingWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +112,7 @@ class _BubbleThinkingWidgetState extends State<BubbleThinkingWidget> {
                         letterSpacing: 0.0,
                       ),
                 ),
-              ].divide(const SizedBox(width: 12.0)),
+              ].divide(SizedBox(width: 12.0)),
             ),
             Text(
               valueOrDefault<String>(
@@ -126,7 +126,7 @@ class _BubbleThinkingWidgetState extends State<BubbleThinkingWidget> {
                     letterSpacing: 0.0,
                   ),
             ),
-          ].divide(const SizedBox(height: 12.0)),
+          ].divide(SizedBox(height: 12.0)),
         ),
       ),
     );

@@ -98,10 +98,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                     color: FlutterFlowTheme.of(context).primary,
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 12.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => Text(
                           'שלום ${(String var1) {
@@ -138,9 +138,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 24.0, 24.0, 12.0),
                             child: Text(
                               'שיעורים אחרונים',
@@ -184,7 +184,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                 snapshot.data!;
 
                             return Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -201,7 +201,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                 containerLessonsRecordList
                                                     .toList();
 
-                                            return SizedBox(
+                                            return Container(
                                               width: 600.0,
                                               height: 92.0,
                                               child: CarouselSlider.builder(
@@ -220,7 +220,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                             .center,
                                                     children: [
                                                       Flexible(
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width: 327.0,
                                                           height: 92.0,
                                                           child: Stack(
@@ -264,7 +264,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                     extra: <String,
                                                                         dynamic>{
                                                                       kTransitionInfoKey:
-                                                                          const TransitionInfo(
+                                                                          TransitionInfo(
                                                                         hasTransition:
                                                                             true,
                                                                         transitionType:
@@ -283,19 +283,19 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                     gradient:
                                                                         LinearGradient(
                                                                       colors: [
-                                                                        const Color(
+                                                                        Color(
                                                                             0xFF788EFD),
                                                                         FlutterFlowTheme.of(context)
                                                                             .primary
                                                                       ],
-                                                                      stops: const [
+                                                                      stops: [
                                                                         0.0,
                                                                         1.0
                                                                       ],
-                                                                      begin: const AlignmentDirectional(
+                                                                      begin: AlignmentDirectional(
                                                                           0.31,
                                                                           -1.0),
-                                                                      end: const AlignmentDirectional(
+                                                                      end: AlignmentDirectional(
                                                                           -0.31,
                                                                           1.0),
                                                                     ),
@@ -305,7 +305,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             12.0,
@@ -339,7 +339,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   width: 68.0,
                                                                                   height: 68.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: const Color(0xFFACB8EC),
+                                                                                    color: Color(0xFFACB8EC),
                                                                                     shape: BoxShape.circle,
                                                                                     border: Border.all(
                                                                                       color: Colors.white,
@@ -362,7 +362,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   width: 68.0,
                                                                                   height: 68.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: const Color(0xFFACB8EC),
+                                                                                    color: Color(0xFFACB8EC),
                                                                                     shape: BoxShape.circle,
                                                                                     border: Border.all(
                                                                                       color: Colors.white,
@@ -385,7 +385,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   width: 68.0,
                                                                                   height: 68.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: const Color(0xFFACB8EC),
+                                                                                    color: Color(0xFFACB8EC),
                                                                                     shape: BoxShape.circle,
                                                                                     border: Border.all(
                                                                                       color: Colors.white,
@@ -408,7 +408,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   width: 68.0,
                                                                                   height: 68.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: const Color(0xFFACB8EC),
+                                                                                    color: Color(0xFFACB8EC),
                                                                                     shape: BoxShape.circle,
                                                                                     border: Border.all(
                                                                                       color: Colors.white,
@@ -424,7 +424,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                          ].divide(const SizedBox(height: 0.0)),
+                                                                          ].divide(SizedBox(height: 0.0)),
                                                                         ),
                                                                         Flexible(
                                                                           child:
@@ -435,7 +435,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   'שיעור מס׳ ${valueOrDefault<String>(
                                                                                     (lessonsIndex + 1).toString(),
@@ -466,7 +466,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                             ],
                                                                           ),
                                                                         ),
-                                                                      ].divide(const SizedBox(
+                                                                      ].divide(SizedBox(
                                                                               width: 10.0)),
                                                                     ),
                                                                   ),
@@ -527,12 +527,12 @@ class _HomepageWidgetState extends State<HomepageWidget> {
 
                                             context.pushNamed('start_dialog');
                                           },
-                                          child: SizedBox(
+                                          child: Container(
                                             width: 327.0,
                                             child: Stack(
                                               children: [
                                                 Container(
-                                                  constraints: const BoxConstraints(
+                                                  constraints: BoxConstraints(
                                                     minWidth: 100.0,
                                                     minHeight: 97.0,
                                                     maxWidth: 327.0,
@@ -543,13 +543,13 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .primary,
-                                                        const Color(0xC4546DEF)
+                                                        Color(0xC4546DEF)
                                                       ],
-                                                      stops: const [0.0, 1.0],
+                                                      stops: [0.0, 1.0],
                                                       begin:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 0.0),
-                                                      end: const AlignmentDirectional(
+                                                      end: AlignmentDirectional(
                                                           -1.0, 0),
                                                     ),
                                                     borderRadius:
@@ -558,7 +558,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsets.all(12.0),
+                                                        EdgeInsets.all(12.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
@@ -568,11 +568,11 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Stack(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -0.0, 0.0),
                                                             children: [
                                                               Container(
@@ -589,11 +589,11 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -644,7 +644,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           width: 10.0)),
                                                     ),
                                                   ),
@@ -664,7 +664,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                           },
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 24.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -672,9 +672,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 22.0, 0.0, 8.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -685,7 +685,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
-                                          color: const Color(0xFF232C2E),
+                                          color: Color(0xFF232C2E),
                                           fontSize: functions.setFontSize(18.0),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
@@ -695,7 +695,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: StreamBuilder<List<UserAnswersRecord>>(
                                   stream: queryUserAnswersRecord(
                                     queryBuilder: (userAnswersRecord) =>
@@ -740,15 +740,15 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                             : null;
 
                                     return Container(
-                                      constraints: const BoxConstraints(
+                                      constraints: BoxConstraints(
                                         maxWidth: 400.0,
                                         maxHeight: 400.0,
                                       ),
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: GridView(
                                         padding: EdgeInsets.zero,
                                         gridDelegate:
-                                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                            SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,
                                           crossAxisSpacing: 10.0,
                                           mainAxisSpacing: 10.0,
@@ -761,7 +761,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                           Container(
                                             decoration: BoxDecoration(
                                               color: Colors.white,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 40.663,
                                                   color: Color(0x0E000000),
@@ -863,7 +863,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     11.0,
                                                                     11.0,
@@ -885,7 +885,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     15.5,
                                                                     0.0,
@@ -906,7 +906,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF3C3D41),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -923,7 +923,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     13.24,
                                                                     0.0,
@@ -942,7 +942,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF8A8B91),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -956,7 +956,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       Flexible(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       11.3,
                                                                       21.0,
@@ -986,10 +986,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                         context)
                                                                     .primary,
                                                             backgroundColor:
-                                                                const Color(
+                                                                Color(
                                                                     0xFFE2E4EF),
                                                             barRadius:
-                                                                const Radius.circular(
+                                                                Radius.circular(
                                                                     56.0),
                                                             padding:
                                                                 EdgeInsets.zero,
@@ -1077,7 +1077,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
-                                                    boxShadow: const [
+                                                    boxShadow: [
                                                       BoxShadow(
                                                         blurRadius: 40.663,
                                                         color:
@@ -1104,7 +1104,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     11.0,
                                                                     11.0,
@@ -1126,7 +1126,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     15.5,
                                                                     0.0,
@@ -1147,7 +1147,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF3C3D41),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -1164,7 +1164,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     13.24,
                                                                     0.0,
@@ -1183,7 +1183,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF8A8B91),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -1197,7 +1197,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       Flexible(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       11.3,
                                                                       21.0,
@@ -1223,10 +1223,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                         context)
                                                                     .primary,
                                                             backgroundColor:
-                                                                const Color(
+                                                                Color(
                                                                     0xFFE2E4EF),
                                                             barRadius:
-                                                                const Radius.circular(
+                                                                Radius.circular(
                                                                     56.0),
                                                             padding:
                                                                 EdgeInsets.zero,
@@ -1284,7 +1284,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                               return Container(
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 40.663,
                                                       color: Color(0x0E000000),
@@ -1329,7 +1329,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     11.0,
                                                                     11.0,
@@ -1351,7 +1351,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     15.5,
                                                                     0.0,
@@ -1369,7 +1369,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF3C3D41),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -1386,7 +1386,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     13.24,
                                                                     0.0,
@@ -1405,7 +1405,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF8A8B91),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -1419,7 +1419,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       Flexible(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       11.3,
                                                                       21.0,
@@ -1445,10 +1445,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                         context)
                                                                     .primary,
                                                             backgroundColor:
-                                                                const Color(
+                                                                Color(
                                                                     0xFFE2E4EF),
                                                             barRadius:
-                                                                const Radius.circular(
+                                                                Radius.circular(
                                                                     56.0),
                                                             padding:
                                                                 EdgeInsets.zero,
@@ -1514,7 +1514,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                               return Container(
                                                 decoration: BoxDecoration(
                                                   color: Colors.white,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 40.663,
                                                       color: Color(0x0E000000),
@@ -1566,7 +1566,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     11.0,
                                                                     11.0,
@@ -1588,7 +1588,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     15.5,
                                                                     0.0,
@@ -1609,7 +1609,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF3C3D41),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -1626,7 +1626,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     13.24,
                                                                     0.0,
@@ -1645,7 +1645,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF8A8B91),
                                                                 fontSize: functions
                                                                     .setFontSize(
@@ -1659,7 +1659,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                       Flexible(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       11.3,
                                                                       21.0,
@@ -1685,10 +1685,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                         context)
                                                                     .primary,
                                                             backgroundColor:
-                                                                const Color(
+                                                                Color(
                                                                     0xFFE2E4EF),
                                                             barRadius:
-                                                                const Radius.circular(
+                                                                Radius.circular(
                                                                     56.0),
                                                             padding:
                                                                 EdgeInsets.zero,
@@ -1708,9 +1708,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 22.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -1733,10 +1733,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 48.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -1750,7 +1750,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(56.0),
@@ -1801,7 +1801,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
               ),
             }.withoutNulls,
             extra: <String, dynamic>{
-              kTransitionInfoKey: const TransitionInfo(
+              kTransitionInfoKey: TransitionInfo(
                 hasTransition: true,
                 transitionType: PageTransitionType.fade,
                 duration: Duration(milliseconds: 700),

@@ -167,7 +167,7 @@ class StartDialogModel extends FlutterFlowModel<StartDialogWidget> {
           ),
         }.withoutNulls,
         extra: <String, dynamic>{
-          kTransitionInfoKey: const TransitionInfo(
+          kTransitionInfoKey: TransitionInfo(
             hasTransition: true,
             transitionType: PageTransitionType.fade,
             duration: Duration(milliseconds: 400),

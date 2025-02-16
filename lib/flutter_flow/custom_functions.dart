@@ -24,10 +24,6 @@ double? setFontSize(double fontSize) {
   }
 }
 
-DateTime? newCustomFunction() {
-  return DateTime.now().subtract(Duration(days: 7));
-}
-
 dynamic formatMessages(List<MessageStruct> messages) {
   // Merging all messages into a single map with combined content
   Map<String, dynamic> result = {};
@@ -69,6 +65,30 @@ String getSummaries(List<LessonsRecord> lessons) {
       .join(', '); // Join summaries with a comma
 }
 
-DateTime addDaysToInboundDate(DateTime inboundDate) {
-  return inboundDate.add(Duration(days: 7));
+DateTime addDaysToInboundDate(
+  DateTime inboundDate,
+  int weeks,
+) {
+  return inboundDate.add(Duration(days: 7 * weeks));
+}
+
+DateTime parseIsoDate(String isoString) {
+  return DateTime.parse(isoString);
+}
+
+int weeksToAddBeforeNow(DateTime start) {
+  final now = DateTime.now();
+
+  // Calculate the difference between now and the start date.
+  final difference = now.difference(start);
+
+  // If the start date is in the future, return 0.
+  if (difference.isNegative) {
+    return 0;
+  }
+
+  // Calculate the number of full weeks that fit in the difference.
+  int weeks = difference.inDays ~/ 7;
+
+  return weeks;
 }

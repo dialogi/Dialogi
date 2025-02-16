@@ -9,7 +9,7 @@ class SuggestionsWidget extends StatefulWidget {
   const SuggestionsWidget({
     super.key,
     String? text,
-  }) : text = text ?? 'היי';
+  }) : this.text = text ?? 'היי';
 
   final String text;
 
@@ -46,17 +46,17 @@ class _SuggestionsWidgetState extends State<SuggestionsWidget> {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(
-          color: const Color(0xFF8590C8),
+          color: Color(0xFF8590C8),
           width: 1.0,
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: Text(
           widget.text,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Rubik',
-                color: const Color(0xFF8590C8),
+                color: Color(0xFF8590C8),
                 fontSize: functions.setFontSize(14.0),
                 letterSpacing: 0.0,
                 lineHeight: 1.42,

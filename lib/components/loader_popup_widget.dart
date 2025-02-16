@@ -14,7 +14,7 @@ class LoaderPopupWidget extends StatefulWidget {
     String? title,
     this.description,
     this.loader,
-  }) : title = title ?? 'העדכון בדרך ☺️';
+  }) : this.title = title ?? 'העדכון בדרך ☺️';
 
   final String title;
   final String? description;
@@ -70,20 +70,20 @@ class _LoaderPopupWidgetState extends State<LoaderPopupWidget>
       children: [
         SafeArea(
           child: Container(
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
             child: Container(
               constraints: BoxConstraints(
                 maxWidth: MediaQuery.sizeOf(context).width * 0.8,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x33000000),
@@ -95,12 +95,12 @@ class _LoaderPopupWidgetState extends State<LoaderPopupWidget>
                 ],
                 borderRadius: BorderRadius.circular(24.0),
                 border: Border.all(
-                  color: const Color(0xFFF5FBFB),
+                  color: Color(0xFFF5FBFB),
                   width: 1.0,
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -134,7 +134,7 @@ class _LoaderPopupWidgetState extends State<LoaderPopupWidget>
                                 ),
                           ),
                         ),
-                      ].divide(const SizedBox(width: 12.0)),
+                      ].divide(SizedBox(width: 12.0)),
                     ),
                     if (widget.loader ?? true)
                       Lottie.asset(
@@ -163,7 +163,7 @@ class _LoaderPopupWidgetState extends State<LoaderPopupWidget>
                               ),
                         ),
                       ),
-                  ].divide(const SizedBox(height: 12.0)),
+                  ].divide(SizedBox(height: 12.0)),
                 ),
               ),
             ),

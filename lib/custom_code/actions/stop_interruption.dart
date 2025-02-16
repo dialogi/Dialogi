@@ -19,10 +19,6 @@ Future<void> stopInterruption() async {
     FFAppState().update(() {
       FFAppState().interruption = false;
     });
-
-    FFAppState().update(() {
-      FFAppState().log = 'interruption False';
-    });
   } catch (e) {
     // Handle any errors
     FFAppState().update(() {

@@ -47,7 +47,7 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
           ),
         }.withoutNulls,
         extra: <String, dynamic>{
-          kTransitionInfoKey: const TransitionInfo(
+          kTransitionInfoKey: TransitionInfo(
             hasTransition: true,
             transitionType: PageTransitionType.scale,
             alignment: Alignment.bottomCenter,
@@ -65,7 +65,7 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
               elevation: 0,
               insetPadding: EdgeInsets.zero,
               backgroundColor: Colors.transparent,
-              alignment: const AlignmentDirectional(0.0, 0.0)
+              alignment: AlignmentDirectional(0.0, 0.0)
                   .resolve(Directionality.of(context)),
               child: GestureDetector(
                 onTap: () {
@@ -90,7 +90,7 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
               elevation: 0,
               insetPadding: EdgeInsets.zero,
               backgroundColor: Colors.transparent,
-              alignment: const AlignmentDirectional(0.0, 0.0)
+              alignment: AlignmentDirectional(0.0, 0.0)
                   .resolve(Directionality.of(context)),
               child: GestureDetector(
                 onTap: () {

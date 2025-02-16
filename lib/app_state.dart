@@ -96,6 +96,12 @@ class FFAppState extends ChangeNotifier {
     _interruption = value;
   }
 
+  DateTime? _LastWeekSub;
+  DateTime? get LastWeekSub => _LastWeekSub;
+  set LastWeekSub(DateTime? value) {
+    _LastWeekSub = value;
+  }
+
   final _getTeachersManager = FutureRequestManager<List<TeacherNewRecord>>();
   Future<List<TeacherNewRecord>> getTeachers({
     String? uniqueQueryKey,

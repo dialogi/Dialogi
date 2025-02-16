@@ -18,7 +18,7 @@ class PopupWidget extends StatefulWidget {
     this.onClick,
     this.instructions,
     bool? close,
-  }) : close = close ?? true;
+  }) : this.close = close ?? true;
 
   final String? title;
   final String? subTitle;
@@ -82,21 +82,21 @@ class _PopupWidgetState extends State<PopupWidget>
       children: [
         SafeArea(
           child: Container(
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
             child: Container(
               width: widget.close ? 350.0 : 250.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxWidth: 570.0,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x33000000),
@@ -108,12 +108,12 @@ class _PopupWidgetState extends State<PopupWidget>
                 ],
                 borderRadius: BorderRadius.circular(24.0),
                 border: Border.all(
-                  color: const Color(0xFFF5FBFB),
+                  color: Color(0xFFF5FBFB),
                   width: 1.0,
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,9 +122,9 @@ class _PopupWidgetState extends State<PopupWidget>
                       children: [
                         if (widget.close)
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, -1.0),
+                            alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 20.0, 20.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -137,7 +137,7 @@ class _PopupWidgetState extends State<PopupWidget>
                                   logFirebaseEvent('Icon_dismiss_dialog');
                                   Navigator.pop(context);
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   FFIcons.kcarbonCloseOutline,
                                   color: Color(0xFF95A5A6),
                                   size: 28.0,
@@ -147,9 +147,9 @@ class _PopupWidgetState extends State<PopupWidget>
                           ),
                         if (widget.close)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 17.0, 0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -165,7 +165,7 @@ class _PopupWidgetState extends State<PopupWidget>
                     ),
                     if (widget.title != null && widget.title != '')
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             28.0, 0.0, 28.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
@@ -186,7 +186,7 @@ class _PopupWidgetState extends State<PopupWidget>
                       ),
                     if (widget.subTitle != null && widget.subTitle != '')
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             52.0, 16.0, 52.0, 16.0),
                         child: Text(
                           valueOrDefault<String>(
@@ -197,7 +197,7 @@ class _PopupWidgetState extends State<PopupWidget>
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Rubik',
-                                    color: const Color(0xFF323241),
+                                    color: Color(0xFF323241),
                                     fontSize: functions.setFontSize(16.0),
                                     letterSpacing: 0.0,
                                     lineHeight: 1.5,
@@ -208,7 +208,7 @@ class _PopupWidgetState extends State<PopupWidget>
                             (widget.instructions)!.isNotEmpty) ==
                         true)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             14.0, 12.0, 14.0, 14.0),
                         child: Builder(
                           builder: (context) {
@@ -246,7 +246,7 @@ class _PopupWidgetState extends State<PopupWidget>
                                             ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 10.0)),
+                                  ].divide(SizedBox(width: 10.0)),
                                 ).animateOnPageLoad(
                                   animationsMap['rowOnPageLoadAnimation']!,
                                   effects: [
@@ -259,19 +259,19 @@ class _PopupWidgetState extends State<PopupWidget>
                                     ),
                                   ],
                                 );
-                              }).divide(const SizedBox(height: 12.0)),
+                              }).divide(SizedBox(height: 12.0)),
                             );
                           },
                         ),
                       ),
-                    const Divider(
+                    Divider(
                       height: 1.0,
                       thickness: 1.0,
                       color: Color(0x67000000),
                     ),
                     if (widget.footer != null && widget.footer != '')
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             52.0, 16.0, 52.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
@@ -281,7 +281,7 @@ class _PopupWidgetState extends State<PopupWidget>
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Rubik',
-                                    color: const Color(0xFF95A5A6),
+                                    color: Color(0xFF95A5A6),
                                     fontSize: functions.setFontSize(14.0),
                                     letterSpacing: 0.0,
                                     lineHeight: 1.4,
@@ -290,7 +290,7 @@ class _PopupWidgetState extends State<PopupWidget>
                       ),
                     if (widget.button != null && widget.button != '')
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 20.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -307,9 +307,9 @@ class _PopupWidgetState extends State<PopupWidget>
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 48.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -321,7 +321,7 @@ class _PopupWidgetState extends State<PopupWidget>
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

@@ -27,7 +27,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'טיימר',
               description:
                   'הטיימר עוזר לכם לעקוב אחרי הזמן בשיעור - מוכנים להתחיל?',
@@ -47,7 +47,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'אינדיקציה',
               description:
                   'סטטוס השיחה מראה לכם מתי תורך לדבר או להאזין למורה.',
@@ -67,7 +67,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'תמלול',
               description:
                   'כאן תראו את תמלול השיחה, כדי שיהיה קל לעקוב אחרי מה שנאמר.',
@@ -87,7 +87,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'פירוט השיחה',
               description: 'כאן תוכלו לראות את שם המורה ואת מס השיעור',
               positionTriangle: '',
@@ -106,7 +106,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'ניהול שיחה',
               description:
                   'הנה איך זה עובד: תוכלו לעצור, להחזיר אחורה, או לסיים מתי שתרצו. המורה שלנו פה כדי להקשיב ולעזור לכם לשפר את האנגלית שלך.',
@@ -126,7 +126,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'סיום שיחה',
               description:
                   'סיימתם את השיחה? לחצו על הכפתור כדי לסיים ולהתקדם לשלב הבא!* לא ניתן לחזור לשיחה לאחר הסיום ',
@@ -146,7 +146,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'חזור שנית',
               description:
                   'לחצו על \'חזור שנית\' כדי לשמוע שוב את המשפט האחרון של המורה.',
@@ -166,7 +166,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'שליטה בשיעור',
               description:
                   'האינדיקטורים ישתנו בהתאם לאפשרויות - יהיה אפשרות לעצור או להמשיך את השיעור בלחיצה על הכפתור',

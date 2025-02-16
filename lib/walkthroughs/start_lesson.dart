@@ -20,7 +20,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'התחלת שיעור',
               description:
                   'כדי להתחיל בשיעור, פשוט בחרו את המורה שתרצה לדבר איתו והתחילו בשיחה.',

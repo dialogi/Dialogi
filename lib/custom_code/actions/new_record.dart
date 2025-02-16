@@ -51,6 +51,10 @@ Future<String> newRecord() async {
       DateTime now = DateTime.now();
       int elapsedSeconds = now.difference(startTime!).inSeconds;
 
+      FFAppState().update(() {
+        FFAppState().log =
+            'silenceDuration ${silenceDuration} elapsedSeconds ${elapsedSeconds} voiceDecibel ${voiceDecibel} ';
+      });
       if (elapsedSeconds >= 20 ||
           silenceDuration >= 30 ||
           (FFAppState().userInput != null &&

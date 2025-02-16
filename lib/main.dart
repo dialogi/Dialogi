@@ -38,13 +38,11 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: const MyApp(),
+    child: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -88,7 +86,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      const Duration(milliseconds: 1000),
+      Duration(milliseconds: 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -112,7 +110,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Dialogi',
-      localizationsDelegates: const [
+      localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -136,7 +134,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  const NavBarPage({super.key, this.initialPage, this.page});
+  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
@@ -160,10 +158,10 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'settings': const SettingsWidget(),
-      'start_dialog': const StartDialogWidget(),
-      'homepage': const HomepageWidget(),
-      'profile': const ProfileWidget(),
+      'settings': SettingsWidget(),
+      'start_dialog': StartDialogWidget(),
+      'homepage': HomepageWidget(),
+      'profile': ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -183,13 +181,13 @@ class _NavBarPageState extends State<NavBarPage> {
           }),
           backgroundColor: Colors.white,
           selectedItemColor: FlutterFlowTheme.of(context).primary,
-          unselectedItemColor: const Color(0xFF8590C8),
+          unselectedItemColor: Color(0xFF8590C8),
           showSelectedLabels: false,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 FFIcons.ksettings,
                 size: 24.0,
               ),
@@ -199,7 +197,7 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 FFIcons.kphoneCallConverted,
                 size: 24.0,
               ),
@@ -209,7 +207,7 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 FFIcons.khome,
                 size: 24.0,
               ),
@@ -218,7 +216,7 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               tooltip: '',
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 FFIcons.kprofile,
                 size: 24.0,

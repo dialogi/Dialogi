@@ -21,7 +21,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'ברוכים הבאים!',
               description:
                   'ברוכים הבאים! סיימתם את תהליך האפיון בהצלחה! עכשיו, נתחיל ללמוד אנגלית בצורה שתמיד חלמתם עליה - פשוט וכיף! 😃',
@@ -41,7 +41,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, __) => const BubbleThinkingWidget(
+            builder: (context, __) => BubbleThinkingWidget(
               title: 'רשימת השיעורים',
               description:
                   'כאן יוצגו השיעורים הקודמים - לחצו על הקלף כדי לראות סיכום של שיעור קודם',

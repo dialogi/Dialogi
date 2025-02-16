@@ -165,7 +165,7 @@ class CreateChatCompletionCall {
     },
     {
       "role": "user",
-      "content": "the lesson content: $messages"
+      "content": "the lesson content: ${messages}"
     }
   ],
   "response_format": {
@@ -194,10 +194,10 @@ class CreateChatCompletionCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createChatCompletion',
-      apiUrl: '$baseUrl/chat/completions',
+      apiUrl: '${baseUrl}/chat/completions',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -238,17 +238,17 @@ class CreateStructuredChatCompletionCall {
       "role": "system",
       "content": "AI Teacher Instruction for Hebrew Native Speakers Learning English: Begin with short explanations in Hebrew, gradually introducing English. Focus on conversation and ask the learner to respond. Provide brief, encouraging feedback in Hebrew after each attempt. Slowly decrease Hebrew and increase English over time. Correct mistakes gently by first offering the Hebrew explanation and then the correct English version. Always guide the user to respond, ensuring active practice."
     },
-    $messages
+    ${messages}
   ],
   "temperature": 0.7,
   "stream": false
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createStructuredChatCompletion',
-      apiUrl: '$baseUrl/chat/completions',
+      apiUrl: '${baseUrl}/chat/completions',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -280,7 +280,7 @@ class CreateCompletionCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "",
   "prompt": "",
@@ -305,13 +305,13 @@ class CreateCompletionCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createCompletion',
-      apiUrl: '$baseUrl/completions',
+      apiUrl: '${baseUrl}/completions',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -336,7 +336,7 @@ class CreateImageCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "prompt": "A cute baby sea otter",
   "model": "dall-e-3",
@@ -349,13 +349,13 @@ class CreateImageCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createImage',
-      apiUrl: '$baseUrl/images/generations',
+      apiUrl: '${baseUrl}/images/generations',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -382,13 +382,13 @@ class CreateImageEditCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createImageEdit',
-      apiUrl: '$baseUrl/images/edits',
+      apiUrl: '${baseUrl}/images/edits',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -414,13 +414,13 @@ class CreateImageVariationCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createImageVariation',
-      apiUrl: '$baseUrl/images/variations',
+      apiUrl: '${baseUrl}/images/variations',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -444,7 +444,7 @@ class CreateEmbeddingCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "input": "The quick brown fox jumped over the lazy dog",
   "model": "text-embedding-3-small",
@@ -454,13 +454,13 @@ class CreateEmbeddingCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createEmbedding',
-      apiUrl: '$baseUrl/embeddings',
+      apiUrl: '${baseUrl}/embeddings',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -489,17 +489,17 @@ class CreateSpeechCall {
 
     final ffApiRequestBody = '''
 {
-  "model": "$model",
-  "input": "$input",
-  "voice": "$voice",
+  "model": "${model}",
+  "input": "${input}",
+  "voice": "${voice}",
   "response_format": "mp3"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createSpeech',
-      apiUrl: '$baseUrl/audio/speech',
+      apiUrl: '${baseUrl}/audio/speech',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -530,10 +530,10 @@ class CreateTranscriptionCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createTranscription',
-      apiUrl: '$baseUrl/audio/transcriptions',
+      apiUrl: '${baseUrl}/audio/transcriptions',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -564,13 +564,13 @@ class CreateTranslationCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createTranslation',
-      apiUrl: '$baseUrl/audio/translations',
+      apiUrl: '${baseUrl}/audio/translations',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -597,13 +597,13 @@ class ListFilesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFiles',
-      apiUrl: '$baseUrl/files',
+      apiUrl: '${baseUrl}/files',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'purpose': purpose,
@@ -630,13 +630,13 @@ class CreateFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createFile',
-      apiUrl: '$baseUrl/files',
+      apiUrl: '${baseUrl}/files',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -663,13 +663,13 @@ class DeleteFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteFile',
-      apiUrl: '$baseUrl/files/$fileId',
+      apiUrl: '${baseUrl}/files/${fileId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -695,13 +695,13 @@ class RetrieveFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFile',
-      apiUrl: '$baseUrl/files/$fileId',
+      apiUrl: '${baseUrl}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -727,13 +727,13 @@ class DownloadFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'downloadFile',
-      apiUrl: '$baseUrl/files/$fileId/content',
+      apiUrl: '${baseUrl}/files/${fileId}/content',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -756,7 +756,7 @@ class CreateUploadCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "filename": "",
   "purpose": "assistants",
@@ -765,13 +765,13 @@ class CreateUploadCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createUpload',
-      apiUrl: '$baseUrl/uploads',
+      apiUrl: '${baseUrl}/uploads',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -799,13 +799,13 @@ class AddUploadPartCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'addUploadPart',
-      apiUrl: '$baseUrl/uploads/$uploadId/parts',
+      apiUrl: '${baseUrl}/uploads/${uploadId}/parts',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -830,7 +830,7 @@ class CompleteUploadCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "part_ids": [
     ""
@@ -839,13 +839,13 @@ class CompleteUploadCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'completeUpload',
-      apiUrl: '$baseUrl/uploads/$uploadId/complete',
+      apiUrl: '${baseUrl}/uploads/${uploadId}/complete',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -873,13 +873,13 @@ class CancelUploadCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelUpload',
-      apiUrl: '$baseUrl/uploads/$uploadId/cancel',
+      apiUrl: '${baseUrl}/uploads/${uploadId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -903,7 +903,7 @@ class CreateFineTuningJobCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "gpt-4o-mini",
   "training_file": "file-abc123",
@@ -931,13 +931,13 @@ class CreateFineTuningJobCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createFineTuningJob',
-      apiUrl: '$baseUrl/fine_tuning/jobs',
+      apiUrl: '${baseUrl}/fine_tuning/jobs',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -966,13 +966,13 @@ class ListPaginatedFineTuningJobsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listPaginatedFineTuningJobs',
-      apiUrl: '$baseUrl/fine_tuning/jobs',
+      apiUrl: '${baseUrl}/fine_tuning/jobs',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'after': after,
@@ -1001,13 +1001,13 @@ class RetrieveFineTuningJobCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFineTuningJob',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1035,13 +1035,13 @@ class ListFineTuningEventsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTuningEvents',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId/events',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/events',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'after': after,
@@ -1070,13 +1070,13 @@ class CancelFineTuningJobCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelFineTuningJob',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId/cancel',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -1105,13 +1105,13 @@ class ListFineTuningJobCheckpointsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTuningJobCheckpoints',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId/checkpoints',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/checkpoints',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'after': after,
@@ -1139,13 +1139,13 @@ class ListModelsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listModels',
-      apiUrl: '$baseUrl/models',
+      apiUrl: '${baseUrl}/models',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1171,13 +1171,13 @@ class RetrieveModelCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveModel',
-      apiUrl: '$baseUrl/models/$model',
+      apiUrl: '${baseUrl}/models/${model}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1203,13 +1203,13 @@ class DeleteModelCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteModel',
-      apiUrl: '$baseUrl/models/$model',
+      apiUrl: '${baseUrl}/models/${model}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1232,20 +1232,20 @@ class CreateModerationCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "input": "",
   "model": "text-moderation-stable"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createModeration',
-      apiUrl: '$baseUrl/moderations',
+      apiUrl: '${baseUrl}/moderations',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1276,13 +1276,13 @@ class ListAssistantsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listAssistants',
-      apiUrl: '$baseUrl/assistants',
+      apiUrl: '${baseUrl}/assistants',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -1310,7 +1310,7 @@ class CreateAssistantCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "gpt-4o",
   "name": "",
@@ -1347,10 +1347,10 @@ class CreateAssistantCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createAssistant',
-      apiUrl: '$baseUrl/assistants',
+      apiUrl: '${baseUrl}/assistants',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1380,13 +1380,13 @@ class GetAssistantCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAssistant',
-      apiUrl: '$baseUrl/assistants/$assistantId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1410,7 +1410,7 @@ class ModifyAssistantCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "",
   "name": "",
@@ -1438,13 +1438,13 @@ class ModifyAssistantCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyAssistant',
-      apiUrl: '$baseUrl/assistants/$assistantId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1472,13 +1472,13 @@ class DeleteAssistantCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteAssistant',
-      apiUrl: '$baseUrl/assistants/$assistantId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1501,14 +1501,14 @@ class CreateThreadCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {}''';
     return ApiManager.instance.makeApiCall(
       callName: 'createThread',
-      apiUrl: '$baseUrl/threads',
+      apiUrl: '${baseUrl}/threads',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1543,10 +1543,10 @@ class GetThreadCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getThread',
-      apiUrl: '$baseUrl/threads/$threadId',
+      apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1572,7 +1572,7 @@ class ModifyThreadCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "tool_resources": {
     "code_interpreter": {
@@ -1590,13 +1590,13 @@ class ModifyThreadCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyThread',
-      apiUrl: '$baseUrl/threads/$threadId',
+      apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1624,13 +1624,13 @@ class DeleteThreadCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteThread',
-      apiUrl: '$baseUrl/threads/$threadId',
+      apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1661,10 +1661,10 @@ class ListMessagesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listMessages',
-      apiUrl: '$baseUrl/threads/$threadId/messages',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1698,14 +1698,14 @@ class CreateMessageCall {
     final ffApiRequestBody = '''
 {
   "role": "user",
-  "content": "$messageContent"
+  "content": "${messageContent}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1736,13 +1736,13 @@ class GetMessageCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages/$messageId',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1767,19 +1767,19 @@ class ModifyMessageCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "metadata": {}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages/$messageId',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1808,13 +1808,13 @@ class DeleteMessageCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages/$messageId',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1841,19 +1841,19 @@ class CreateThreadAndRunCall {
     final messages = _serializeJson(messagesJson);
     final ffApiRequestBody = '''
 {
-  "assistant_id": "$assistantId",
+  "assistant_id": "${assistantId}",
   "thread": {
     "messages": [
-      $messages
+      ${messages}
     ]
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createThreadAndRun',
-      apiUrl: '$baseUrl/threads/runs',
+      apiUrl: '${baseUrl}/threads/runs',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1900,10 +1900,10 @@ class ListRunsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listRuns',
-      apiUrl: '$baseUrl/threads/$threadId/runs',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1937,15 +1937,15 @@ class CreateRunCall {
 
     final ffApiRequestBody = '''
 {
-  "assistant_id": "$assistantId",
-  "additional_instructions": "$additionalInstructions"
+  "assistant_id": "${assistantId}",
+  "additional_instructions": "${additionalInstructions}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -1985,10 +1985,10 @@ class GetRunCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
       },
@@ -2020,19 +2020,19 @@ class ModifyRunCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "metadata": {}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2059,7 +2059,7 @@ class SubmitToolOuputsToRunCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "tool_outputs": [
     {
@@ -2072,13 +2072,13 @@ class SubmitToolOuputsToRunCall {
     return ApiManager.instance.makeApiCall(
       callName: 'submitToolOuputsToRun',
       apiUrl:
-          '$baseUrl/threads/$threadId/runs/$runId/submit_tool_outputs',
+          '${baseUrl}/threads/${threadId}/runs/${runId}/submit_tool_outputs',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2107,13 +2107,13 @@ class CancelRunCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId/cancel',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -2145,13 +2145,13 @@ class ListRunStepsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listRunSteps',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId/steps',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/steps',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -2184,13 +2184,13 @@ class GetRunStepCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRunStep',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId/steps/$stepId',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/steps/${stepId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2219,13 +2219,13 @@ class ListVectorStoresCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listVectorStores',
-      apiUrl: '$baseUrl/vector_stores',
+      apiUrl: '${baseUrl}/vector_stores',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -2253,7 +2253,7 @@ class CreateVectorStoreCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "file_ids": [
     ""
@@ -2268,13 +2268,13 @@ class CreateVectorStoreCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createVectorStore',
-      apiUrl: '$baseUrl/vector_stores',
+      apiUrl: '${baseUrl}/vector_stores',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2302,13 +2302,13 @@ class GetVectorStoreCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getVectorStore',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2332,7 +2332,7 @@ class ModifyVectorStoreCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "name": "",
   "expires_after": {
@@ -2343,13 +2343,13 @@ class ModifyVectorStoreCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyVectorStore',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2377,13 +2377,13 @@ class DeleteVectorStoreCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteVectorStore',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2414,13 +2414,13 @@ class ListVectorStoreFilesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listVectorStoreFiles',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId/files',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}/files',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -2450,20 +2450,20 @@ class CreateVectorStoreFileCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "file_id": "",
   "chunking_strategy": {}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createVectorStoreFile',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId/files',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}/files',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2492,13 +2492,13 @@ class GetVectorStoreFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getVectorStoreFile',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId/files/$fileId',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2525,13 +2525,13 @@ class DeleteVectorStoreFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteVectorStoreFile',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId/files/$fileId',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}/files/${fileId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2555,7 +2555,7 @@ class CreateVectorStoreFileBatchCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "file_ids": [
     ""
@@ -2564,13 +2564,13 @@ class CreateVectorStoreFileBatchCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createVectorStoreFileBatch',
-      apiUrl: '$baseUrl/vector_stores/$vectorStoreId/file_batches',
+      apiUrl: '${baseUrl}/vector_stores/${vectorStoreId}/file_batches',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2600,13 +2600,13 @@ class GetVectorStoreFileBatchCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getVectorStoreFileBatch',
       apiUrl:
-          '$baseUrl/vector_stores/$vectorStoreId/file_batches/$batchId',
+          '${baseUrl}/vector_stores/${vectorStoreId}/file_batches/${batchId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2634,13 +2634,13 @@ class CancelVectorStoreFileBatchCall {
     return ApiManager.instance.makeApiCall(
       callName: 'cancelVectorStoreFileBatch',
       apiUrl:
-          '$baseUrl/vector_stores/$vectorStoreId/file_batches/$batchId/cancel',
+          '${baseUrl}/vector_stores/${vectorStoreId}/file_batches/${batchId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -2674,13 +2674,13 @@ class ListFilesInVectorStoreBatchCall {
     return ApiManager.instance.makeApiCall(
       callName: 'listFilesInVectorStoreBatch',
       apiUrl:
-          '$baseUrl/vector_stores/$vectorStoreId/file_batches/$batchId/files',
+          '${baseUrl}/vector_stores/${vectorStoreId}/file_batches/${batchId}/files',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -2709,7 +2709,7 @@ class CreateBatchCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "input_file_id": "",
   "endpoint": "/v1/chat/completions",
@@ -2718,13 +2718,13 @@ class CreateBatchCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createBatch',
-      apiUrl: '$baseUrl/batches',
+      apiUrl: '${baseUrl}/batches',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2753,13 +2753,13 @@ class ListBatchesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listBatches',
-      apiUrl: '$baseUrl/batches',
+      apiUrl: '${baseUrl}/batches',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'after': after,
@@ -2788,13 +2788,13 @@ class RetrieveBatchCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveBatch',
-      apiUrl: '$baseUrl/batches/$batchId',
+      apiUrl: '${baseUrl}/batches/${batchId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2820,13 +2820,13 @@ class CancelBatchCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelBatch',
-      apiUrl: '$baseUrl/batches/$batchId/cancel',
+      apiUrl: '${baseUrl}/batches/${batchId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -2854,13 +2854,13 @@ class ListInvitesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list-invites',
-      apiUrl: '$baseUrl/organization/invites',
+      apiUrl: '${baseUrl}/organization/invites',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -2886,20 +2886,20 @@ class InviteUserCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "email": "",
   "role": "reader"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'inviteUser',
-      apiUrl: '$baseUrl/organization/invites',
+      apiUrl: '${baseUrl}/organization/invites',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -2927,13 +2927,13 @@ class RetrieveInviteCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieve-invite',
-      apiUrl: '$baseUrl/organization/invites/$inviteId',
+      apiUrl: '${baseUrl}/organization/invites/${inviteId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2959,13 +2959,13 @@ class DeleteInviteCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'delete-invite',
-      apiUrl: '$baseUrl/organization/invites/$inviteId',
+      apiUrl: '${baseUrl}/organization/invites/${inviteId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2992,13 +2992,13 @@ class ListUsersCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list-users',
-      apiUrl: '$baseUrl/organization/users',
+      apiUrl: '${baseUrl}/organization/users',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -3027,13 +3027,13 @@ class RetrieveUserCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieve-user',
-      apiUrl: '$baseUrl/organization/users/$userId',
+      apiUrl: '${baseUrl}/organization/users/${userId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3059,13 +3059,13 @@ class DeleteUserCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'delete-user',
-      apiUrl: '$baseUrl/organization/users/$userId',
+      apiUrl: '${baseUrl}/organization/users/${userId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3093,13 +3093,13 @@ class ListProjectsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list-projects',
-      apiUrl: '$baseUrl/organization/projects',
+      apiUrl: '${baseUrl}/organization/projects',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -3126,19 +3126,19 @@ class CreateProjectCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "name": ""
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'create-project',
-      apiUrl: '$baseUrl/organization/projects',
+      apiUrl: '${baseUrl}/organization/projects',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3166,13 +3166,13 @@ class RetrieveProjectCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieve-project',
-      apiUrl: '$baseUrl/organization/projects/$projectId',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3198,13 +3198,13 @@ class ArchiveProjectCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'archive-project',
-      apiUrl: '$baseUrl/organization/projects/$projectId/archive',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/archive',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -3233,13 +3233,13 @@ class ListProjectUsersCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list-project-users',
-      apiUrl: '$baseUrl/organization/projects/$projectId/users',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/users',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -3266,20 +3266,20 @@ class CreateProjectUserCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "user_id": "",
   "role": "owner"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'create-project-user',
-      apiUrl: '$baseUrl/organization/projects/$projectId/users',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/users',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3308,13 +3308,13 @@ class RetrieveProjectUserCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieve-project-user',
-      apiUrl: '$baseUrl/organization/projects/$projectId/users/$userId',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/users/${userId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3341,13 +3341,13 @@ class DeleteProjectUserCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'delete-project-user',
-      apiUrl: '$baseUrl/organization/projects/$projectId/users/$userId',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/users/${userId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3375,13 +3375,13 @@ class ListProjectServiceAccountsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list-project-service-accounts',
-      apiUrl: '$baseUrl/organization/projects/$projectId/service_accounts',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/service_accounts',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -3408,19 +3408,19 @@ class CreateProjectServiceAccountCall {
       apiKey: apiKey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "name": ""
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'create-project-service-account',
-      apiUrl: '$baseUrl/organization/projects/$projectId/service_accounts',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/service_accounts',
       callType: ApiCallType.POST,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -3450,13 +3450,13 @@ class RetrieveProjectServiceAccountCall {
     return ApiManager.instance.makeApiCall(
       callName: 'retrieve-project-service-account',
       apiUrl:
-          '$baseUrl/organization/projects/$projectId/service_accounts/$serviceAccountId',
+          '${baseUrl}/organization/projects/${projectId}/service_accounts/${serviceAccountId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3484,13 +3484,13 @@ class DeleteProjectServiceAccountCall {
     return ApiManager.instance.makeApiCall(
       callName: 'delete-project-service-account',
       apiUrl:
-          '$baseUrl/organization/projects/$projectId/service_accounts/$serviceAccountId',
+          '${baseUrl}/organization/projects/${projectId}/service_accounts/${serviceAccountId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3518,13 +3518,13 @@ class ListProjectApiKeysCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list-project-api-keys',
-      apiUrl: '$baseUrl/organization/projects/$projectId/api_keys',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/api_keys',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -3554,13 +3554,13 @@ class RetrieveProjectApiKeyCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieve-project-api-key',
-      apiUrl: '$baseUrl/organization/projects/$projectId/api_keys/$keyId',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/api_keys/${keyId}',
       callType: ApiCallType.GET,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3587,13 +3587,13 @@ class DeleteProjectApiKeyCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'delete-project-api-key',
-      apiUrl: '$baseUrl/organization/projects/$projectId/api_keys/$keyId',
+      apiUrl: '${baseUrl}/organization/projects/${projectId}/api_keys/${keyId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'authorization': 'Bearer $apiKey',
+        'authorization': 'Bearer ${apiKey}',
         'Content-Type': 'application/json',
         'OpenAI-Beta': 'assistants=v2',
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -3621,6 +3621,7 @@ class RevenueCatGroup {
   };
   static GetCostumerCall getCostumerCall = GetCostumerCall();
   static ProductsCall productsCall = ProductsCall();
+  static NewSubCall newSubCall = NewSubCall();
 }
 
 class GetCostumerCall {
@@ -3635,11 +3636,11 @@ class GetCostumerCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'get costumer',
-      apiUrl: '$baseUrl/projects/$projectId/customers/$customerId',
+      apiUrl: '${baseUrl}/projects/${projectId}/customers/${customerId}',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $apiKey',
+        'Authorization': 'Bearer ${apiKey}',
       },
       params: {},
       returnBody: true,
@@ -3673,11 +3674,39 @@ class ProductsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'products',
-      apiUrl: '$baseUrl/projects/$projectId/entitlements',
+      apiUrl: '${baseUrl}/projects/${projectId}/entitlements',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $apiKey',
+        'Authorization': 'Bearer ${apiKey}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class NewSubCall {
+  Future<ApiCallResponse> call({
+    String? customerId = '',
+    String? apiKey = 'sk_jpbICoRNeluHOjUgpQqpRnMbyWcue',
+  }) async {
+    final baseUrl = RevenueCatGroup.getBaseUrl(
+      apiKey: apiKey,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'newSub',
+      apiUrl: '${baseUrl}subscribers/${customerId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${apiKey}',
       },
       params: {},
       returnBody: true,
@@ -3691,6 +3720,46 @@ class ProductsCall {
 }
 
 /// End RevenueCat Group Code
+
+class NewSubDetailsCall {
+  static Future<ApiCallResponse> call({
+    String? customerId = '',
+    String? apiKey = 'sk_aXsdJhFtvkiGNYNhaRznesRtwywtf',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'New Sub Details',
+      apiUrl: 'https://api.revenuecat.com/v1/subscribers/${customerId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${apiKey}',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? entl75e9162b69(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.subscriber.entitlements.Adventurer.purchase_date''',
+      ));
+  static String? entl8b6abab155(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.subscriber.entitlements.Champion.purchase_date''',
+      ));
+  static String? entl054b154c1b(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.subscriber.entitlements.explorer.purchase_date''',
+      ));
+}
 
 class ApiPagingParams {
   int nextPageNumber = 0;

@@ -63,14 +63,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60.0),
+          preferredSize: Size.fromHeight(60.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primary,
             automaticallyImplyLeading: false,
-            actions: const [],
+            actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -79,9 +79,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 8.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -102,7 +102,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                       ],
                     ),
-                    const Divider(
+                    Divider(
                       height: 1.0,
                       thickness: 1.0,
                       color: Color(0x64FFFFFF),
@@ -112,94 +112,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               ),
               centerTitle: false,
               expandedTitleScale: 1.0,
-              titlePadding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              titlePadding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
             ),
             elevation: 0.0,
           ),
         ),
         body: Align(
-          alignment: const AlignmentDirectional(0.0, -1.0),
+          alignment: AlignmentDirectional(0.0, -1.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    child: Stack(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
-                      children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 74.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).primary,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(0.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
-                            ),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 1.0,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 0.0),
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 3.0,
-                            shape: const CircleBorder(),
-                            child: Container(
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: const BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 0.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(
-                                      0.0,
-                                      0.0,
-                                    ),
-                                  )
-                                ],
-                                shape: BoxShape.circle,
-                              ),
-                              child: Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => Container(
-                                    width: 110.0,
-                                    height: 110.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: CachedNetworkImage(
-                                      fadeInDuration: const Duration(milliseconds: 0),
-                                      fadeOutDuration:
-                                          const Duration(milliseconds: 0),
-                                      imageUrl: currentUserPhoto,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
               Flexible(
                 child: StreamBuilder<List<LevelsRecord>>(
                   stream: queryLevelsRecord(
@@ -242,8 +166,89 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                child: Stack(
+                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 74.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(0.0),
+                                          topRight: Radius.circular(0.0),
+                                        ),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 1.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 24.0, 0.0, 0.0),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        elevation: 3.0,
+                                        shape: const CircleBorder(),
+                                        child: Container(
+                                          width: 100.0,
+                                          height: 100.0,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 0.0,
+                                                color: Color(0x33000000),
+                                                offset: Offset(
+                                                  0.0,
+                                                  0.0,
+                                                ),
+                                              )
+                                            ],
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, -1.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Container(
+                                                width: 110.0,
+                                                height: 110.0,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: CachedNetworkImage(
+                                                  fadeInDuration:
+                                                      Duration(milliseconds: 0),
+                                                  fadeOutDuration:
+                                                      Duration(milliseconds: 0),
+                                                  imageUrl: currentUserPhoto,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 16.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
@@ -252,7 +257,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Rubik',
-                                      color: const Color(0xFF232C2E),
+                                      color: Color(0xFF232C2E),
                                       fontSize: functions.setFontSize(24.0),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
@@ -262,7 +267,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 18.0),
                             child: FutureBuilder<List<LessonsRecord>>(
                               future: queryLessonsRecordOnce(
@@ -274,7 +279,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     .where(
                                       'start_at',
                                       isGreaterThanOrEqualTo:
-                                          functions.newCustomFunction(),
+                                          FFAppState().LastWeekSub,
                                     )
                                     .where(
                                       'first',
@@ -312,7 +317,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Container(
                                           width: 155.0,
@@ -325,7 +330,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -381,13 +386,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             FontWeight.w500,
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(width: 8.0)),
+                                              ].divide(SizedBox(width: 8.0)),
                                             ),
                                           ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 16.0, 16.0, 16.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -414,7 +419,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       height: 24.0,
                                                       fit: BoxFit.fitWidth,
                                                       alignment:
-                                                          const Alignment(-1.0, -1.0),
+                                                          Alignment(-1.0, -1.0),
                                                     ),
                                                   ),
                                                   Column(
@@ -460,34 +465,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                               (FFAppState()
                                                                       .userSub
                                                                       .subId !=
-                                                                  '0') &&
-                                                              (containerLessonsRecordList
-                                                                  .isNotEmpty)) {
+                                                                  '0')) {
                                                             return dateTimeFormat(
                                                               "d/M/y",
                                                               functions.addDaysToInboundDate(
-                                                                  containerLessonsRecordList
-                                                                      .lastOrNull!
-                                                                      .startAt!),
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            );
-                                                          } else if ((FFAppState()
-                                                                          .userSub
-                                                                          .subId !=
-                                                                      '') &&
-                                                              (FFAppState()
-                                                                      .userSub
-                                                                      .subId !=
-                                                                  '0') &&
-                                                              !(containerLessonsRecordList
-                                                                  .isNotEmpty)) {
-                                                            return dateTimeFormat(
-                                                              "d/M/y",
-                                                              functions
-                                                                  .addDaysToInboundDate(
-                                                                      getCurrentTimestamp),
+                                                                  FFAppState()
+                                                                      .LastWeekSub!,
+                                                                  1),
                                                               locale: FFLocalizations
                                                                       .of(context)
                                                                   .languageCode,
@@ -516,9 +500,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 3.0)),
+                                                        SizedBox(height: 3.0)),
                                                   ),
-                                                ].divide(const SizedBox(width: 10.0)),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
                                             SizedBox(
@@ -549,7 +533,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       height: 24.0,
                                                       fit: BoxFit.fitWidth,
                                                       alignment:
-                                                          const Alignment(-1.0, -1.0),
+                                                          Alignment(-1.0, -1.0),
                                                     ),
                                                   ),
                                                   Column(
@@ -603,9 +587,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 3.0)),
+                                                        SizedBox(height: 3.0)),
                                                   ),
-                                                ].divide(const SizedBox(width: 10.0)),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
                                           ],
@@ -618,10 +602,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 24.0),
                             child: Container(
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 14.0,
@@ -651,9 +635,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
                                     height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: Colors.white,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -667,7 +651,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           lineHeight: 1.5,
                                         ),
                                     elevation: 0.0,
-                                    borderSide: const BorderSide(
+                                    borderSide: BorderSide(
                                       color: Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(56.0),
@@ -678,7 +662,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 4.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -688,7 +672,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Rubik',
-                                    color: const Color(0xFF3C3D41),
+                                    color: Color(0xFF3C3D41),
                                     fontSize: functions.setFontSize(20.0),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -702,25 +686,25 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Rubik',
-                                  color: const Color(0xFF8A8B91),
+                                  color: Color(0xFF8A8B91),
                                   fontSize: functions.setFontSize(14.0),
                                   letterSpacing: 0.0,
                                   lineHeight: 1.4,
                                 ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 24.0),
                             child: Container(
                               width: 173.0,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 173.0,
                               ),
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: LinearPercentIndicator(
                                     percent: valueOrDefault<double>(
@@ -730,9 +714,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     lineHeight: 8.0,
                                     animation: true,
                                     animateFromLastPercent: true,
-                                    progressColor: const Color(0xFF6ABE62),
-                                    backgroundColor: const Color(0xFFE2E4EF),
-                                    barRadius: const Radius.circular(56.0),
+                                    progressColor: Color(0xFF6ABE62),
+                                    backgroundColor: Color(0xFFE2E4EF),
+                                    barRadius: Radius.circular(56.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
@@ -747,7 +731,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Rubik',
-                                  color: const Color(0xFF747474),
+                                  color: Color(0xFF747474),
                                   fontSize: functions.setFontSize(16.0),
                                   letterSpacing: 0.0,
                                   decoration: TextDecoration.underline,
@@ -755,7 +739,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 12.0, 24.0, 12.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -798,7 +782,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       itemCount:
                                           listViewLessonsRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 12.0),
+                                          SizedBox(height: 12.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewLessonsRecord =
                                             listViewLessonsRecordList[
@@ -833,7 +817,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               }.withoutNulls,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    const TransitionInfo(
+                                                    TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.scale,
@@ -860,7 +844,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     );
                                   },
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
                           ),
                         ],
