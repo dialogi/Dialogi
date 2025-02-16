@@ -22,8 +22,8 @@ class DialogSummaryWidget extends StatefulWidget {
     this.chatMessages,
     String? lessonId,
     bool? profile,
-  })  : lessonId = lessonId ?? 'lessonId',
-        profile = profile ?? false;
+  })  : this.lessonId = lessonId ?? 'lessonId',
+        this.profile = profile ?? false;
 
   final bool? lastLesson;
   final List<MessageStruct>? chatMessages;
@@ -117,7 +117,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 60.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 60.0, 24.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -142,7 +142,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                   context.goNamed(
                                     'profile',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
+                                      kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 700),
@@ -152,7 +152,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                 },
                               ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'zqep0wmv' /* שיחה */,
@@ -171,15 +171,15 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                             ),
                           ],
                         ),
-                        const Divider(
+                        Divider(
                           height: 1.0,
                           thickness: 1.0,
                           color: Color(0x64FFFFFF),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 20.0, 0.0, 21.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -187,9 +187,9 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 5.0, 0.0),
                                     child: wrapWithModel(
                                       model: _model.teacherSelectModel,
@@ -212,9 +212,9 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -250,7 +250,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                             int textCount = snapshot.data!;
 
                                             return Text(
-                                              'שיעור מס’ ${textCount.toString()}',
+                                              'שיעור מס’ ${dialogSummaryLessonsRecord.lessonNum.toString()}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -269,7 +269,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 2.0, 0.0, 0.0),
                                           child: Text(
                                             'מורה: ${dialogSummaryLessonsRecord.teacher.name}',
@@ -300,27 +300,27 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                 ),
                 Flexible(
                   child: Container(
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       maxWidth: 600.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 22.0, 0.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Align(
+                                  Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.clock,
@@ -336,14 +336,14 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
-                                          color: const Color(0xFF707F80),
+                                          color: Color(0xFF707F80),
                                           fontSize: functions.setFontSize(18.0),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                           lineHeight: 1.4,
                                         ),
                                   ),
-                                ].divide(const SizedBox(width: 6.0)),
+                                ].divide(SizedBox(width: 6.0)),
                               ),
                             ),
                             Text(
@@ -367,7 +367,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Rubik',
-                                    color: const Color(0xFF707F80),
+                                    color: Color(0xFF707F80),
                                     fontSize: functions.setFontSize(14.0),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
@@ -376,14 +376,14 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                             ),
                             Container(
                               width: 173.0,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 173.0,
                               ),
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 29.0),
                                   child: LinearPercentIndicator(
                                     percent:
@@ -391,23 +391,23 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                     lineHeight: 8.0,
                                     animation: true,
                                     animateFromLastPercent: true,
-                                    progressColor: const Color(0xFF6ABE62),
-                                    backgroundColor: const Color(0xFFE2E4EF),
-                                    barRadius: const Radius.circular(56.0),
+                                    progressColor: Color(0xFF6ABE62),
+                                    backgroundColor: Color(0xFFE2E4EF),
+                                    barRadius: Radius.circular(56.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 41.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16.0),
                                   border: Border.all(
-                                    color: const Color(0xFFE8E8E8),
+                                    color: Color(0xFFE8E8E8),
                                     width: 1.0,
                                   ),
                                 ),
@@ -415,9 +415,9 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 12.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -440,9 +440,9 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 20.0, 12.0),
                                         child: Text(
                                           valueOrDefault<String>(
@@ -454,7 +454,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Rubik',
-                                                color: const Color(0xFF707F80),
+                                                color: Color(0xFF707F80),
                                                 fontSize:
                                                     functions.setFontSize(16.0),
                                                 letterSpacing: 0.0,
@@ -471,14 +471,14 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                             if (widget.chatMessages != null &&
                                 (widget.chatMessages)!.isNotEmpty)
                               Stack(
-                                alignment: const AlignmentDirectional(-0.0, 0.0),
+                                alignment: AlignmentDirectional(-0.0, 0.0),
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -531,7 +531,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               }.withoutNulls,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    const TransitionInfo(
+                                                    TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType
@@ -557,7 +557,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             '5b905i4l' /* * זמן הצפייה בתמלול מוגבל בזמן */,
@@ -567,7 +567,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Rubik',
-                                                color: const Color(0xFF95A5A6),
+                                                color: Color(0xFF95A5A6),
                                                 fontSize:
                                                     functions.setFontSize(14.0),
                                                 letterSpacing: 0.0,
@@ -576,20 +576,20 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               ),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(width: 28.0)),
+                                    ].divide(SizedBox(width: 28.0)),
                                   ),
                                 ],
                               ),
                             Flexible(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -610,7 +610,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               'start_dialog',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    const TransitionInfo(
+                                                    TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -624,7 +624,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                             model: _model.primaryBtnModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: const PrimaryBtnWidget(
+                                            child: PrimaryBtnWidget(
                                               text: 'התחלת שיעור חדש',
                                               phone: true,
                                             ),
@@ -645,7 +645,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               'homepage',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    const TransitionInfo(
+                                                    TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -659,15 +659,15 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                             model: _model.newBtnModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: const NewBtnWidget(
+                                            child: NewBtnWidget(
                                               text: 'מעבר למסך הבית',
                                               home: true,
                                             ),
                                           ),
                                         ),
                                       ]
-                                          .divide(const SizedBox(height: 20.0))
-                                          .addToEnd(const SizedBox(height: 52.0)),
+                                          .divide(SizedBox(height: 20.0))
+                                          .addToEnd(SizedBox(height: 52.0)),
                                     ),
                                   ),
                                 ),

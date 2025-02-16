@@ -80,7 +80,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
             delay: 0.0.ms,
             duration: 510.0.ms,
             hz: 4,
-            offset: const Offset(0.0, 0.0),
+            offset: Offset(0.0, 0.0),
             rotation: 0.052,
           ),
         ],
@@ -93,8 +93,8 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
             curve: Curves.easeInOut,
             delay: 670.0.ms,
             duration: 450.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(1.2, 1.2),
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.2, 1.2),
           ),
           ShimmerEffect(
             curve: Curves.easeInOut,
@@ -107,8 +107,8 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
             curve: Curves.easeInOut,
             delay: 1440.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(1.2, 1.2),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.2, 1.2),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -136,17 +136,17 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
       children: [
         Flexible(
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxWidth: 570.0,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 3.0,
                       color: Color(0x33000000),
@@ -156,14 +156,14 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                       ),
                     )
                   ],
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
                     topLeft: Radius.circular(24.0),
                     topRight: Radius.circular(24.0),
                   ),
                   border: Border.all(
-                    color: const Color(0xFFF5FBFB),
+                    color: Color(0xFFF5FBFB),
                     width: 1.0,
                   ),
                 ),
@@ -173,9 +173,9 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                     Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, -1.0),
+                          alignment: AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 24.0, 24.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -189,7 +189,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                     'Icon_close_dialog_drawer_etc');
                                 Navigator.pop(context);
                               },
-                              child: const Icon(
+                              child: Icon(
                                 FFIcons.kcarbonCloseOutline,
                                 color: Color(0xFF95A5A6),
                                 size: 28.0,
@@ -198,15 +198,15 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 75.0, 0.0, 75.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 36.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
@@ -218,7 +218,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
-                                          color: const Color(0xFF232C2E),
+                                          color: Color(0xFF232C2E),
                                           fontSize: functions.setFontSize(24.0),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
@@ -227,7 +227,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
@@ -238,7 +238,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
-                                          color: const Color(0xFF797979),
+                                          color: Color(0xFF797979),
                                           fontSize: functions.setFontSize(16.0),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -269,7 +269,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                 scrollDirection: Axis.vertical,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 14.0, 24.0, 24.0),
                                     child: FlutterFlowChoiceChips(
                                       options: widget
@@ -330,7 +330,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                         iconColor: Colors.white,
                                         iconSize: 20.0,
                                         labelPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 12.0, 6.0, 12.0, 6.0),
                                         elevation: 0.0,
                                         borderWidth: 1.0,
@@ -355,7 +355,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                             .primary,
                                         iconSize: 20.0,
                                         labelPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 12.0, 6.0, 12.0, 6.0),
                                         elevation: 0.0,
                                         borderColor:
@@ -388,7 +388,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                     if (widget.question?.answers.type ==
                         AnswerType.single_select)
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 40.0, 0.0, 40.0),
                         child: Builder(
                           builder: (context) {
@@ -403,7 +403,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                               scrollDirection: Axis.vertical,
                               itemCount: possible.length,
                               separatorBuilder: (_, __) =>
-                                  const SizedBox(height: 20.0),
+                                  SizedBox(height: 20.0),
                               itemBuilder: (context, possibleIndex) {
                                 final possibleItem = possible[possibleIndex];
                                 return InkWell(
@@ -446,7 +446,7 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                       ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 40.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 40.0),
                       child: FFButtonWidget(
                         onPressed: ((widget.question?.limit.toString() !=
                                             null &&
@@ -482,9 +482,9 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 48.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -494,13 +494,13 @@ class _BottomQuestionWidgetState extends State<BottomQuestionWidget>
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 0.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(56.0),
-                          disabledColor: const Color(0xFFE8ECEF),
-                          disabledTextColor: const Color(0xFF95A5A6),
+                          disabledColor: Color(0xFFE8ECEF),
+                          disabledTextColor: Color(0xFF95A5A6),
                         ),
                       ),
                     ),

@@ -51,7 +51,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Flexible(
-          child: SizedBox(
+          child: Container(
             width: 327.0,
             height: 92.0,
             child: Stack(
@@ -79,7 +79,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                         ),
                       }.withoutNulls,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: const TransitionInfo(
+                        kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 700),
@@ -92,18 +92,18 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFF788EFD),
+                          Color(0xFF788EFD),
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.31, -1.0),
-                        end: const AlignmentDirectional(-0.31, 1.0),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(0.31, -1.0),
+                        end: AlignmentDirectional(-0.31, 1.0),
                       ),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 9.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 9.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -120,7 +120,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                   child: Container(
                                     width: 68.0,
                                     height: 68.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -140,7 +140,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                   child: Container(
                                     width: 68.0,
                                     height: 68.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -160,7 +160,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                   child: Container(
                                     width: 68.0,
                                     height: 68.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -180,7 +180,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                   child: Container(
                                     width: 68.0,
                                     height: 68.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
@@ -194,7 +194,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                                     ),
                                   ),
                                 ),
-                            ].divide(const SizedBox(height: 0.0)),
+                            ].divide(SizedBox(height: 0.0)),
                           ),
                           Flexible(
                             child: Column(
@@ -202,7 +202,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 0.0, 0.0),
                                   child: Text(
                                     'שיעור מס׳ ${widget.lessonNum}',
@@ -235,7 +235,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                               ],
                             ),
                           ),
-                        ].divide(const SizedBox(width: 10.0)),
+                        ].divide(SizedBox(width: 10.0)),
                       ),
                     ),
                   ),

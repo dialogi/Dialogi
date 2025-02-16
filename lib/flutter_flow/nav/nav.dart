@@ -79,40 +79,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: 'start_onboarding',
           path: '/startOnboarding',
           requireAuth: true,
-          builder: (context, params) => const StartOnboardingWidget(),
+          builder: (context, params) => StartOnboardingWidget(),
         ),
         FFRoute(
           name: 'question',
           path: '/question',
           requireAuth: true,
-          builder: (context, params) => const QuestionWidget(),
+          builder: (context, params) => QuestionWidget(),
         ),
         FFRoute(
           name: 'homepage',
           path: '/homepage',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'homepage')
-              : const HomepageWidget(),
+              ? NavBarPage(initialPage: 'homepage')
+              : HomepageWidget(),
         ),
         FFRoute(
           name: 'start_dialog',
           path: '/startDialog',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'start_dialog')
+              ? NavBarPage(initialPage: 'start_dialog')
               : StartDialogWidget(
                   subject: params.getParam(
                     'subject',
@@ -129,16 +129,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/profile',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'profile')
-              : const ProfileWidget(),
+              ? NavBarPage(initialPage: 'profile')
+              : ProfileWidget(),
         ),
         FFRoute(
           name: 'settings',
           path: '/settings',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'settings')
-              : const SettingsWidget(),
+              ? NavBarPage(initialPage: 'settings')
+              : SettingsWidget(),
         ),
         FFRoute(
           name: 'dialog_summary',
@@ -168,12 +168,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'loader',
           path: '/loader',
-          builder: (context, params) => const LoaderWidget(),
+          builder: (context, params) => LoaderWidget(),
         ),
         FFRoute(
           name: 'login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'on_dialog_chat',
@@ -441,7 +441,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

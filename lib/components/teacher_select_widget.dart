@@ -12,8 +12,8 @@ class TeacherSelectWidget extends StatefulWidget {
     this.name,
     double? imgWidth,
     required this.teacherImg,
-  })  : selected = selected ?? false,
-        imgWidth = imgWidth ?? 48.0;
+  })  : this.selected = selected ?? false,
+        this.imgWidth = imgWidth ?? 48.0;
 
   final bool selected;
   final String? name;
@@ -60,7 +60,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               width: widget.imgWidth,
               height: widget.imgWidth,
               decoration: BoxDecoration(
-                color: const Color(0xFFACB8EC),
+                color: Color(0xFFACB8EC),
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: widget.selected
@@ -87,7 +87,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               width: widget.imgWidth,
               height: widget.imgWidth,
               decoration: BoxDecoration(
-                color: const Color(0xFFACB8EC),
+                color: Color(0xFFACB8EC),
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: widget.selected
@@ -113,7 +113,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               width: widget.imgWidth,
               height: widget.imgWidth,
               decoration: BoxDecoration(
-                color: const Color(0xFFACB8EC),
+                color: Color(0xFFACB8EC),
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: widget.selected
@@ -140,7 +140,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               width: widget.imgWidth,
               height: widget.imgWidth,
               decoration: BoxDecoration(
-                color: const Color(0xFFACB8EC),
+                color: Color(0xFFACB8EC),
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: widget.selected
@@ -162,9 +162,9 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
           ),
         if ((widget.name != null && widget.name != '') && !widget.selected)
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: Text(
                 widget.name!,
                 textAlign: TextAlign.center,
@@ -172,7 +172,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
                       fontFamily: 'Rubik',
                       color: widget.selected
                           ? FlutterFlowTheme.of(context).primary
-                          : const Color(0xFF232C2E),
+                          : Color(0xFF232C2E),
                       fontSize: functions.setFontSize(16.0),
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -183,9 +183,9 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
           ),
         if ((widget.name != null && widget.name != '') && widget.selected)
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: Text(
                 widget.name!,
                 textAlign: TextAlign.center,
@@ -193,7 +193,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
                       fontFamily: 'Rubik',
                       color: widget.selected
                           ? FlutterFlowTheme.of(context).primary
-                          : const Color(0xFF232C2E),
+                          : Color(0xFF232C2E),
                       fontSize: functions.setFontSize(16.0),
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
@@ -202,7 +202,7 @@ class _TeacherSelectWidgetState extends State<TeacherSelectWidget> {
               ),
             ),
           ),
-      ].divide(const SizedBox(height: 0.0)),
+      ].divide(SizedBox(height: 0.0)),
     );
   }
 }

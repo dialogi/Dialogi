@@ -307,12 +307,12 @@ void showSnackbar(
       content: Row(
         children: [
           if (loading)
-            const Padding(
+            Padding(
               padding: EdgeInsetsDirectional.only(end: 10.0),
-              child: SizedBox(
+              child: Container(
                 height: 20,
                 width: 20,
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   color: Colors.white,
                 ),
               ),
@@ -411,7 +411,7 @@ Future<void> startAudioRecording(
     final AudioEncoder encoder;
     if (kIsWeb) {
       path = '';
-      encoder = AudioEncoder.opus;
+      encoder = AudioEncoder.wav;
     } else {
       final dir = await getApplicationDocumentsDirectory();
       path = '${dir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';

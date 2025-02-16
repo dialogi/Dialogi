@@ -84,9 +84,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 color: FlutterFlowTheme.of(context).primary,
               ),
               child: Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 12.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 12.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '5kd8b0gs' /* הגדרות */,
@@ -105,15 +105,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             ),
             Flexible(
               child: Container(
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxWidth: 600.0,
                 ),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(24.0, 17.0, 24.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(24.0, 17.0, 24.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -124,7 +124,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Material(
                                 color: Colors.transparent,
                                 elevation: 4.0,
@@ -138,13 +138,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Container(
                                         width: 88.0,
                                         height: 88.0,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
@@ -157,15 +157,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            Container(
                               width: 260.0,
                               height: 40.0,
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 0.0),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => TextFormField(
@@ -174,7 +174,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.textController',
-                                            const Duration(milliseconds: 2000),
+                                            Duration(milliseconds: 2000),
                                             () async {
                                               logFirebaseEvent(
                                                   'SETTINGS_TextField_1brcdc42_ON_TEXTFIELD');
@@ -218,7 +218,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -289,7 +289,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 28.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -346,8 +346,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           logFirebaseEvent('Row_bottom_sheet');
                                           showModalBottomSheet(
                                             isScrollControlled: true,
-                                            backgroundColor: const Color(0x4D000000),
-                                            barrierColor: const Color(0x4D000000),
+                                            backgroundColor: Color(0x4D000000),
+                                            barrierColor: Color(0x4D000000),
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
@@ -388,14 +388,14 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       .override(
                                                         fontFamily: 'Rubik',
                                                         color:
-                                                            const Color(0xFF5F5F60),
+                                                            Color(0xFF5F5F60),
                                                         fontSize: functions
                                                             .setFontSize(18.0),
                                                         letterSpacing: 0.0,
                                                         lineHeight: 1.0,
                                                       ),
                                             ),
-                                            const Padding(
+                                            Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 10.0),
@@ -424,8 +424,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       logFirebaseEvent('Row_bottom_sheet');
                                       showModalBottomSheet(
                                         isScrollControlled: true,
-                                        backgroundColor: const Color(0x4D000000),
-                                        barrierColor: const Color(0x4D000000),
+                                        backgroundColor: Color(0x4D000000),
+                                        barrierColor: Color(0x4D000000),
                                         context: context,
                                         builder: (context) {
                                           return GestureDetector(
@@ -461,13 +461,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Rubik',
-                                                color: const Color(0xFF5F5F60),
+                                                color: Color(0xFF5F5F60),
                                                 fontSize:
                                                     functions.setFontSize(18.0),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        const Padding(
+                                        Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
@@ -532,8 +532,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           logFirebaseEvent('Row_bottom_sheet');
                                           showModalBottomSheet(
                                             isScrollControlled: true,
-                                            backgroundColor: const Color(0x4C000000),
-                                            barrierColor: const Color(0x4C000000),
+                                            backgroundColor: Color(0x4C000000),
+                                            barrierColor: Color(0x4C000000),
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
@@ -575,7 +575,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Rubik',
-                                                      color: const Color(0xFF5F5F60),
+                                                      color: Color(0xFF5F5F60),
                                                       fontSize: functions
                                                           .setFontSize(18.0),
                                                       letterSpacing: 0.0,
@@ -597,10 +597,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       .primary,
                                                 ),
                                               ),
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 12.0, 0.0),
                                                 child: StreamBuilder<
@@ -684,7 +684,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 ),
                                               ),
                                             ),
-                                            const Padding(
+                                            Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 10.0),
@@ -711,7 +711,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       await showModalBottomSheet<bool>(
                                           context: context,
                                           builder: (context) {
-                                            return SizedBox(
+                                            return Container(
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .height /
@@ -746,7 +746,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               '1f2a6tse' /* תזכורות לשיעורים */,
@@ -756,7 +756,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Rubik',
-                                                  color: const Color(0xFF5F5F60),
+                                                  color: Color(0xFF5F5F60),
                                                   fontSize: functions
                                                       .setFontSize(18.0),
                                                   letterSpacing: 0.0,
@@ -777,10 +777,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             ),
                                           ),
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 12.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
@@ -876,7 +876,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       Flexible(
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'ivz59lac' /* התראות */,
@@ -885,7 +885,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Rubik',
-                                                  color: const Color(0xFF5F5F60),
+                                                  color: Color(0xFF5F5F60),
                                                   fontSize: functions
                                                       .setFontSize(18.0),
                                                   letterSpacing: 0.0,
@@ -957,7 +957,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 .languageCode,
                                           )))
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 24.0, 0.0, 0.0),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => FFButtonWidget(
@@ -998,10 +998,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             width: 264.0,
                                             height: 48.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -1016,25 +1016,25 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 0.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(56.0),
-                                            disabledColor: const Color(0xFFA0A3A7),
+                                            disabledColor: Color(0xFFA0A3A7),
                                           ),
                                           showLoadingIndicator: false,
                                         ),
                                       ),
                                     ),
-                                ].divide(const SizedBox(height: 12.0)),
+                                ].divide(SizedBox(height: 12.0)),
                               ),
                             ),
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 52.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -1060,9 +1060,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   options: FFButtonOptions(
                                     width: 400.0,
                                     height: 48.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1074,7 +1074,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                     elevation: 0.0,
-                                    borderSide: const BorderSide(
+                                    borderSide: BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -1083,7 +1083,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 22.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
@@ -1107,9 +1107,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   options: FFButtonOptions(
                                     width: 400.0,
                                     height: 48.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: Colors.white,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1134,7 +1134,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               ),
                               Builder(
                                 builder: (context) => Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -1148,7 +1148,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             elevation: 0,
                                             insetPadding: EdgeInsets.zero,
                                             backgroundColor: Colors.transparent,
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                     0.0, 0.0)
                                                 .resolve(
                                                     Directionality.of(context)),
@@ -1186,23 +1186,23 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       height: 48.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: Colors.white,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Rubik',
-                                            color: const Color(0xFFE81522),
+                                            color: Color(0xFFE81522),
                                             fontSize:
                                                 functions.setFontSize(16.0),
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 0.0,
                                       ),
@@ -1213,7 +1213,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 22.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1237,10 +1237,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         options: FFButtonOptions(
                                           height: 48.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: Colors.white,
                                           textStyle: FlutterFlowTheme.of(
@@ -1256,7 +1256,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                           elevation: 0.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0x00FFFFFF),
                                             width: 0.0,
                                           ),
@@ -1283,10 +1283,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         options: FFButtonOptions(
                                           height: 48.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: Colors.white,
                                           textStyle: FlutterFlowTheme.of(
@@ -1302,7 +1302,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                           elevation: 0.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0x00FFFFFF),
                                             width: 1.0,
                                           ),

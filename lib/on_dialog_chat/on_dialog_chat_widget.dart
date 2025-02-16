@@ -98,7 +98,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
               isEqualTo: currentUserUid,
             )
             .orderBy('start_at', descending: true),
-        limit: 3,
+        limit: 5,
       );
       logFirebaseEvent('on_dialog_chat_update_app_state');
       FFAppState().onHold = false;
@@ -153,8 +153,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 860.0.ms,
-            begin: const Offset(0.0, 0.0),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.0, 0.0),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -245,14 +245,14 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                           color: FlutterFlowTheme.of(context).primary,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 60.0, 24.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -283,7 +283,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'fb7kzi9n' /* שיחה */,
@@ -305,15 +305,15 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                   ],
                                 ),
                               ),
-                              const Divider(
+                              Divider(
                                 height: 1.0,
                                 thickness: 1.0,
                                 color: Color(0x64FFFFFF),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 21.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -322,10 +322,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        decoration: const BoxDecoration(),
+                                        decoration: BoxDecoration(),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 5.0, 0.0),
                                           child: wrapWithModel(
                                             model: _model.teacherSelectModel,
@@ -351,10 +351,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 12.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -380,7 +380,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                     ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 2.0, 0.0, 0.0),
                                                 child: Text(
@@ -434,12 +434,12 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                       ),
                       Flexible(
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Container(
-                            constraints: const BoxConstraints(
+                            constraints: BoxConstraints(
                               maxWidth: 600.0,
                             ),
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -458,11 +458,11 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                   DialogState.pause)
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 40.0),
                                                     child: Lottie.asset(
@@ -478,7 +478,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                   DialogState.user_talking)
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Lottie.asset(
                                                     'assets/jsons/listen.json',
@@ -492,7 +492,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                   DialogState.processing)
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Lottie.asset(
                                                     'assets/jsons/thinking.json',
@@ -506,7 +506,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                   DialogState.AI_talking)
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Lottie.asset(
                                                     'assets/jsons/talking.json',
@@ -517,7 +517,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                   ),
                                                 ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.97),
                                                 child: Builder(
                                                   builder: (context) {
@@ -526,7 +526,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                             .quickQuestions
                                                             .toList();
 
-                                                    return SizedBox(
+                                                    return Container(
                                                       width: double.infinity,
                                                       height: 37.0,
                                                       child: CarouselSlider
@@ -572,13 +572,13 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                             8.0),
                                                                 border:
                                                                     Border.all(
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF8590C8),
                                                                 ),
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsets
+                                                                    EdgeInsets
                                                                         .all(
                                                                             8.0),
                                                                 child: Text(
@@ -592,7 +592,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Rubik',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFF8590C8),
                                                                         fontSize:
                                                                             functions.setFontSize(14.0),
@@ -650,17 +650,17 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 30.0, 24.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   1.0,
-                                              constraints: const BoxConstraints(
+                                              constraints: BoxConstraints(
                                                 minHeight: 276.0,
                                                 maxHeight: 276.0,
                                               ),
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: SingleChildScrollView(
                                                 controller:
                                                     _model.scollingChatColumn,
@@ -694,7 +694,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                 chat.length,
                                                             separatorBuilder: (_,
                                                                     __) =>
-                                                                const SizedBox(
+                                                                SizedBox(
                                                                     height:
                                                                         12.0),
                                                             itemBuilder:
@@ -760,7 +760,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                         Stack(
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 12.0, 24.0, 0.0),
                                               child: Row(
@@ -802,7 +802,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                               .scollingChatColumn!
                                                               .position
                                                               .maxScrollExtent,
-                                                          duration: const Duration(
+                                                          duration: Duration(
                                                               milliseconds: 1),
                                                           curve: Curves.ease,
                                                         );
@@ -848,7 +848,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                               .chatListView!
                                                               .position
                                                               .maxScrollExtent,
-                                                          duration: const Duration(
+                                                          duration: Duration(
                                                               milliseconds:
                                                                   100),
                                                           curve: Curves.ease,
@@ -900,7 +900,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                               controller: _model
                                                                   .timerController1,
                                                               updateStateInterval:
-                                                                  const Duration(
+                                                                  Duration(
                                                                       milliseconds:
                                                                           1000),
                                                               onChanged: (value,
@@ -910,10 +910,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                     value;
                                                                 _model.timerValue1 =
                                                                     displayTime;
-                                                                if (shouldUpdate) {
+                                                                if (shouldUpdate)
                                                                   safeSetState(
                                                                       () {});
-                                                                }
                                                               },
                                                               onEnded:
                                                                   () async {
@@ -1161,7 +1160,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
-                                                                        const TransitionInfo(
+                                                                        TransitionInfo(
                                                                       hasTransition:
                                                                           true,
                                                                       transitionType:
@@ -1189,7 +1188,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                     color: () {
                                                                       if (_model
                                                                           .beforeEnd) {
-                                                                        return const Color(
+                                                                        return Color(
                                                                             0xFFD2131F);
                                                                       } else if (_model
                                                                           .captionView) {
@@ -1214,7 +1213,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                             color: () {
                                                               if (_model
                                                                   .beforeEnd) {
-                                                                return const Color(
+                                                                return Color(
                                                                     0xFFD2131F);
                                                               } else if (_model
                                                                   .captionView) {
@@ -1228,7 +1227,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                             }(),
                                                             size: 20.0,
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             width: 6.0)),
                                                       ).addWalkthrough(
                                                         rowDosgrcgx,
@@ -1258,7 +1257,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                           controller: _model
                                                               .timerController2,
                                                           updateStateInterval:
-                                                              const Duration(
+                                                              Duration(
                                                                   milliseconds:
                                                                       1000),
                                                           onChanged: (value,
@@ -1268,10 +1267,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                 value;
                                                             _model.timerValue2 =
                                                                 displayTime;
-                                                            if (shouldUpdate) {
+                                                            if (shouldUpdate)
                                                               safeSetState(
                                                                   () {});
-                                                            }
                                                           },
                                                           onEnded: () async {
                                                             logFirebaseEvent(
@@ -1297,7 +1295,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 6.0)),
+                                                        SizedBox(width: 6.0)),
                                                   ),
                                                 ],
                                               ),
@@ -1308,10 +1306,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                 (FFAppState().dialogState ==
                                                     DialogState.processing))
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.02, 0.69),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: Text(
@@ -1368,7 +1366,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           ],
                                         ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 52.0),
                                         child: Stack(
                                           children: [
@@ -1377,7 +1375,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                 (widget.chatMessages)!
                                                     .isNotEmpty))
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 1.0),
                                                 child: Builder(
                                                   builder: (context) =>
@@ -1475,7 +1473,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                               backgroundColor:
                                                                   Colors
                                                                       .transparent,
-                                                              alignment: const AlignmentDirectional(
+                                                              alignment: AlignmentDirectional(
                                                                       0.0, 0.0)
                                                                   .resolve(
                                                                       Directionality.of(
@@ -1598,7 +1596,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
@@ -1606,12 +1604,12 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   0.0),
                                                       child: Stack(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, 0.0),
                                                             child:
                                                                 FFButtonWidget(
@@ -1632,17 +1630,17 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                     0.5,
                                                                 height: 57.7,
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             70.0,
                                                                             0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsets
+                                                                    EdgeInsets
                                                                         .all(
                                                                             0.0),
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFFE4445A),
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
@@ -1662,7 +1660,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                     ),
                                                                 elevation: 0.0,
                                                                 borderRadius:
-                                                                    const BorderRadius
+                                                                    BorderRadius
                                                                         .only(
                                                                   bottomLeft: Radius
                                                                       .circular(
@@ -1688,7 +1686,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 0.0),
                                                             child:
                                                                 FFButtonWidget(
@@ -1709,17 +1707,17 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                     0.5,
                                                                 height: 57.7,
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             70.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
                                                                 iconPadding:
-                                                                    const EdgeInsets
+                                                                    EdgeInsets
                                                                         .all(
                                                                             0.0),
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFFE7EAF8),
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
@@ -1758,7 +1756,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   width: 0.8,
                                                                 ),
                                                                 borderRadius:
-                                                                    const BorderRadius
+                                                                    BorderRadius
                                                                         .only(
                                                                   bottomLeft: Radius
                                                                       .circular(
@@ -1784,7 +1782,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: Container(
                                                               width: 108.5,
@@ -1807,12 +1805,12 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Stack(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   children: [
@@ -1833,7 +1831,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                         children: [
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 FFButtonWidget(
                                                                               onPressed: () {
@@ -1845,12 +1843,12 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                               options: FFButtonOptions(
                                                                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                                                                 height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: const Color(0x00546DEF),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: Color(0x00546DEF),
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Rubik',
-                                                                                      color: const Color(0x00FFFFFF),
+                                                                                      color: Color(0x00FFFFFF),
                                                                                       letterSpacing: 0.0,
                                                                                     ),
                                                                                 elevation: 0.0,
@@ -1860,7 +1858,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                           ),
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 ClipRRect(
                                                                               borderRadius: BorderRadius.circular(24.0),
@@ -1876,7 +1874,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                       ),
                                                                     ),
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.01,
                                                                           0.02),
                                                                       child:
@@ -1892,7 +1890,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                         animateFromLastPercent:
                                                                             true,
                                                                         progressColor:
-                                                                            const Color(0xFF314CD8),
+                                                                            Color(0xFF314CD8),
                                                                         backgroundColor:
                                                                             FlutterFlowTheme.of(context).accent4,
                                                                       ).addWalkthrough(
@@ -1919,10 +1917,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           (widget.chatMessages)!.isNotEmpty)
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 2.21),
+                                              AlignmentDirectional(0.0, 2.21),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 22.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
@@ -1931,12 +1929,12 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                               children: [
                                                 Stack(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.0, 0.0),
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
@@ -1954,7 +1952,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  const TransitionInfo(
+                                                                  TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -1973,7 +1971,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                 .getText(
                                                           '887s7ijl' /* מעבר לעמוד הבית */,
                                                         ),
-                                                        icon: const Icon(
+                                                        icon: Icon(
                                                           FFIcons.khome,
                                                           size: 28.0,
                                                         ),
@@ -1986,14 +1984,14 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                   1.0,
                                                           height: 48.0,
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       28.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2032,9 +2030,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                 ),
                                               ]
                                                   .divide(
-                                                      const SizedBox(height: 27.0))
+                                                      SizedBox(height: 27.0))
                                                   .addToEnd(
-                                                      const SizedBox(height: 52.0)),
+                                                      SizedBox(height: 52.0)),
                                             ),
                                           ),
                                         ),
@@ -2054,7 +2052,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0x71000000),
                       ),
                       child: AuthUserStreamWidget(
@@ -2070,9 +2068,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                             onClick: () async {
                               logFirebaseEvent(
                                   'ON_DIALOG_CHAT_Container_kdy2qk4j_CALLBA');
-                              logFirebaseEvent('popup_update_app_state');
-                              FFAppState().startPopup = false;
-                              safeSetState(() {});
                               logFirebaseEvent('popup_firestore_query');
                               _model.hobbys = await queryUserAnswersRecordOnce(
                                 queryBuilder: (userAnswersRecord) =>
@@ -2089,9 +2084,18 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                               ).then((s) => s.firstOrNull);
                               logFirebaseEvent('popup_update_page_state');
                               _model.additionalData =
-                                  'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  $currentUserDisplayName, תקרא לתלמיד בשמו.${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
+                                  'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  ${currentUserDisplayName}, תקרא לתלמיד בשמו.${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
                                 return var1.join(', ');
                               }(_model.hobbys!.answer.toList())}השיעורים הקודמים עסקו במידע הבא ולכן אל תעסוק בו שוב:${functions.getSummaries(_model.last3Lessons!.toList())}';
+                              safeSetState(() {});
+                              logFirebaseEvent('popup_update_app_state');
+                              FFAppState().log =
+                                  'השם שלך הוא:${_model.currLesson?.teacher.name} שם התלמיד הוא  ${currentUserDisplayName}, תקרא לתלמיד בשמו.${widget.dialogSubject != null && widget.dialogSubject != '' ? 'נושא השיעור הינו ${widget.dialogSubject}, התחל בבקשה את השיעור עכשיו ותעבור מילה מילה בהתמקדות על ההגייה הנכונה של התלמיד אל תתחיל עם כל המילים בהתחלה, תנסהלהגיד מילה אחת ולמשור על על תגובה קצרה ותמציתית' : 'תתחיל את השיעור עכשיו בתמציתיות ותציג את עצמך בקצרה'}, תקרא לתלמיד בשמו מידי פעם ותיהיה ממוקדkeep your response \'clean\' without special signs, 50 words max.try not to repeat about yourself and be relevant to the user english level.lead the lesson nicely that the user will have the feeling of a lesson. the user have done already ${_model.currLesson?.lessonNum.toString()} - so treat him like that.${!FFAppState().userSub.hasFrequencyPerWeek() ? 'This is an assessment to understand the student\'s current level and to place them accordingly. Please mention this to the student.' : 'be creative and try to teach as teacher'}if the message that the user give is \'silent\' that\'s meant that the user didn\'t talked.תחומי העניין של התלמיד הם: ${(List<String> var1) {
+                                return var1.join(', ');
+                              }(_model.hobbys!.answer.toList())}השיעורים הקודמים עסקו במידע הבא ולכן אל תעסוק בו שוב:${functions.getSummaries(_model.last3Lessons!.toList())}';
+                              safeSetState(() {});
+                              logFirebaseEvent('popup_update_app_state');
+                              FFAppState().startPopup = false;
                               safeSetState(() {});
                               logFirebaseEvent('popup_custom_action');
                               await actions.stopInterruption();
@@ -2128,9 +2132,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                   await Future.delayed(
                                       const Duration(milliseconds: 500));
                                 }
-                                logFirebaseEvent('popup_update_app_state');
-                                FFAppState().log = '11';
-                                safeSetState(() {});
                                 if (_model.teacherTurn) {
                                   logFirebaseEvent('popup_update_page_state');
                                   _model.teacherTurn = false;
@@ -2139,9 +2140,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                   if (!(FFAppState().userInput != '')) {
                                     logFirebaseEvent('popup_update_app_state');
                                     FFAppState().interruption = false;
-                                    safeSetState(() {});
-                                    logFirebaseEvent('popup_update_app_state');
-                                    FFAppState().log = '12';
                                     safeSetState(() {});
                                     if (!_model.captionView) {
                                       logFirebaseEvent(
@@ -2155,9 +2153,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                             .forward(from: 0.0);
                                       }
                                     }
-                                    logFirebaseEvent('popup_update_app_state');
-                                    FFAppState().log = '13';
-                                    safeSetState(() {});
                                     logFirebaseEvent(
                                         'popup_start_audio_recording');
                                     await startAudioRecording(
@@ -2166,9 +2161,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                           AudioRecorder(),
                                     );
 
-                                    logFirebaseEvent('popup_update_app_state');
-                                    FFAppState().log = '14';
-                                    safeSetState(() {});
                                     logFirebaseEvent('popup_update_app_state');
                                     FFAppState().dialogState =
                                         DialogState.user_talking;
@@ -2262,7 +2254,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                             ?.animateTo(
                                           _model.scollingChatColumn!.position
                                               .maxScrollExtent,
-                                          duration: const Duration(milliseconds: 300),
+                                          duration: Duration(milliseconds: 300),
                                           curve: Curves.ease,
                                         );
                                       }
@@ -2375,7 +2367,7 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                             ?.animateTo(
                                           _model.scollingChatColumn!.position
                                               .maxScrollExtent,
-                                          duration: const Duration(milliseconds: 300),
+                                          duration: Duration(milliseconds: 300),
                                           curve: Curves.ease,
                                         );
                                       }

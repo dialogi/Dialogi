@@ -69,7 +69,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
                         child: Lottie.asset(
                           'assets/jsons/main_logo.json',
                           width: 200.0,
@@ -80,9 +80,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 52.0, 0.0, 28.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -95,7 +95,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Rubik',
-                                  color: const Color(0xFF232C2E),
+                                  color: Color(0xFF232C2E),
                                   fontSize: functions.setFontSize(24.0),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                       if (isiOS)
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 16.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -151,7 +151,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             child: wrapWithModel(
                               model: _model.buttonImgModel1,
                               updateCallback: () => safeSetState(() {}),
-                              child: const ButtonImgWidget(
+                              child: ButtonImgWidget(
                                 text: 'התחברות עם Apple',
                                 imgPath:
                                     'https://yt3.googleusercontent.com/05lhMeAH6tZrPIUsp2yHNz3DwzhKbDUQcxcY0_qeXVyZttR_pktBzw0FcLUSR6D4fVqsEgL3ZO0=s900-c-k-c0x00ffffff-no-rj',
@@ -165,7 +165,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                         ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -202,7 +202,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           child: wrapWithModel(
                             model: _model.buttonImgModel2,
                             updateCallback: () => safeSetState(() {}),
-                            child: const ButtonImgWidget(
+                            child: ButtonImgWidget(
                               text: 'התחברות עם Google',
                               imgPath:
                                   'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png',

@@ -57,9 +57,9 @@ class _PrimaryBtnWidgetState extends State<PrimaryBtnWidget> {
           options: FFButtonOptions(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: 48.0,
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
             iconAlignment: IconAlignment.start,
-            iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
             color: FlutterFlowTheme.of(context).primary,
             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Rubik',
@@ -67,7 +67,7 @@ class _PrimaryBtnWidgetState extends State<PrimaryBtnWidget> {
                   letterSpacing: 0.0,
                 ),
             elevation: 0.0,
-            borderSide: const BorderSide(
+            borderSide: BorderSide(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(56.0),
@@ -75,11 +75,11 @@ class _PrimaryBtnWidgetState extends State<PrimaryBtnWidget> {
           showLoadingIndicator: false,
         ),
         Container(
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,7 +111,7 @@ class _PrimaryBtnWidgetState extends State<PrimaryBtnWidget> {
                           ),
                     ),
                   ),
-                ].divide(const SizedBox(width: 10.0)),
+                ].divide(SizedBox(width: 10.0)),
               ),
             ),
           ),

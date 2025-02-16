@@ -28,7 +28,7 @@ class StartDialogWidget extends StatefulWidget {
     super.key,
     this.subject,
     bool? walkthrow,
-  }) : walkthrow = walkthrow ?? false;
+  }) : this.walkthrow = walkthrow ?? false;
 
   final String? subject;
   final bool walkthrow;
@@ -78,8 +78,8 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
             curve: Curves.easeInOut,
             delay: 1230.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(1.1, 1.1),
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.1, 1.1),
           ),
         ],
       ),
@@ -159,7 +159,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -168,7 +168,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                           child: Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: AuthUserStreamWidget(
                                   builder: (context) => Text(
                                     'שלום ${(String var1) {
@@ -190,7 +190,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                               if (widget.subject != null &&
                                   widget.subject != '')
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
                                   child: FlutterFlowIconButton(
                                     borderRadius: 8.0,
@@ -211,7 +211,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                       context.goNamed(
                                         'homepage',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -232,20 +232,20 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                 ),
                 Flexible(
                   child: Container(
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       maxWidth: 600.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 52.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 52.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Flexible(
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -253,7 +253,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                   if (widget.subject != null &&
                                       widget.subject != '')
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),
                                       child: Text(
                                         'תרגול שיעור הגייה בנושא: ${widget.subject}',
@@ -262,7 +262,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                             .headlineSmall
                                             .override(
                                               fontFamily: 'Rubik',
-                                              color: const Color(0xFF232C2E),
+                                              color: Color(0xFF232C2E),
                                               fontSize:
                                                   functions.setFontSize(20.0),
                                               letterSpacing: 0.0,
@@ -280,7 +280,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                     animate: true,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 8.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
@@ -293,7 +293,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                             .headlineSmall
                                             .override(
                                               fontFamily: 'Rubik',
-                                              color: const Color(0xFF232C2E),
+                                              color: Color(0xFF232C2E),
                                               fontSize:
                                                   functions.setFontSize(24.0),
                                               letterSpacing: 0.0,
@@ -305,7 +305,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'bdnitpy6' /* בחר את האפשרות שמתאימה לך */,
@@ -314,7 +314,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                           .labelLarge
                                           .override(
                                             fontFamily: 'Rubik',
-                                            color: const Color(0xFF232C2E),
+                                            color: Color(0xFF232C2E),
                                             fontSize:
                                                 functions.setFontSize(16.0),
                                             letterSpacing: 0.0,
@@ -326,7 +326,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 28.0, 0.0, 0.0),
                                         child: FutureBuilder<
                                             List<TeacherNewRecord>>(
@@ -357,7 +357,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                             return GridView.builder(
                                               padding: EdgeInsets.zero,
                                               gridDelegate:
-                                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                                  SliverGridDelegateWithFixedCrossAxisCount(
                                                 crossAxisCount: 4,
                                                 childAspectRatio: 1.0,
                                               ),
@@ -473,7 +473,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                           elevation: 0,
                                           insetPadding: EdgeInsets.zero,
                                           backgroundColor: Colors.transparent,
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                                   0.0, 0.0)
                                               .resolve(
                                                   Directionality.of(context)),
@@ -487,7 +487,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                             child: PopupWidget(
                                               title:
                                                   'הנחיות לשיחה עם המורה הוירטואלי',
-                                              instructions: const [
+                                              instructions: [
                                                 "בחרו סביבה שקטה – למיקוד ללא הפרעות.",
                                                 "השתמשו באוזניות – לשמיעה ודיבור ברורים יותר. (מומלץ)",
                                                 "דברו בבירור – בקצב רגוע כדי שהמורה יבין אותך היטב.",
@@ -535,8 +535,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                 .where(
                                                   'start_at',
                                                   isGreaterThanOrEqualTo:
-                                                      functions
-                                                          .newCustomFunction(),
+                                                      FFAppState().LastWeekSub,
                                                 )
                                                 .where(
                                                   'first',
@@ -568,7 +567,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                               backgroundColor:
                                                   Colors.transparent,
                                               alignment:
-                                                  const AlignmentDirectional(0.0, 0.0)
+                                                  AlignmentDirectional(0.0, 0.0)
                                                       .resolve(
                                                           Directionality.of(
                                                               context)),
@@ -605,7 +604,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                 insetPadding: EdgeInsets.zero,
                                                 backgroundColor:
                                                     Colors.transparent,
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                         0.0, 0.0)
                                                     .resolve(Directionality.of(
                                                         context)),
@@ -620,7 +619,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                   child: PopupWidget(
                                                     title:
                                                         'הנחיות לשיחה עם המורה הוירטואלי',
-                                                    instructions: const [
+                                                    instructions: [
                                                       "בחרו סביבה שקטה – למיקוד ללא הפרעות.",
                                                       "השתמשו באוזניות – לשמיעה ודיבור ברורים יותר. (מומלץ)",
                                                       "דברו בבירור – בקצב רגוע כדי שהמורה יבין אותך היטב.",
@@ -673,11 +672,11 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 48.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 40.0, 0.0),
                                       iconAlignment: IconAlignment.start,
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -691,21 +690,21 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                       ),
                                       borderRadius: BorderRadius.circular(56.0),
-                                      disabledColor: const Color(0xFFE8ECEF),
-                                      disabledTextColor: const Color(0xFF95A5A6),
+                                      disabledColor: Color(0xFFE8ECEF),
+                                      disabledTextColor: Color(0xFF95A5A6),
                                     ),
                                     showLoadingIndicator: false,
                                   ),
                                   Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
@@ -746,7 +745,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                                     ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 10.0)),
+                                          ].divide(SizedBox(width: 10.0)),
                                         ),
                                       ),
                                     ),
@@ -755,7 +754,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(height: 32.0)),
+                        ].divide(SizedBox(height: 32.0)),
                       ),
                     ),
                   ),

@@ -64,12 +64,12 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
           child: Stack(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             children: [
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: ((FFAppState().dialogState ==
                               DialogState.AI_talking) ||
@@ -87,9 +87,9 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                     width: MediaQuery.sizeOf(context).width * 0.5,
                     height: 57.7,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 70.0, 0.0),
-                    iconPadding: const EdgeInsets.all(0.0),
-                    color: const Color(0xFFE4445A),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 70.0, 0.0),
+                    iconPadding: EdgeInsets.all(0.0),
+                    color: Color(0xFFE4445A),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Rubik',
                           color: Colors.white,
@@ -98,13 +98,13 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                           lineHeight: 1.42,
                         ),
                     elevation: 0.0,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(28.0),
                       topLeft: Radius.circular(0.0),
                       topRight: Radius.circular(28.0),
                     ),
-                    disabledColor: const Color(0xA8E36274),
+                    disabledColor: Color(0xA8E36274),
                     disabledTextColor:
                         FlutterFlowTheme.of(context).secondaryText,
                   ),
@@ -112,7 +112,7 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(1.0, 0.0),
+                alignment: AlignmentDirectional(1.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: (FFAppState().dialogState !=
                           DialogState.processing)
@@ -129,9 +129,9 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                     width: MediaQuery.sizeOf(context).width * 0.5,
                     height: 57.7,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 0.0, 0.0),
-                    iconPadding: const EdgeInsets.all(0.0),
-                    color: const Color(0xFFE7EAF8),
+                        EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 0.0, 0.0),
+                    iconPadding: EdgeInsets.all(0.0),
+                    color: Color(0xFFE7EAF8),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Rubik',
                           color: FlutterFlowTheme.of(context).primary,
@@ -149,20 +149,20 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                       ),
                       width: 0.8,
                     ),
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(28.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(28.0),
                       topRight: Radius.circular(0.0),
                     ),
-                    disabledColor: const Color(0x1C2C3E50),
-                    disabledTextColor: const Color(0xFF95A5A6),
+                    disabledColor: Color(0x1C2C3E50),
+                    disabledTextColor: Color(0xFF95A5A6),
                   ),
                   showLoadingIndicator: false,
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Container(
                   width: 108.5,
                   height: 108.5,
@@ -174,7 +174,7 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -221,16 +221,16 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                         }
                       },
                       child: Stack(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         children: [
                           if (widget.onHold ?? true)
                             Container(
                               width: 60.5,
                               height: 60.5,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: SvgPicture.asset(
@@ -238,7 +238,7 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                                   width: 24.0,
                                   height: 24.0,
                                   fit: BoxFit.contain,
-                                  alignment: const Alignment(0.0, 0.0),
+                                  alignment: Alignment(0.0, 0.0),
                                 ),
                               ),
                             ),
@@ -255,7 +255,7 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
                                         print('Button pressed ...');
@@ -270,17 +270,17 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                                         height:
                                             MediaQuery.sizeOf(context).height *
                                                 1.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0x00546DEF),
+                                        color: Color(0x00546DEF),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Rubik',
-                                              color: const Color(0x00FFFFFF),
+                                              color: Color(0x00FFFFFF),
                                               letterSpacing: 0.0,
                                             ),
                                         elevation: 0.0,
@@ -290,7 +290,7 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(24.0),
                                       child: SvgPicture.asset(
@@ -315,19 +315,19 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                                 color: FlutterFlowTheme.of(context).primary,
                                 shape: BoxShape.circle,
                               ),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: SvgPicture.asset(
                                   'assets/images/threeLines.svg',
                                   width: 32.0,
                                   fit: BoxFit.contain,
-                                  alignment: const Alignment(0.0, 0.0),
+                                  alignment: Alignment(0.0, 0.0),
                                 ),
                               ),
                             ),
                           Align(
-                            alignment: const AlignmentDirectional(-0.01, 0.02),
+                            alignment: AlignmentDirectional(-0.01, 0.02),
                             child: CircularPercentIndicator(
                               percent: widget.progressVal!,
                               radius: 42.25,
@@ -337,8 +337,8 @@ class _DialogManagerWidgetState extends State<DialogManagerWidget> {
                               progressColor: valueOrDefault<Color>(
                                 (widget.onHold == true) &&
                                         (widget.progressVal! < 0.3)
-                                    ? const Color(0xFFC22D36)
-                                    : const Color(0xFF314CD8),
+                                    ? Color(0xFFC22D36)
+                                    : Color(0xFF314CD8),
                                 FlutterFlowTheme.of(context).primary,
                               ),
                               backgroundColor:

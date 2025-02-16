@@ -63,8 +63,8 @@ class _ButtonWidgetState extends State<ButtonWidget> {
       options: FFButtonOptions(
         width: widget.width,
         height: 48.0,
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-        iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         color: widget.color,
         textStyle: FlutterFlowTheme.of(context).titleSmall.override(
               fontFamily: 'Rubik',

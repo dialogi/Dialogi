@@ -57,9 +57,9 @@ class _NewBtnWidgetState extends State<NewBtnWidget> {
           options: FFButtonOptions(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: 48.0,
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 40.0, 0.0),
             iconAlignment: IconAlignment.start,
-            iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+            iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
             color: Colors.white,
             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Rubik',
@@ -75,11 +75,11 @@ class _NewBtnWidgetState extends State<NewBtnWidget> {
           showLoadingIndicator: false,
         ),
         Container(
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,7 +111,7 @@ class _NewBtnWidgetState extends State<NewBtnWidget> {
                           ),
                     ),
                   ),
-                ].divide(const SizedBox(width: 10.0)),
+                ].divide(SizedBox(width: 10.0)),
               ),
             ),
           ),

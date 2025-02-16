@@ -48,17 +48,17 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         border: Border.all(
-          color: const Color(0xFFE8ECEF),
+          color: Color(0xFFE8ECEF),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(14.0, 11.0, 14.0, 11.0),
+        padding: EdgeInsetsDirectional.fromSTEB(14.0, 11.0, 14.0, 11.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                     textAlign: TextAlign.end,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Rubik',
-                          color: const Color(0xFF232C2E),
+                          color: Color(0xFF232C2E),
                           fontSize: functions.setFontSize(16.0),
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
@@ -86,7 +86,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                           lineHeight: 1.3,
                         ),
                   ),
-                ].divide(const SizedBox(height: 4.0)),
+                ].divide(SizedBox(height: 4.0)),
               ),
             ),
             Column(
@@ -101,7 +101,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       width: 56.0,
                       height: 56.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFACB8EC),
+                        color: Color(0xFFACB8EC),
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: Colors.white,
@@ -124,7 +124,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       width: 56.0,
                       height: 56.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFACB8EC),
+                        color: Color(0xFFACB8EC),
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: Colors.white,
@@ -147,7 +147,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       width: 56.0,
                       height: 56.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFACB8EC),
+                        color: Color(0xFFACB8EC),
                         borderRadius: BorderRadius.circular(9999.0),
                         shape: BoxShape.rectangle,
                         border: Border.all(
@@ -171,7 +171,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       width: 56.0,
                       height: 56.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFACB8EC),
+                        color: Color(0xFFACB8EC),
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: Colors.white,
@@ -187,7 +187,7 @@ class _LessonCardWidgetState extends State<LessonCardWidget> {
                       ),
                     ),
                   ),
-              ].divide(const SizedBox(height: 0.0)),
+              ].divide(SizedBox(height: 0.0)),
             ),
           ],
         ),

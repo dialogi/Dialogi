@@ -75,7 +75,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
             delay: 0.0.ms,
             duration: 510.0.ms,
             hz: 4,
-            offset: const Offset(0.0, 0.0),
+            offset: Offset(0.0, 0.0),
             rotation: 0.052,
           ),
         ],
@@ -88,8 +88,8 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
             curve: Curves.easeInOut,
             delay: 670.0.ms,
             duration: 450.0.ms,
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(1.2, 1.2),
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.2, 1.2),
           ),
           ShimmerEffect(
             curve: Curves.easeInOut,
@@ -102,8 +102,8 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
             curve: Curves.easeInOut,
             delay: 1440.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(1.2, 1.2),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.2, 1.2),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -131,17 +131,17 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
       children: [
         Flexible(
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxWidth: 570.0,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 3.0,
                       color: Color(0x33000000),
@@ -151,14 +151,14 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                       ),
                     )
                   ],
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
                     topLeft: Radius.circular(24.0),
                     topRight: Radius.circular(24.0),
                   ),
                   border: Border.all(
-                    color: const Color(0xFFF5FBFB),
+                    color: Color(0xFFF5FBFB),
                     width: 1.0,
                   ),
                 ),
@@ -168,9 +168,9 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                     Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, -1.0),
+                          alignment: AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 24.0, 24.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -184,7 +184,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                     'Icon_close_dialog_drawer_etc');
                                 Navigator.pop(context);
                               },
-                              child: const Icon(
+                              child: Icon(
                                 FFIcons.kcarbonCloseOutline,
                                 color: Color(0xFF95A5A6),
                                 size: 28.0,
@@ -193,15 +193,15 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 75.0, 0.0, 75.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 36.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -212,7 +212,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Rubik',
-                                          color: const Color(0xFF232C2E),
+                                          color: Color(0xFF232C2E),
                                           fontSize: functions.setFontSize(24.0),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
@@ -228,7 +228,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Rubik',
-                                        color: const Color(0xFF797979),
+                                        color: Color(0xFF797979),
                                         fontSize: functions.setFontSize(16.0),
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -246,7 +246,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 40.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 40.0),
                       child: StreamBuilder<List<EnglishLevelRecord>>(
                         stream: queryEnglishLevelRecord(),
                         builder: (context, snapshot) {
@@ -271,7 +271,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemCount: listViewEnglishLevelRecordList.length,
-                            separatorBuilder: (_, __) => const SizedBox(height: 20.0),
+                            separatorBuilder: (_, __) => SizedBox(height: 20.0),
                             itemBuilder: (context, listViewIndex) {
                               final listViewEnglishLevelRecord =
                                   listViewEnglishLevelRecordList[listViewIndex];
@@ -316,7 +316,7 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 40.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 40.0),
                       child: FFButtonWidget(
                         onPressed: !(_model.answer.isNotEmpty)
                             ? null
@@ -342,9 +342,9 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 48.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
@@ -354,13 +354,13 @@ class _BottomQuestionCopyWidgetState extends State<BottomQuestionCopyWidget>
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 0.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(56.0),
-                          disabledColor: const Color(0xFFE8ECEF),
-                          disabledTextColor: const Color(0xFF95A5A6),
+                          disabledColor: Color(0xFFE8ECEF),
+                          disabledTextColor: Color(0xFF95A5A6),
                         ),
                       ),
                     ),

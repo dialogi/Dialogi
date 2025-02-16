@@ -76,17 +76,17 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
     return Stack(
       children: [
         Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 0.9,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxWidth: 570.0,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x33000000),
@@ -98,21 +98,21 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                 ],
                 borderRadius: BorderRadius.circular(24.0),
                 border: Border.all(
-                  color: const Color(0xFFF5FBFB),
+                  color: Color(0xFFF5FBFB),
                   width: 1.0,
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 17.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 17.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -125,7 +125,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                     ),
                     if (widget.title != null && widget.title != '')
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             28.0, 0.0, 28.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
@@ -145,7 +145,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                         ),
                       ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           30.0, 24.0, 30.0, 24.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
@@ -159,7 +159,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                           await showModalBottomSheet<bool>(
                               context: context,
                               builder: (context) {
-                                return SizedBox(
+                                return Container(
                                   height:
                                       MediaQuery.of(context).size.height / 3,
                                   width: MediaQuery.of(context).size.width,
@@ -185,7 +185,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                           children: [
                             Flexible(
                               child: Align(
-                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -197,7 +197,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Rubik',
-                                            color: const Color(0xFF5F5F60),
+                                            color: Color(0xFF5F5F60),
                                             fontSize:
                                                 functions.setFontSize(18.0),
                                             letterSpacing: 0.0,
@@ -216,9 +216,9 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                                               .primary,
                                         ),
                                       ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 12.0, 0.0),
                                         child: Text(
                                           _model.datePicked != null
@@ -255,11 +255,11 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 24.0)),
+                                  ].divide(SizedBox(width: 24.0)),
                                 ),
                               ),
                             ),
-                            const Icon(
+                            Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Colors.black,
                               size: 20.0,
@@ -268,14 +268,14 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                         ),
                       ),
                     ),
-                    const Divider(
+                    Divider(
                       height: 1.0,
                       thickness: 1.0,
                       color: Color(0x67000000),
                     ),
                     if (widget.button != null && widget.button != '')
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 24.0, 24.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -285,7 +285,9 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
 
                             await currentUserReference!
                                 .update(createUsersRecordData(
-                              notificationsTime: _model.datePicked ?? getCurrentTimestamp,
+                              notificationsTime: _model.datePicked != null
+                                  ? _model.datePicked
+                                  : getCurrentTimestamp,
                             ));
                             logFirebaseEvent('Button_execute_callback');
                             await widget.onClick?.call();
@@ -329,9 +331,9 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 48.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -343,7 +345,7 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
