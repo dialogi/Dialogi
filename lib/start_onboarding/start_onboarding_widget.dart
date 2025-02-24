@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -15,6 +16,9 @@ export 'start_onboarding_model.dart';
 /// zLXtvKRSqffQxWUV1eqheoNXh8K2
 class StartOnboardingWidget extends StatefulWidget {
   const StartOnboardingWidget({super.key});
+
+  static String routeName = 'start_onboarding';
+  static String routePath = '/startOnboarding';
 
   @override
   State<StartOnboardingWidget> createState() => _StartOnboardingWidgetState();
@@ -42,7 +46,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
           true) {
         logFirebaseEvent('start_onboarding_navigate_to');
 
-        context.goNamedAuth('homepage', context.mounted);
+        context.goNamedAuth(HomepageWidget.routeName, context.mounted);
       }
         });
   }
@@ -189,7 +193,7 @@ class _StartOnboardingWidgetState extends State<StartOnboardingWidget> {
                             logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed(
-                              'question',
+                              QuestionWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,

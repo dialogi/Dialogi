@@ -9,7 +9,7 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
-import 'on_dialog_chat_widget.dart' show OnDialogChatWidget;
+import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
@@ -255,7 +255,7 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
     logFirebaseEvent('finishChatting_navigate_to');
 
     context.goNamed(
-      'dialog_summary',
+      DialogSummaryWidget.routeName,
       queryParameters: {
         'lastLesson': serializeParam(
           true,

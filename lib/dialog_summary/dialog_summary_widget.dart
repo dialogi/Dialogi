@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,6 +30,9 @@ class DialogSummaryWidget extends StatefulWidget {
   final List<MessageStruct>? chatMessages;
   final String lessonId;
   final bool profile;
+
+  static String routeName = 'dialog_summary';
+  static String routePath = '/dialog_summary';
 
   @override
   State<DialogSummaryWidget> createState() => _DialogSummaryWidgetState();
@@ -140,7 +144,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                   logFirebaseEvent('IconButton_navigate_to');
 
                                   context.goNamed(
-                                    'profile',
+                                    ProfileWidget.routeName,
                                     extra: <String, dynamic>{
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
@@ -509,7 +513,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                               context.pop();
                                             }
                                             context.pushNamed(
-                                              'on_dialog_chat',
+                                              OnDialogChatWidget.routeName,
                                               queryParameters: {
                                                 'chatMessages': serializeParam(
                                                   widget.chatMessages,
@@ -607,7 +611,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                                 'primaryBtn_navigate_to');
 
                                             context.pushNamed(
-                                              'start_dialog',
+                                              StartDialogWidget.routeName,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
                                                     TransitionInfo(
@@ -642,7 +646,7 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
                                                 'newBtn_navigate_to');
 
                                             context.pushNamed(
-                                              'homepage',
+                                              HomepageWidget.routeName,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
                                                     TransitionInfo(

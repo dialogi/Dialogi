@@ -16,6 +16,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/dialog.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
@@ -49,6 +50,9 @@ class OnDialogChatWidget extends StatefulWidget {
   final List<MessageStruct>? chatMessages;
   final String? lessonId;
   final String? assistantId;
+
+  static String routeName = 'on_dialog_chat';
+  static String routePath = '/onDialogChat';
 
   @override
   State<OnDialogChatWidget> createState() => _OnDialogChatWidgetState();
@@ -1131,7 +1135,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                     'Timer_navigate_to');
 
                                                                 context.goNamed(
-                                                                  'dialog_summary',
+                                                                  DialogSummaryWidget
+                                                                      .routeName,
                                                                   queryParameters:
                                                                       {
                                                                     'lastLesson':
@@ -1948,7 +1953,8 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                               'Button_navigate_to');
 
                                                           context.goNamed(
-                                                            'homepage',
+                                                            HomepageWidget
+                                                                .routeName,
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:

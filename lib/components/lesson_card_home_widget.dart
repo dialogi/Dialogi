@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'lesson_card_home_model.dart';
 export 'lesson_card_home_model.dart';
@@ -67,7 +68,7 @@ class _LessonCardHomeWidgetState extends State<LessonCardHomeWidget> {
                     logFirebaseEvent('Container_navigate_to');
 
                     context.pushNamed(
-                      'dialog_summary',
+                      DialogSummaryWidget.routeName,
                       queryParameters: {
                         'lastLesson': serializeParam(
                           false,

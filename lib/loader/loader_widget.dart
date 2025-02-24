@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'loader_model.dart';
@@ -9,6 +10,9 @@ export 'loader_model.dart';
 
 class LoaderWidget extends StatefulWidget {
   const LoaderWidget({super.key});
+
+  static String routeName = 'loader';
+  static String routePath = '/loader';
 
   @override
   State<LoaderWidget> createState() => _LoaderWidgetState();
@@ -37,16 +41,16 @@ class _LoaderWidgetState extends State<LoaderWidget> {
         if (valueOrDefault<bool>(currentUserDocument?.onboarded, false)) {
           logFirebaseEvent('loader_navigate_to');
 
-          context.pushNamed('homepage');
+          context.pushNamed(HomepageWidget.routeName);
         } else {
           logFirebaseEvent('loader_navigate_to');
 
-          context.pushNamed('start_onboarding');
+          context.pushNamed(StartOnboardingWidget.routeName);
         }
       } else {
         logFirebaseEvent('loader_navigate_to');
 
-        context.pushNamed('login');
+        context.pushNamed(LoginWidget.routeName);
       }
     });
   }

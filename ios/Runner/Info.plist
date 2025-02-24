@@ -42,15 +42,15 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>dialogi.com</string>
+        <string>dialogi</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>dialogi</string>
+        <string>dialogi.app</string>
         </array>
         </dict>
     </array>
     <key>FlutterDeepLinkingEnabled</key>
-    <true/>
+    <false/>
 
 
 	<key>CFBundleVersion</key>

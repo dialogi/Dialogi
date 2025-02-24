@@ -15,6 +15,8 @@ import 'flutter_flow/internationalization.dart';
 import 'index.dart';
 import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
 
+import '/backend/firebase_dynamic_links/firebase_dynamic_links.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
@@ -66,6 +68,11 @@ class _MyAppState extends State<MyApp> {
         : _router.routerDelegate.currentConfiguration;
     return matchList.uri.toString();
   }
+
+  List<String> getRouteStack() =>
+      _router.routerDelegate.currentConfiguration.matches
+          .map((e) => getRoute(e))
+          .toList();
 
   late Stream<BaseAuthUser> userStream;
 
@@ -129,6 +136,10 @@ class _MyAppState extends State<MyApp> {
       ),
       themeMode: _themeMode,
       routerConfig: _router,
+      builder: (_, child) => DynamicLinksHandler(
+        router: _router,
+        child: child!,
+      ),
     );
   }
 }

@@ -2,7 +2,7 @@ import '/components/popup_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import '/actions/actions.dart' as action_blocks;
-import 'homepage_widget.dart' show HomepageWidget;
+import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -39,7 +39,7 @@ class HomepageModel extends FlutterFlowModel<HomepageWidget> {
       logFirebaseEvent('startPronouns_navigate_to');
 
       context.goNamed(
-        'start_dialog',
+        StartDialogWidget.routeName,
         queryParameters: {
           'subject': serializeParam(
             subject,

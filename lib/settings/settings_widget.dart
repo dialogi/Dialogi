@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,6 +24,9 @@ export 'settings_model.dart';
 
 class SettingsWidget extends StatefulWidget {
   const SettingsWidget({super.key});
+
+  static String routeName = 'settings';
+  static String routePath = '/settings';
 
   @override
   State<SettingsWidget> createState() => _SettingsWidgetState();
@@ -1051,7 +1055,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         .clearRedirectLocation();
 
                                     context.goNamedAuth(
-                                        'login', context.mounted);
+                                        LoginWidget.routeName, context.mounted);
                                   },
                                   text:
                                       currentUserDocument?.gender == Gender.male

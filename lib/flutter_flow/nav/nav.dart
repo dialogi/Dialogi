@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
@@ -9,12 +10,15 @@ import '/auth/base_auth_user_provider.dart';
 
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
-import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
+import '/index.dart';
+
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
+export '/backend/firebase_dynamic_links/firebase_dynamic_links.dart'
+    show generateCurrentPageLink;
 
 const kTransitionInfoKey = '__transition_info__';
 
@@ -78,8 +82,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+      errorBuilder: (context, state) => _RouteErrorBuilder(
+        state: state,
+        child: appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+      ),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -88,28 +94,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
-          name: 'start_onboarding',
-          path: '/startOnboarding',
+          name: StartOnboardingWidget.routeName,
+          path: StartOnboardingWidget.routePath,
           requireAuth: true,
           builder: (context, params) => StartOnboardingWidget(),
         ),
         FFRoute(
-          name: 'question',
-          path: '/question',
+          name: QuestionWidget.routeName,
+          path: QuestionWidget.routePath,
           requireAuth: true,
           builder: (context, params) => QuestionWidget(),
         ),
         FFRoute(
-          name: 'homepage',
-          path: '/homepage',
+          name: HomepageWidget.routeName,
+          path: HomepageWidget.routePath,
           requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'homepage')
               : HomepageWidget(),
         ),
         FFRoute(
-          name: 'start_dialog',
-          path: '/startDialog',
+          name: StartDialogWidget.routeName,
+          path: StartDialogWidget.routePath,
           requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'start_dialog')
@@ -125,24 +131,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
         ),
         FFRoute(
-          name: 'profile',
-          path: '/profile',
+          name: ProfileWidget.routeName,
+          path: ProfileWidget.routePath,
           requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'profile')
               : ProfileWidget(),
         ),
         FFRoute(
-          name: 'settings',
-          path: '/settings',
+          name: SettingsWidget.routeName,
+          path: SettingsWidget.routePath,
           requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'settings')
               : SettingsWidget(),
         ),
         FFRoute(
-          name: 'dialog_summary',
-          path: '/dialog_summary',
+          name: DialogSummaryWidget.routeName,
+          path: DialogSummaryWidget.routePath,
           requireAuth: true,
           builder: (context, params) => DialogSummaryWidget(
             lastLesson: params.getParam(
@@ -166,18 +172,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'loader',
-          path: '/loader',
+          name: LoaderWidget.routeName,
+          path: LoaderWidget.routePath,
           builder: (context, params) => LoaderWidget(),
         ),
         FFRoute(
-          name: 'login',
-          path: '/login',
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
           builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: 'on_dialog_chat',
-          path: '/onDialogChat',
+          name: OnDialogChatWidget.routeName,
+          path: OnDialogChatWidget.routePath,
           requireAuth: true,
           builder: (context, params) => OnDialogChatWidget(
             threadId: params.getParam(
@@ -442,6 +448,58 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class _RouteErrorBuilder extends StatefulWidget {
+  const _RouteErrorBuilder({
+    Key? key,
+    required this.state,
+    required this.child,
+  }) : super(key: key);
+
+  final GoRouterState state;
+  final Widget child;
+
+  @override
+  State<_RouteErrorBuilder> createState() => _RouteErrorBuilderState();
+}
+
+class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
+  @override
+  void initState() {
+    super.initState();
+
+    // Handle erroneous links from Firebase Dynamic Links.
+
+    String? location;
+
+    /*
+    Handle `links` routes that have dynamic-link entangled with deep-link 
+    */
+    if (widget.state.uri.toString().startsWith('/link') &&
+        widget.state.uri.queryParameters.containsKey('deep_link_id')) {
+      final deepLinkId = widget.state.uri.queryParameters['deep_link_id'];
+      if (deepLinkId != null) {
+        final deepLinkUri = Uri.parse(deepLinkId);
+        final link = deepLinkUri.toString();
+        final host = deepLinkUri.host;
+        location = link.split(host).last;
+      }
+    }
+
+    if (widget.state.uri.toString().startsWith('/link') &&
+        widget.state.uri.toString().contains('request_ip_version')) {
+      location = '/';
+    }
+
+    if (location != null) {
+      SchedulerBinding.instance
+          .addPostFrameCallback((_) => context.go(location!));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }
 
 class RootPageContext {

@@ -7,6 +7,7 @@ import '/walkthroughs/home_page.dart';
 import 'dart:async';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -21,6 +22,9 @@ export 'homepage_model.dart';
 
 class HomepageWidget extends StatefulWidget {
   const HomepageWidget({super.key});
+
+  static String routeName = 'homepage';
+  static String routePath = '/homepage';
 
   @override
   State<HomepageWidget> createState() => _HomepageWidgetState();
@@ -65,7 +69,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
       } else {
         logFirebaseEvent('homepage_navigate_to');
 
-        context.goNamedAuth('start_onboarding', context.mounted);
+        context.goNamedAuth(StartOnboardingWidget.routeName, context.mounted);
       }
         });
   }
@@ -244,7 +248,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
 
                                                                   context
                                                                       .pushNamed(
-                                                                    'dialog_summary',
+                                                                    DialogSummaryWidget
+                                                                        .routeName,
                                                                     queryParameters:
                                                                         {
                                                                       'lastLesson':
@@ -525,7 +530,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                             logFirebaseEvent(
                                                 'Stack_navigate_to');
 
-                                            context.pushNamed('start_dialog');
+                                            context.pushNamed(
+                                                StartDialogWidget.routeName);
                                           },
                                           child: Container(
                                             width: 327.0,
@@ -1793,7 +1799,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
           logFirebaseEvent('homepage_navigate_to');
 
           context.pushNamed(
-            'start_dialog',
+            StartDialogWidget.routeName,
             queryParameters: {
               'walkthrow': serializeParam(
                 true,

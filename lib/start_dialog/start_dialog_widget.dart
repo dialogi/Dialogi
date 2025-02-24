@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/start_lesson.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:flutter/material.dart';
@@ -32,6 +33,9 @@ class StartDialogWidget extends StatefulWidget {
 
   final String? subject;
   final bool walkthrow;
+
+  static String routeName = 'start_dialog';
+  static String routePath = '/startDialog';
 
   @override
   State<StartDialogWidget> createState() => _StartDialogWidgetState();
@@ -209,7 +213,7 @@ class _StartDialogWidgetState extends State<StartDialogWidget>
                                           'IconButton_navigate_to');
 
                                       context.goNamed(
-                                        'homepage',
+                                        HomepageWidget.routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,

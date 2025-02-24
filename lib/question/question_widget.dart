@@ -12,6 +12,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'dart:math' as math;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,9 @@ export 'question_model.dart';
 
 class QuestionWidget extends StatefulWidget {
   const QuestionWidget({super.key});
+
+  static String routeName = 'question';
+  static String routePath = '/question';
 
   @override
   State<QuestionWidget> createState() => _QuestionWidgetState();
@@ -714,7 +718,8 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                       '0') {
                                     logFirebaseEvent('Button_navigate_to');
 
-                                    context.pushNamed('start_onboarding');
+                                    context.pushNamed(
+                                        StartOnboardingWidget.routeName);
                                   } else {
                                     logFirebaseEvent('Button_update_app_state');
                                     FFAppState().questionNum =
@@ -845,7 +850,8 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                               'Button_navigate_to');
 
                                           context.goNamedAuth(
-                                              'login', context.mounted);
+                                              LoginWidget.routeName,
+                                              context.mounted);
 
                                           if (_shouldSetState)
                                             safeSetState(() {});
