@@ -174,6 +174,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: LoaderWidget.routeName,
           path: LoaderWidget.routePath,
+          requireAuth: true,
           builder: (context, params) => LoaderWidget(),
         ),
         FFRoute(
