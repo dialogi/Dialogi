@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
@@ -13,6 +14,9 @@ export 'login_model.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
+
+  static String routeName = 'login';
+  static String routePath = '/login';
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -140,12 +144,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 logFirebaseEvent('buttonImg_navigate_to');
 
                                 context.goNamedAuth(
-                                    'homepage', context.mounted);
+                                    HomepageWidget.routeName, context.mounted);
                               } else {
                                 logFirebaseEvent('buttonImg_navigate_to');
 
                                 context.goNamedAuth(
-                                    'start_onboarding', context.mounted);
+                                    StartOnboardingWidget.routeName,
+                                    context.mounted);
                               }
                             },
                             child: wrapWithModel(
@@ -191,12 +196,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 currentUserDocument?.onboarded, false)) {
                               logFirebaseEvent('buttonImg_navigate_to');
 
-                              context.goNamedAuth('homepage', context.mounted);
+                              context.goNamedAuth(
+                                  HomepageWidget.routeName, context.mounted);
                             } else {
                               logFirebaseEvent('buttonImg_navigate_to');
 
                               context.goNamedAuth(
-                                  'start_onboarding', context.mounted);
+                                  StartOnboardingWidget.routeName,
+                                  context.mounted);
                             }
                           },
                           child: wrapWithModel(

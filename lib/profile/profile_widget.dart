@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -18,6 +19,9 @@ export 'profile_model.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({super.key});
+
+  static String routeName = 'profile';
+  static String routePath = '/profile';
 
   @override
   State<ProfileWidget> createState() => _ProfileWidgetState();
@@ -799,7 +803,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 'lessonCard_navigate_to');
 
                                             context.goNamed(
-                                              'dialog_summary',
+                                              DialogSummaryWidget.routeName,
                                               queryParameters: {
                                                 'lastLesson': serializeParam(
                                                   false,

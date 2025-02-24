@@ -6,9 +6,9 @@ import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/request_manager.dart';
 
+import '/index.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
-import 'start_dialog_widget.dart' show StartDialogWidget;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
@@ -131,7 +131,7 @@ class StartDialogModel extends FlutterFlowModel<StartDialogWidget> {
       logFirebaseEvent('rtt_navigate_to');
 
       context.pushNamed(
-        'on_dialog_chat',
+        OnDialogChatWidget.routeName,
         queryParameters: {
           'threadId': serializeParam(
             OpenAIAPIGroup.createThreadCall.threadId(

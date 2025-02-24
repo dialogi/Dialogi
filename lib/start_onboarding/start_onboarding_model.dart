@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'start_onboarding_widget.dart' show StartOnboardingWidget;
 import 'package:flutter/material.dart';
 
