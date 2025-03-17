@@ -157,7 +157,7 @@ class CreateChatCompletionCall {
 
     final ffApiRequestBody = '''
 {
-  "model": "gpt-4o-2024-08-06",
+  "model": "gpt-4o-mini",
   "messages": [
     {
       "role": "system",
@@ -3759,6 +3759,15 @@ class NewSubDetailsCall {
         response,
         r'''$.subscriber.entitlements.explorer.purchase_date''',
       ));
+  static String? entlef5ebef472(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.subscriber.entitlements.premium.purchase_date''',
+      ));
+  static dynamic entl0d3bab7c02(dynamic response) => getJsonField(
+        response,
+        r'''$.subscriber.entitlements.basic.purchase_date''',
+      );
 }
 
 class ApiPagingParams {

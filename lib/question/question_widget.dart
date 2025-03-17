@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -861,10 +862,6 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                                 ?.lastQuestion ==
                                             true) {
                                           logFirebaseEvent(
-                                              'Button_update_app_state');
-                                          FFAppState().log = '20';
-                                          safeSetState(() {});
-                                          logFirebaseEvent(
                                               'Button_firestore_query');
                                           _model.gender1 =
                                               await queryUserAnswersRecordOnce(
@@ -881,14 +878,6 @@ class _QuestionWidgetState extends State<QuestionWidget>
                                             limit: 1,
                                           );
                                           _shouldSetState = true;
-                                          logFirebaseEvent(
-                                              'Button_update_app_state');
-                                          FFAppState().log = 'hbhjbhbh';
-                                          safeSetState(() {});
-                                          logFirebaseEvent(
-                                              'Button_update_app_state');
-                                          FFAppState().log = 'ytybh';
-                                          safeSetState(() {});
                                           logFirebaseEvent(
                                               'Button_backend_call');
 

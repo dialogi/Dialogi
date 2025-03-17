@@ -16,4 +16,6 @@ abstract class FFAppConstants {
     'לעלות רמה'
   ];
   static const String assistant3 = 'asst_S6uJuChs8D5tTIkUoe1HZyAJ';
+  static const String basicSub = 'entl0d3bab7c02';
+  static const String premiumSub = 'entlef5ebef472';
 }

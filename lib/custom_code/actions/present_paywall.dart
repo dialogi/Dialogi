@@ -17,7 +17,8 @@ import 'dart:developer';
 import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 
 Future<void> presentPaywall() async {
-  final paywallResult = await RevenueCatUI.presentPaywall();
+  final paywallResult =
+      await RevenueCatUI.presentPaywall(displayCloseButton: false);
 
   // Convert the paywallResult to a string or extract specific fields if needed
   FFAppState().update(() {
