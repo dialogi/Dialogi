@@ -21,7 +21,32 @@ Future userSubscriptionLoad(BuildContext context) async {
   );
 
   if ((apiResultUser.succeeded ?? true)) {
-    if (!(RevenueCatGroup.getCostumerCall
+    logFirebaseEvent('userSubscriptionLoad_firestore_query');
+    userSub = await querySubscriptionsRecordOnce(
+      queryBuilder: (subscriptionsRecord) => subscriptionsRecord.where(
+        'subId',
+        isEqualTo: RevenueCatGroup.getCostumerCall
+                        .currSubID(
+                          (apiResultUser?.jsonBody ?? ''),
+                        )
+                        ?.firstOrNull ==
+                    null ||
+                RevenueCatGroup.getCostumerCall
+                        .currSubID(
+                          (apiResultUser?.jsonBody ?? ''),
+                        )
+                        ?.firstOrNull ==
+                    ''
+            ? 'ללא מנוי'
+            : RevenueCatGroup.getCostumerCall
+                .currSubID(
+                  (apiResultUser?.jsonBody ?? ''),
+                )
+                ?.lastOrNull,
+      ),
+      singleRecord: true,
+    ).then((s) => s.firstOrNull);
+    if (RevenueCatGroup.getCostumerCall
                 .currSubID(
                   (apiResultUser.jsonBody ?? ''),
                 )
@@ -32,19 +57,14 @@ Future userSubscriptionLoad(BuildContext context) async {
                   (apiResultUser.jsonBody ?? ''),
                 )
                 ?.firstOrNull ==
-            '')) {
-      logFirebaseEvent('userSubscriptionLoad_firestore_query');
-      userSub = await querySubscriptionsRecordOnce(
-        queryBuilder: (subscriptionsRecord) => subscriptionsRecord.where(
-          'subId',
-          isEqualTo: RevenueCatGroup.getCostumerCall
-              .currSubID(
-                (apiResultUser?.jsonBody ?? ''),
-              )
-              ?.lastOrNull,
-        ),
-        singleRecord: true,
-      ).then((s) => s.firstOrNull);
+            '') {
+      logFirebaseEvent('userSubscriptionLoad_update_app_state');
+      FFAppState().LastWeekSub = functions.addDaysToInboundDate(
+          functions.parseIsoDate(currentUserDocument!.createdTime!.toString()),
+          functions.weeksToAddBeforeNow(functions
+              .parseIsoDate(currentUserDocument!.createdTime!.toString())));
+      FFAppState().update(() {});
+    } else {
       logFirebaseEvent('userSubscriptionLoad_backend_call');
       detailed = await NewSubDetailsCall.call(
         customerId: currentUserUid,
@@ -80,7 +100,12 @@ Future userSubscriptionLoad(BuildContext context) async {
                   functions.parseIsoDate(NewSubDetailsCall.entl054b154c1b(
                 (detailed?.jsonBody ?? ''),
               )!)));
-        } else {
+        } else if (RevenueCatGroup.getCostumerCall
+                .currSubID(
+                  (apiResultUser?.jsonBody ?? ''),
+                )
+                ?.lastOrNull ==
+            'entl8b6abab155') {
           return functions.addDaysToInboundDate(
               functions.parseIsoDate(NewSubDetailsCall.entl8b6abab155(
                 (detailed?.jsonBody ?? ''),
@@ -89,41 +114,76 @@ Future userSubscriptionLoad(BuildContext context) async {
                   functions.parseIsoDate(NewSubDetailsCall.entl8b6abab155(
                 (detailed?.jsonBody ?? ''),
               )!)));
+        } else if (RevenueCatGroup.getCostumerCall
+                .currSubID(
+                  (apiResultUser?.jsonBody ?? ''),
+                )
+                ?.lastOrNull ==
+            'entl0d3bab7c02') {
+          return functions.addDaysToInboundDate(
+              functions.parseIsoDate(NewSubDetailsCall.entl0d3bab7c02(
+                (detailed?.jsonBody ?? ''),
+              ).toString()),
+              functions.weeksToAddBeforeNow(
+                  functions.parseIsoDate(NewSubDetailsCall.entl0d3bab7c02(
+                (detailed?.jsonBody ?? ''),
+              ).toString())));
+        } else if (RevenueCatGroup.getCostumerCall
+                .currSubID(
+                  (apiResultUser?.jsonBody ?? ''),
+                )
+                ?.lastOrNull ==
+            'entlef5ebef472') {
+          return functions.addDaysToInboundDate(
+              functions.parseIsoDate(NewSubDetailsCall.entlef5ebef472(
+                (detailed?.jsonBody ?? ''),
+              )!),
+              functions.weeksToAddBeforeNow(
+                  functions.parseIsoDate(NewSubDetailsCall.entlef5ebef472(
+                (detailed?.jsonBody ?? ''),
+              )!)));
+        } else {
+          return functions.addDaysToInboundDate(
+              functions
+                  .parseIsoDate(currentUserDocument!.createdTime!.toString()),
+              functions.weeksToAddBeforeNow(functions
+                  .parseIsoDate(currentUserDocument!.createdTime!.toString())));
         }
       }();
       FFAppState().update(() {});
-      logFirebaseEvent('userSubscriptionLoad_update_app_state');
-      FFAppState().userSub = SubscriptionDetailsStruct(
-        subId: userSub?.subId,
-        ttsHD: userSub?.ttsHD,
-        name: userSub?.name,
-        pronunciation: userSub?.pronunciation,
-        frequencyPerWeek: userSub?.frequencyPerWeek,
-        lessonLimit: userSub?.lessonLimit,
-      );
-      FFAppState().update(() {});
-      logFirebaseEvent('userSubscriptionLoad_firestore_query');
-      lastestLessons = await queryLessonsRecordCount(
-        queryBuilder: (lessonsRecord) => lessonsRecord
-            .where(
-              'user',
-              isEqualTo: currentUserUid,
-            )
-            .where(
-              'start_at',
-              isGreaterThanOrEqualTo: FFAppState().LastWeekSub,
-            )
-            .where(
-              'first',
-              isEqualTo: false,
-            )
-            .orderBy('start_at', descending: true),
-      );
-      logFirebaseEvent('userSubscriptionLoad_update_app_state');
-      FFAppState().lessonEnable =
-          lastestLessons < FFAppState().userSub.frequencyPerWeek;
-      FFAppState().update(() {});
     }
+
+    logFirebaseEvent('userSubscriptionLoad_update_app_state');
+    FFAppState().userSub = SubscriptionDetailsStruct(
+      subId: userSub?.subId,
+      ttsHD: userSub?.ttsHD,
+      name: userSub?.name,
+      pronunciation: userSub?.pronunciation,
+      frequencyPerWeek: userSub?.frequencyPerWeek,
+      lessonLimit: userSub?.lessonLimit,
+    );
+    FFAppState().update(() {});
+    logFirebaseEvent('userSubscriptionLoad_firestore_query');
+    lastestLessons = await queryLessonsRecordCount(
+      queryBuilder: (lessonsRecord) => lessonsRecord
+          .where(
+            'user',
+            isEqualTo: currentUserUid,
+          )
+          .where(
+            'start_at',
+            isGreaterThanOrEqualTo: FFAppState().LastWeekSub,
+          )
+          .where(
+            'first',
+            isEqualTo: false,
+          )
+          .orderBy('start_at', descending: true),
+    );
+    logFirebaseEvent('userSubscriptionLoad_update_app_state');
+    FFAppState().lessonEnable =
+        lastestLessons < FFAppState().userSub.frequencyPerWeek;
+    FFAppState().update(() {});
   }
 }
 

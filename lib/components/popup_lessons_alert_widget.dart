@@ -1,10 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/paywall_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/cupertino.dart';
@@ -318,8 +318,26 @@ class _PopupLessonsAlertWidgetState extends State<PopupLessonsAlertWidget>
                                   subject: 'כללי',
                                   precent: 0,
                                 ));
-                            logFirebaseEvent('Button_custom_action');
-                            await actions.presentPaywall();
+                            logFirebaseEvent('Button_update_app_state');
+                            FFAppState().log = 'oboarding';
+                            safeSetState(() {});
+                            logFirebaseEvent('Button_bottom_sheet');
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: PaywallWidget(),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+
+                            logFirebaseEvent('Button_update_app_state');
+                            FFAppState().log = 'not onboarding';
+                            safeSetState(() {});
                             logFirebaseEvent('Button_close_dialog_drawer_etc');
                             Navigator.pop(context);
                             logFirebaseEvent('Button_navigate_to');

@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
@@ -288,21 +289,35 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                       child: Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'fb7kzi9n' /* שיחה */,
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'ON_DIALOG_CHAT_PAGE_Text_k93are54_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Text_action_block');
+                                            await _model
+                                                .finishChatting(context);
+                                          },
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'fb7kzi9n' /* שיחה */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Rubik',
+                                                  color: Colors.white,
+                                                  fontSize: functions
+                                                      .setFontSize(24.0),
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  lineHeight: 1.5,
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Rubik',
-                                                color: Colors.white,
-                                                fontSize:
-                                                    functions.setFontSize(24.0),
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                                lineHeight: 1.5,
-                                              ),
                                         ),
                                       ),
                                     ),
@@ -1504,6 +1519,10 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                       'חייב ללכת, ניפגש בהמשך',
                                                                   onClick:
                                                                       () async {
+                                                                    logFirebaseEvent(
+                                                                        '_close_dialog_drawer_etc');
+                                                                    Navigator.pop(
+                                                                        context);
                                                                     if (FFAppState()
                                                                             .dialogState ==
                                                                         DialogState
@@ -1519,6 +1538,13 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                                 1000));
                                                                       }
                                                                     }
+                                                                    logFirebaseEvent(
+                                                                        '_update_app_state');
+                                                                    FFAppState()
+                                                                            .log =
+                                                                        'stopChat';
+                                                                    safeSetState(
+                                                                        () {});
                                                                     logFirebaseEvent(
                                                                         '_action_block');
                                                                     await _model

@@ -158,13 +158,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                               updateCallback: () => safeSetState(() {}),
                               child: ButtonImgWidget(
                                 text: 'התחברות עם Apple',
-                                imgPath:
-                                    'https://yt3.googleusercontent.com/05lhMeAH6tZrPIUsp2yHNz3DwzhKbDUQcxcY0_qeXVyZttR_pktBzw0FcLUSR6D4fVqsEgL3ZO0=s900-c-k-c0x00ffffff-no-rj',
+                                imgPath: '',
                                 color: Colors.black,
                                 fontSize: 16.0,
                                 fontColor: Colors.white,
                                 imgWidth: 40.0,
                                 imgAsset: false,
+                                apple: true,
                               ),
                             ),
                           ),

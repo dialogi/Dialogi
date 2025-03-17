@@ -17,7 +17,9 @@ class ButtonImgWidget extends StatefulWidget {
     this.imgWidth,
     bool? imgAsset,
     this.borderColor,
-  }) : this.imgAsset = imgAsset ?? false;
+    bool? apple,
+  })  : this.imgAsset = imgAsset ?? false,
+        this.apple = apple ?? false;
 
   final String? text;
   final String? imgPath;
@@ -27,6 +29,7 @@ class ButtonImgWidget extends StatefulWidget {
   final double? imgWidth;
   final bool imgAsset;
   final Color? borderColor;
+  final bool apple;
 
   @override
   State<ButtonImgWidget> createState() => _ButtonImgWidgetState();
@@ -82,6 +85,16 @@ class _ButtonImgWidgetState extends State<ButtonImgWidget> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              if (widget.apple)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/apple.svg',
+                    width: 40.0,
+                    height: 40.0,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               if (widget.imgAsset)
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),

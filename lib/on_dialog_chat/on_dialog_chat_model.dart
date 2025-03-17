@@ -155,6 +155,7 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
     }
     logFirebaseEvent('finishChatting_update_app_state');
     FFAppState().log = '0090';
+    FFAppState().update(() {});
     logFirebaseEvent('finishChatting_backend_call');
     summaryMessages1 = await OpenAIAPIGroup.createChatCompletionCall.call(
       messages: '${valueOrDefault<String>(

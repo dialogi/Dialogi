@@ -370,6 +370,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             .name ==
                                                         'Adventurer') {
                                                       return 'מנוי מתקדמים';
+                                                    } else if (FFAppState()
+                                                            .userSub
+                                                            .name ==
+                                                        'premium') {
+                                                      return 'מנוי פרימיום';
+                                                    } else if (FFAppState()
+                                                            .userSub
+                                                            .name ==
+                                                        'basic') {
+                                                      return 'מנוי בסיסי';
                                                     } else {
                                                       return 'ללא מנוי';
                                                     }
