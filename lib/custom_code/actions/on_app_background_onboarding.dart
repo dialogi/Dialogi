@@ -29,7 +29,7 @@ Future onAppBackgroundOnboarding() async {
   final response = await http.post(
     Uri.parse(functionUrl),
     headers: {'Content-Type': 'application/json'},
-    body: jsonEncode({'fcmToken': currentUser!.uid}), // Changed to userId
+    body: jsonEncode({'userId': currentUser!.uid}), // Changed to userId
   );
 
   if (response.statusCode == 200) {

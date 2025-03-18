@@ -31,10 +31,6 @@ Future onAppBackground() async {
 class AppLifecycleObserver with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    FFAppState().update(() {
-      FFAppState().log = state.toString();
-    });
-
     if (state == AppLifecycleState.resumed) {
       print('App is in foreground');
     } else if (state == AppLifecycleState.paused &&
@@ -59,7 +55,9 @@ class AppLifecycleObserver with WidgetsBindingObserver {
     if (response.statusCode == 200) {
       print('FCM Token sent successfully');
     } else {
-      print('Failed to send FCM Token: ${response.statusCode}');
+      FFAppState().update(() {
+        FFAppState().log = ' ${response.body}';
+      });
     }
   }
 

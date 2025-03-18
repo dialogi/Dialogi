@@ -90,8 +90,8 @@ class _ButtonImgWidgetState extends State<ButtonImgWidget> {
                   borderRadius: BorderRadius.circular(8.0),
                   child: SvgPicture.asset(
                     'assets/images/apple.svg',
-                    width: 40.0,
-                    height: 40.0,
+                    width: 30.0,
+                    height: 30.0,
                     fit: BoxFit.contain,
                   ),
                 ),
