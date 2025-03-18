@@ -27,7 +27,12 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
-	<array>
+	<array>   <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>fb506680812241504</string>
+        </array>
+</dict>
         <dict>
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
@@ -48,7 +53,7 @@
         <string>dialogi.app</string>
         </array>
         </dict>
-    </array><key>FacebookAppID</key>
+ </array><key>FacebookAppID</key>
 <string>506680812241504</string>
 <key>FacebookClientToken</key>
 <string>ce2ff2ed6f0a047fad2288bc91df2f19</string>
