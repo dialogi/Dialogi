@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -255,18 +256,30 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 16.0),
                             child: AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Rubik',
-                                      color: Color(0xFF232C2E),
-                                      fontSize: functions.setFontSize(24.0),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      lineHeight: 1.16,
-                                    ),
+                              builder: (context) => InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'PROFILE_PAGE_Text_zwsc1se7_ON_TAP');
+                                  logFirebaseEvent('Text_custom_action');
+                                  await actions.onAppBackgroundOnboarding();
+                                },
+                                child: Text(
+                                  currentUserDisplayName,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Rubik',
+                                        color: Color(0xFF232C2E),
+                                        fontSize: functions.setFontSize(24.0),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        lineHeight: 1.16,
+                                      ),
+                                ),
                               ),
                             ),
                           ),

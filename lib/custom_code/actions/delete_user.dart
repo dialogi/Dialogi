@@ -14,16 +14,17 @@ import 'package:flutter/material.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 Future deleteUser(BuildContext context) async {
-  // Add your function code here!
+  // Log event before action for clarity
+  logFirebaseEvent('SETTINGS_PAGE_Delete_User_ON_TAP');
 
+  // Delete user account
   await authManager.deleteUser(context);
 
-  context.goNamedAuth('homepage', context.mounted);
-  logFirebaseEvent('SETTINGS_PAGE_Text_vt1rt3eu_ON_TAP');
-  logFirebaseEvent('Text_auth');
+  // Sign out the user completely
   GoRouter.of(context).prepareAuthEvent();
   await authManager.signOut();
   GoRouter.of(context).clearRedirectLocation();
 
+  // Navigate directly to login screen after deletion
   context.goNamedAuth('login', context.mounted);
 }
