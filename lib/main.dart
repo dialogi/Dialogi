@@ -15,7 +15,7 @@ import 'flutter_flow/internationalization.dart';
 import 'index.dart';
 import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import '/backend/firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:flutter_meta_sdk/flutter_meta_sdk.dart'
+import 'package:flutter_meta_sdk/flutter_meta_sdk.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
