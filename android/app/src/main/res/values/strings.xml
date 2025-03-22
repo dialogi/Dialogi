@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Dialogi</string>
 
-   <string name="facebook_app_id">506680812241504</string>
-   <string name="fb_login_protocol_scheme">fb506680812241504</string>
-   <string name="facebook_client_token">ce2ff2ed6f0a047fad2288bc91df2f19</string> 
+<string name="facebook_app_id">506680812241504</string>
+<string name="fb_login_protocol_scheme">fb506680812241504</string>
 </resources>

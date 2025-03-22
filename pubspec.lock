@@ -494,6 +494,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
+  flutter_facebook_sdk:
+    dependency: "direct main"
+    description:
+      name: flutter_facebook_sdk
+      sha256: "1068a0a4ab15781a1e0478bb5dd46d17c588af4233b0935757febfb0d041c9f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -515,14 +523,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_meta_sdk:
-    dependency: "direct main"
-    description:
-      name: flutter_meta_sdk
-      sha256: c4493f7d13f4ace6070ee65019992e70a2e5c8372e50321e36229383a11fff2f
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.4"
   flutter_native_splash:
     dependency: "direct main"
     description:
