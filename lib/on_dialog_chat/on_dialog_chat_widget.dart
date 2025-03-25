@@ -1176,6 +1176,15 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                                       ParamType
                                                                           .String,
                                                                     ),
+                                                                    'first':
+                                                                        serializeParam(
+                                                                      onDialogChatLessonsRecord
+                                                                              .lessonNum
+                                                                              .toString() ==
+                                                                          '1',
+                                                                      ParamType
+                                                                          .bool,
+                                                                    ),
                                                                   }.withoutNulls,
                                                                   extra: <String,
                                                                       dynamic>{

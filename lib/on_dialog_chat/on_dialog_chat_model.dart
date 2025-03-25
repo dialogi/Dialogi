@@ -271,6 +271,10 @@ class OnDialogChatModel extends FlutterFlowModel<OnDialogChatWidget> {
           widget!.lessonId,
           ParamType.String,
         ),
+        'first': serializeParam(
+          currLesson?.lessonNum == 1,
+          ParamType.bool,
+        ),
       }.withoutNulls,
       extra: <String, dynamic>{
         kTransitionInfoKey: TransitionInfo(
