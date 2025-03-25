@@ -129,6 +129,7 @@ final parametersBuilderMap =
           'lastLesson': getParameter<bool>(data, 'lastLesson'),
           'lessonId': getParameter<String>(data, 'lessonId'),
           'profile': getParameter<bool>(data, 'profile'),
+          'first': getParameter<bool>(data, 'first'),
         },
       ),
   'loader': ParameterData.none(),

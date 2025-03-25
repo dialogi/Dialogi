@@ -169,6 +169,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'profile',
               ParamType.bool,
             ),
+            first: params.getParam(
+              'first',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(

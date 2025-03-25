@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/new_btn_widget.dart';
+import '/components/paywall_widget.dart';
 import '/components/primary_btn_widget.dart';
 import '/components/teacher_select_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,10 +10,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'dialog_summary_model.dart';
 export 'dialog_summary_model.dart';
 
@@ -23,13 +26,16 @@ class DialogSummaryWidget extends StatefulWidget {
     this.chatMessages,
     String? lessonId,
     bool? profile,
+    bool? first,
   })  : this.lessonId = lessonId ?? 'lessonId',
-        this.profile = profile ?? false;
+        this.profile = profile ?? false,
+        this.first = first ?? false;
 
   final bool? lastLesson;
   final List<MessageStruct>? chatMessages;
   final String lessonId;
   final bool profile;
+  final bool first;
 
   static String routeName = 'dialog_summary';
   static String routePath = '/dialog_summary';
@@ -50,6 +56,38 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'dialog_summary'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('DIALOG_SUMMARY_dialog_summary_ON_INIT_ST');
+      if (widget.first) {
+        logFirebaseEvent('dialog_summary_update_app_state');
+        FFAppState().log = 'oboarding';
+        safeSetState(() {});
+        logFirebaseEvent('dialog_summary_bottom_sheet');
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: PaywallWidget(),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+
+        logFirebaseEvent('dialog_summary_update_app_state');
+        FFAppState().log = 'not onboarding';
+        safeSetState(() {});
+      }
+    });
   }
 
   @override
@@ -61,6 +99,8 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<LessonsRecord>>(
       stream: queryLessonsRecord(
         queryBuilder: (lessonsRecord) => lessonsRecord

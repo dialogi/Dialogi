@@ -226,20 +226,36 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             alignment:
                                                 AlignmentDirectional(0.0, -1.0),
                                             child: AuthUserStreamWidget(
-                                              builder: (context) => Container(
-                                                width: 110.0,
-                                                height: 110.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: CachedNetworkImage(
-                                                  fadeInDuration:
-                                                      Duration(milliseconds: 0),
-                                                  fadeOutDuration:
-                                                      Duration(milliseconds: 0),
-                                                  imageUrl: currentUserPhoto,
-                                                  fit: BoxFit.cover,
+                                              builder: (context) => InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  logFirebaseEvent(
+                                                      'PROFILE_PAGE_CircleImage_romqf4dd_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'CircleImage_update_app_state');
+                                                  FFAppState().log =
+                                                      'oboarding';
+                                                  safeSetState(() {});
+                                                },
+                                                child: Container(
+                                                  width: 110.0,
+                                                  height: 110.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: CachedNetworkImage(
+                                                    fadeInDuration: Duration(
+                                                        milliseconds: 0),
+                                                    fadeOutDuration: Duration(
+                                                        milliseconds: 0),
+                                                    imageUrl: currentUserPhoto,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                             ),
