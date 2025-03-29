@@ -1,9 +1,11 @@
-import '';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'paywall_model.dart';
 export 'paywall_model.dart';
 
@@ -64,6 +66,8 @@ class _PaywallWidgetState extends State<PaywallWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.end,
@@ -104,12 +108,36 @@ class _PaywallWidgetState extends State<PaywallWidget>
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.93,
-                    child: custom_widgets.PaywallViewWidget(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 0.93,
+                  if (FFAppState().log != 'oboarding')
+                    Align(
+                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: FlutterFlowIconButton(
+                          borderRadius: 8.0,
+                          buttonSize: 40.0,
+                          fillColor: Color(0xED546DEF),
+                          icon: Icon(
+                            Icons.close_rounded,
+                            color: FlutterFlowTheme.of(context).info,
+                            size: 24.0,
+                          ),
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'PAYWALL_COMP_close_rounded_ICN_ON_TAP');
+                            logFirebaseEvent('IconButton_bottom_sheet');
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                    ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(),
+                      child: custom_widgets.PaywallViewWidget(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: MediaQuery.sizeOf(context).height * 1.0,
+                      ),
                     ),
                   ),
                 ],
