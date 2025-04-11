@@ -77,7 +77,7 @@ class _PaywallWidgetState extends State<PaywallWidget>
             alignment: AlignmentDirectional(0.0, 1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 0.98,
+              height: MediaQuery.sizeOf(context).height * 0.87,
               constraints: BoxConstraints(
                 maxWidth: 570.0,
               ),
@@ -101,42 +101,48 @@ class _PaywallWidgetState extends State<PaywallWidget>
                 ),
                 border: Border.all(
                   color: Color(0xFFF5FBFB),
-                  width: 1.0,
+                  width: 0.0,
                 ),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  if (FFAppState().log != 'oboarding')
-                    Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: FlutterFlowIconButton(
-                          borderRadius: 8.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xED546DEF),
-                          icon: Icon(
-                            Icons.close_rounded,
-                            color: FlutterFlowTheme.of(context).info,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'PAYWALL_COMP_close_rounded_ICN_ON_TAP');
-                            logFirebaseEvent('IconButton_bottom_sheet');
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ),
-                    ),
-                  Expanded(
+                  Flexible(
                     child: Container(
-                      decoration: BoxDecoration(),
-                      child: custom_widgets.PaywallViewWidget(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 1.0,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      child: Stack(
+                        children: [
+                          custom_widgets.PaywallViewWidget(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: MediaQuery.sizeOf(context).height * 1.0,
+                          ),
+                          if (FFAppState().log != 'oboarding')
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, -1.0),
+                              child: Padding(
+                                padding: EdgeInsets.all(20.0),
+                                child: FlutterFlowIconButton(
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  borderRadius: 900.0,
+                                  buttonSize: 40.0,
+                                  fillColor: Color(0x85546DEF),
+                                  icon: Icon(
+                                    Icons.close_rounded,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 24.0,
+                                  ),
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'PAYWALL_COMP_close_rounded_ICN_ON_TAP');
+                                    logFirebaseEvent('IconButton_bottom_sheet');
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                   ),
