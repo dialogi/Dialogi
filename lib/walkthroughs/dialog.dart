@@ -6,7 +6,6 @@ import '/components/bubble_thinking_widget.dart';
 // Focus widget keys for this walkthrough
 final rowDosgrcgx = GlobalKey();
 final textYlu0c17m = GlobalKey();
-final imageRlqdscy0 = GlobalKey();
 final rowJnt8g7ix = GlobalKey();
 final containerF8u3q301 = GlobalKey();
 final buttonEcf5egto = GlobalKey();
@@ -57,27 +56,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         ],
       ),
 
-      /// אד
-      TargetFocus(
-        keyTarget: imageRlqdscy0,
-        enableOverlayTab: true,
-        alignSkip: Alignment.bottomRight,
-        shape: ShapeLightFocus.Circle,
-        color: Colors.black,
-        contents: [
-          TargetContent(
-            align: ContentAlign.top,
-            builder: (context, __) => BubbleThinkingWidget(
-              title: 'תמלול',
-              description:
-                  'כאן תראו את תמלול השיחה, כדי שיהיה קל לעקוב אחרי מה שנאמר.',
-              positionTriangle: '',
-            ),
-          ),
-        ],
-      ),
-
-      /// Step 4
+      /// Step 3
       TargetFocus(
         keyTarget: rowJnt8g7ix,
         enableOverlayTab: true,
@@ -116,7 +95,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         ],
       ),
 
-      /// Step 6
+      /// Step 5
       TargetFocus(
         keyTarget: buttonEcf5egto,
         enableOverlayTab: true,
@@ -136,7 +115,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         ],
       ),
 
-      /// Step 7
+      /// Step 6
       TargetFocus(
         keyTarget: buttonUipf3jkg,
         enableOverlayTab: true,
@@ -156,7 +135,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         ],
       ),
 
-      /// Step 8
+      /// Step 7
       TargetFocus(
         keyTarget: progressBarYujb1y9j,
         enableOverlayTab: true,

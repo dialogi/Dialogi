@@ -835,9 +835,6 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
-                                                    ).addWalkthrough(
-                                                      imageRlqdscy0,
-                                                      _model.dialogController,
                                                     ),
                                                   if (_model.captionView)
                                                     InkWell(
