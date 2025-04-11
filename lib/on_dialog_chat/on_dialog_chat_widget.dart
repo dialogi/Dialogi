@@ -879,6 +879,9 @@ class _OnDialogChatWidgetState extends State<OnDialogChatWidget>
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
+                                                    ).addWalkthrough(
+                                                      imageNh91tgpd,
+                                                      _model.dialogController,
                                                     ),
                                                   Row(
                                                     mainAxisSize:

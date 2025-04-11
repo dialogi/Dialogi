@@ -11,6 +11,7 @@ final containerF8u3q301 = GlobalKey();
 final buttonEcf5egto = GlobalKey();
 final buttonUipf3jkg = GlobalKey();
 final progressBarYujb1y9j = GlobalKey();
+final imageNh91tgpd = GlobalKey();
 
 /// dialog
 ///
@@ -149,6 +150,26 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
               title: 'שליטה בשיעור',
               description:
                   'האינדיקטורים ישתנו בהתאם לאפשרויות - יהיה אפשרות לעצור או להמשיך את השיעור בלחיצה על הכפתור',
+              positionTriangle: '',
+            ),
+          ),
+        ],
+      ),
+
+      /// Step 8
+      TargetFocus(
+        keyTarget: imageNh91tgpd,
+        enableOverlayTab: true,
+        alignSkip: Alignment.bottomRight,
+        shape: ShapeLightFocus.Circle,
+        color: Colors.black,
+        contents: [
+          TargetContent(
+            align: ContentAlign.top,
+            builder: (context, __) => BubbleThinkingWidget(
+              title: 'תמלול',
+              description:
+                  'כאן תראו את תמלול השיחה, כדי שיהיה קל לעקוב אחרי מה שנאמר.',
               positionTriangle: '',
             ),
           ),
