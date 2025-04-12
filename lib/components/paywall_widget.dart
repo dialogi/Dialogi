@@ -77,7 +77,7 @@ class _PaywallWidgetState extends State<PaywallWidget>
             alignment: AlignmentDirectional(0.0, 1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 0.87,
+              height: MediaQuery.sizeOf(context).height * 0.94,
               constraints: BoxConstraints(
                 maxWidth: 570.0,
               ),
@@ -123,15 +123,11 @@ class _PaywallWidgetState extends State<PaywallWidget>
                               child: Padding(
                                 padding: EdgeInsets.all(20.0),
                                 child: FlutterFlowIconButton(
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).primary,
                                   borderRadius: 900.0,
-                                  buttonSize: 40.0,
-                                  fillColor: Color(0x85546DEF),
                                   icon: Icon(
                                     Icons.close_rounded,
                                     color: FlutterFlowTheme.of(context).info,
-                                    size: 24.0,
+                                    size: 34.0,
                                   ),
                                   onPressed: () async {
                                     logFirebaseEvent(

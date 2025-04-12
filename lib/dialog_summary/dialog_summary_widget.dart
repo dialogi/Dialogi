@@ -77,7 +77,10 @@ class _DialogSummaryWidgetState extends State<DialogSummaryWidget> {
               },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: PaywallWidget(),
+                child: Container(
+                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  child: PaywallWidget(),
+                ),
               ),
             );
           },
